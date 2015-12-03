@@ -32,8 +32,51 @@
         <script type="text/javascript">
         $(document).ready(function(){
      $(".menu li a").click(function(){
-    $('.menu li a.active').not(this).removeClass('active');
-    $(this).toggleClass('active');
+    $('.menu li a').not(this).removeClass('active');
+    $(this).addClass('active');
+    if(!($("a#home").hasClass('active')))
+    {
+        $("a#home img#home").attr('src',"img/home.svg");
+    }
+    else {
+        $("a#home img#home").attr('src',"img/homeactive.svg");
+    }
+    if(!($("a#search").hasClass('active')))
+    {
+        $("a#search img#search").attr('src',"img/search.svg");
+    }
+    else {
+        $("a#search img#search").attr('src',"img/searchactive.svg");
+    }
+    if(!($("a#infocus").hasClass('active')))
+    {
+        $("a#infocus img#infocus").attr('src',"img/target.png");
+    }
+    else {
+        $("a#infocus img#infocus").attr('src',"img/targetactive.png");
+    }
+    if(!($("a#training").hasClass('active')))
+    {
+        $("a#training img#training").attr('src',"img/target.png");
+    }
+    else {
+        $("a#training img#training").attr('src',"img/targetactive.png");
+    }
+    if(!($("a#profile").hasClass('active')))
+    {
+        $("a#profile img#profile").attr('src',"img/profile.svg");
+    }
+    else {
+        $("a#profile img#profile").attr('src',"img/profileactive.svg");
+    };
+
+/*
+    if(!$("a img#home").hasClass("active"))
+    { $("a img#home").attr('src',"img/home.svg");};
+    $(".menu li a.active img#search").attr('src',"img/search.svg");
+    $(".menu li a.active img#infocus").attr('src',"img/search.svg");
+    $(".menu li a.active img#training").attr('src',"img/search.svg");
+    $(".menu li a.active img#profile").attr('src',"img/search.svg"); */
  })
 });</script>
     </head>
@@ -84,11 +127,11 @@
             <footer>
                 <div class="menu" >
                     <nav>
-                        <ul><li class="inactive"><a href="#home">Home</a></li>
-                            <li class="inactive"><a href="#search">Search</a></li>
-                            <li class="inactive"><a href="#infocus">In Focus</a></li>
-                            <li class="inactive"><a href="#training">Training</a></li>
-                            <li class="last"><a href="#profile">Profile</a></li>
+                        <ul><li class="inactive"><a id="home" href="#home"><img id="home" src="img/home.svg" class="inactiveimg"></img><br>Home</br></a></li>
+                            <li class="inactive"><a id="search"href="#search"><img id="search" src="img/search.svg" class="inactiveimg"></img><br>Search</br></a></li>
+                            <li class="inactive"><a id="infocus" href="#infocus"><img id="infocus" src="img/target.png" class="inactiveimg"></img><br>In Focus</br></a></li>
+                            <li class="inactive"><a id="training" href="#training"><img id="training" src="img/home.svg" class="inactiveimg"></img><br>Training</br></a></li>
+                            <li class="last inactive"><a id="profile" href="#profile"><img id="profile" src="img/profile.svg" class="inactiveimg"></img><br>Profile</br></a></li>
                         </ul>
                     </nav>
                 </div>
