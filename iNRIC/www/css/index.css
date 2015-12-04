@@ -88,6 +88,7 @@ header{
     height:80px;
     width:100%;
     position:fixed;
+    top:0;
     background-color: #EEEEEE;
 
 }
@@ -150,7 +151,7 @@ nav > ul > li > a {
 .section:not(:target) {
     position: relative;
     display:none;
-    top:80px;
+    margin-top:80px;
 }
 .section:target{
     position:relative;
@@ -163,4 +164,16 @@ img.inactiveimg
 {
     height:6vw;
     width:6vw;
+}
+h2.block-title {
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.5w;
+    border-bottom: 1px solid #474A4E;
+    background-image: url("../img/headlines.png");
+    background-repeat:no-repeat;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
 }
