@@ -29,17 +29,6 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>iNRIC</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-         <script type="text/javascript">
-         $(window).load(function(){
-  if(!($("a#home").hasClass('active')))
-    {
-        $("a#home img#home").attr('src',"img/home.svg");
-    }
-    else {
-        $("a#home img#home").attr('src',"img/homeactive.svg");
-    }
-});
-         </script>
         <script type="text/javascript">
         $(document).ready(function(){
      $(".menu li a").click(function(){
@@ -92,52 +81,25 @@
 });</script>
     </head>
     <body>
-            <header class="logoheader">
+     <header class="logoheader">
                     <div class="logodiv">
                         <img class="logo" src="img/logo.png">
                     </div>
             </header>
-            <div class="section" id="home">
-                <h2 class="block-title"> Headlines </h2>
-                <p> Data </p>
-                <p> Some more data </p>
-                <p> Even more data </p>
-                <h2 class="block-title"> Latest News </h2>
-                <h1> Dataaaa</h1>
-                <h2 class="block-title"> Recently</h2>
-                <h1> Dataaaa</h1>
-            </div>
-            <div class="section" id="search">
-                <h1>This is the search page</h1>
-            </div>
-            <div class="section" id="infocus">
-                <h2 class="block-title"> In Focus </h2>
-                <p>Static data</p>
-                <h2 class="block-title"> Training </h2>
-                <p>Static data</p>
-            </div>
-            <div class="section" id="links">
-                <h2 class="block-title"> Conferences </h2>
-                <p> Static Data </p>
-                <h2 class="block-title"> Useful links </h2>
-                <p> Static Data </p>
-            </div>
-            <div class="section" id="profile">
-                <h1>This is the profile page</h1>
-                <input type="button" class="logout" onclick="location.href='login.html';" value="Log out" />
-            </div>
-            <footer>
-                <div class="menu" >
-                    <nav>
-                        <ul><li class="inactive"><a id="home" href="#home" class="active"><img id="home" src="img/home.svg" class="inactiveimg"></img><br>Home</br></a></li>
-                            <li class="inactive"><a id="search"href="#search"><img id="search" src="img/search.svg" class="inactiveimg"></img><br>Search</br></a></li>
-                            <li class="inactive"><a id="infocus" href="#infocus"><img id="infocus" src="img/target.png" class="inactiveimg"></img><br>In Focus</br></a></li>
-                            <li class="inactive"><a id="links" href="#links"><img id="links" src="img/links.svg" class="inactiveimg"></img><br>links</br></a></li>
-                            <li class="last inactive"><a id="profile" href="#profile"><img id="profile" src="img/profile.svg" class="inactiveimg"></img><br>Profile</br></a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </footer>  
+    <div class="loginpage">
+    <div class="loginform">
+        <form name="login" accept-charset="utf-8">
+            <ul>
+                <li>
+                    <label for="usermail">Your password has been reset. You should get an email soon with the information.</label>
+                    
+                </li>
+            </ul>
+        </form> 
+        </div>
+        <input type="button" class="register" onclick="location.href='login.html';" value="Login" />
+    </div>
+
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">

@@ -25,15 +25,15 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color:#E4E4E4;
-    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:linear-gradient(top, #D3D3D3 0%, #EFEFEF 51%);
+    background-image:-webkit-linear-gradient(top, #D3D3D3 0%, #EFEFEF 51%);
+    background-image:-ms-linear-gradient(top, #D3D3D3 0%, #EFEFEF 51%);
     background-image:-webkit-gradient(
         linear,
         left top,
         left bottom,
-        color-stop(0, #A7A7A7),
-        color-stop(0.51, #E4E4E4)
+        color-stop(0, #D3D3D3),
+        color-stop(0.51, #EFEFEF)
     );
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
@@ -43,30 +43,6 @@ body {
     padding:0px;
     text-transform:uppercase;
     width:100%;
-}
-
-/* Portrait layout (default) */
-.app {
-    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
-    position:absolute;             /* position in the center of the screen */
-    left:50%;
-    top:50%;
-    height:50px;                   /* text area height */
-    width:225px;                   /* text area width */
-    text-align:center;
-    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
-}
-
-/* Landscape layout (with min-width) */
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    .app {
-        background-position:left center;
-        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
-        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
-                                      /* offset horizontal: half of image width and text area width */
-    }
 }
 ::-webkit-scrollbar { 
     display: none; 
@@ -79,7 +55,7 @@ h1 {
     padding:0px;
     text-align:center;
 }
-
+/* header */
 header{
     z-index:9999;
 }
@@ -90,6 +66,8 @@ header{
     position:fixed;
     top:0;
     background-color: #EEEEEE;
+    border-bottom: 0.05em solid;
+    border-color:#ff2f26;
 
 }
 .logodiv{
@@ -102,7 +80,7 @@ header{
     height:60px;
     width:200px;
 }
-
+/* menu */
 nav {
     z-index:9999;
     position:fixed;
@@ -165,6 +143,8 @@ img.inactiveimg
     height:6vw;
     width:6vw;
 }
+
+/* headlines */
 h2.block-title {
     text-transform: uppercase;
     font-family: Arial, sans-serif;
@@ -176,4 +156,160 @@ h2.block-title {
     color: white;
     padding-left: 10px;
     padding-right: 10px;
+}
+/* login page 
+
+parts of code from http://www.hongkiat.com/blog/html5-loginpage/ */
+.loginpage
+{
+    width:100%;
+    height:100%;
+}
+.loginform {
+    width: 80%;
+    max-width: 400px;
+    min-width: 150px;
+    font-size:5vw;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 25px;
+    background-color: rgba(250,250,250,0.5);
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2), 
+                inset 0px 1px 0px 0px rgba(250, 250, 250, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.loginform ul {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+
+}
+.loginform li {
+   list-style: none;
+   border:none;
+   width: 100%;
+   margin-top:10px;
+   font-color: #ff2f26;
+
+}
+.loginform label
+{
+    color: #ff2f26;;
+    text-transform: none;
+}
+.loginform input:not([type=submit]) {
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 
+                0px 1px 0px 0px rgba(250, 250, 250, 0.5) ;
+    width: 90%;
+    height: 2.3em;
+    font-size:0.8em;
+    
+}
+.loginform select {
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 
+                0px 1px 0px 0px rgba(250, 250, 250, 0.5) ;
+    width: 90%;
+    height: 2.3em;
+    font-size:0.8em;
+    
+}
+.loginform input[type=submit] {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background: #ff2f26; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ff2f26 0%, #ff4740 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff2f26), color-stop(100%,#ff4740)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ff2f26 0%,#ff4740 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff2f26', endColorstr='#ff4740',GradientType=0 ); /* IE6-9 */
+    color: #fff;
+    padding: 5px 15px;
+    margin-right: 0;
+    margin-top: 15px;
+    border-radius: 3px;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+    height:10vw;
+    width:25vw;
+    font-size:0.8em;   
+}
+
+a.none{
+    margin-top: 25px;
+    text-decoration: none;
+    display: inline;
+    font-size:0.8em;
+    text-transform: none;
+    float:right;
+    color:#ff2f26;
+}
+
+.register {
+    position: fixed;
+    bottom: 1em;
+    left: 50%;
+    text-decoration: none; 
+    transform: translate(-50%);
+     border: 1px solid rgba(0, 0, 0, 0.3);
+    background: #ff2f26; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ff2f26 0%, #ff4740 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff2f26), color-stop(100%,#ff4740)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ff2f26 0%,#ff4740 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff2f26', endColorstr='#ff4740',GradientType=0 ); /* IE6-9 */
+    color: #fff;
+    padding: 5px 5px;
+    margin-right: 0;
+    margin-top: 15px;
+    border-radius: 3px;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+    height:10vw;
+    width:25vw;
+    font-size:4vw;
+
+}
+.logout {
+    position:relative;
+    left: 50%;
+    text-decoration: none; 
+    transform: translate(-50%);
+     border: 1px solid rgba(0, 0, 0, 0.3);
+    background: #ff2f26; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ff2f26 0%, #ff4740 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff2f26), color-stop(100%,#ff4740)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ff2f26 0%,#ff4740 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff2f26', endColorstr='#ff4740',GradientType=0 ); /* IE6-9 */
+    color: #fff;
+    padding: 5px 5px;
+    margin-right: 0;
+    margin-top: 15px;
+    border-radius: 3px;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+    height:10vw;
+    width:25vw;
+    font-size:4vw;
+
+}
+/* to add screen bounds for every device
+@media screen and (min-width: 740px) and (max-width: 1760px){
+    .loginform {
+        font-size:3vw;
+    }
 }
