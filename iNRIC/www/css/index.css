@@ -43,6 +43,7 @@ body {
     padding:0px;
     text-transform:uppercase;
     width:100%;
+    padding-bottom:150px;
 }
 ::-webkit-scrollbar { 
     display: none; 
@@ -221,7 +222,7 @@ parts of code from http://www.hongkiat.com/blog/html5-loginpage/ */
     box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 
                 0px 1px 0px 0px rgba(250, 250, 250, 0.5) ;
     width: 90%;
-    height: 2.3em;
+    height: 2em;
     font-size:0.8em;
     
 }
@@ -306,6 +307,49 @@ a.none{
     width:25vw;
     font-size:4vw;
 
+}
+a.title{
+    
+    margin-top: 25px;
+    text-decoration: none;
+    font-size:1.5em;
+    text-transform: none;
+    color:#ff2f26;
+}
+a.title2{
+    
+    margin-top: 25px;
+    text-decoration: none;
+    font-size:1.4em;
+    text-transform: none;
+    color:#ff2f26;
+}
+.title1{
+    margin-left:2.5vw;
+}
+p.data{
+    margin-top:5px;
+    text-transform: none;
+    text-decoration: none;
+    font-size:1.2em;
+}
+p.data1{
+    margin-top:0px;
+    margin-right:5px;
+    text-transform: none;
+    text-decoration: none;
+    font-size:1.2em;
+    position:relative;
+    float:right;
+
+}
+.inner{
+    margin-top: 5px;
+    border-bottom: 0.1em solid;
+    border-color:#BDBDBD;
+}
+.loginform input[type=search]{
+    font-size:20px;
 }
 /* to add screen bounds for every device
 @media screen and (min-width: 740px) and (max-width: 1760px){
