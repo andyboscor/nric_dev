@@ -45,42 +45,48 @@
 					<article id="main">
 						<header>
 							<h2>Testing</h2>
-							<p>User and automated</p>
+							<p>Automated and user-based</p>
 						</header>
 						<section class="wrapper style5">
 							<div class="inner">
 
 								<h3>Automated testing</h3>
-								<p>The International Resource for Infection Control (iNRIC) represents a very important part of healthcare that is used across the world by various medical staff due to it’s extensive database of articles, news and links. The main website (nric.org.uk) is currently used and continuously updated with information. </p>
+								<p>The application is coded as a Web-App in HTML5, CSS3 and Javascript and has the addition of the DrupalGap module for database integration. Automated testing can be done for the web-app itself before being ported with Phonegap.</p>
+								<p> This can be done with multiple web application automation tools to check for security, accesibility, functionality and compatibility issues. Furthermore, they can be used on the main website to check for any errors when implementing the user profiling.</p>
+								<ul>
+									<li> <a href="http://www.loadsterperformance.com/">Loadster</a> - Loading Stress Test </li>
+									<li> <a href="http://www.seleniumhq.org">Selenium</a> - Functional/Regression Testing </li>
+									<li> <a href="http://sahipro.com">Sahi </a> - Functional/Regression Testing</li>
+									<li> <a href="http://www.linktiger.com/">Link Tiger</a> - Broken Link testing</li>
+									<li> <a href="https://www.netsparker.com/">Net Sparker</a> - Security testing</li>
+									<li> For further database testing, Drupal has it's own set of automated tests.</li>
+								</ul>
 
-								<p>yolo</p>
+								<p>In order to test the iNRIC app after it has been built with Phonegap, we can use <a href="https://testmunk.com">Testmunk</a>. It provides the ability to write test cases on real devices across multiple platforms. Furthermore, it reviews UI design and provides numerous already created tests that check reliability, speed, erorrs etc. (<a href="http://phonegap.com/blog/2015/10/27/testmunk-guest-post/">Recommendation)</a></p>
 
 								<hr />
 
-								<h4>User Testing</h4>
-								<p>Must</p>
-								<ul>
-									<li>Application must be a touch-friendly version of the website</li>
-									<li>have Android and iOS as main platforms</li>
-									<li>have User Profile on main desktop website with registration and article preferences </li>
-									<li>have User Profile on application with User Preferences panel </li>
-									<li>have News, Latest Articles and Headlines tailored to user preferences (By Country and Article Categories Chosen) </li>
-									<li> must use Drupal website database</li>
-									<li>Knowledge week transfer of data from old nric website to new one </li>
-								</ul>
-								<p>Should</p>
-								<ul>
-									<li> have iOS version</li>
-									<li> have push notifications on both platforms</li>
-									<li> maintain main website look </li>
-								</ul>
-								<p>Could </p>
-								<ul> 
-									<li>Transfer newsletter feature from old website to new one MailChimp </li>
-								</ul>
+								<h3>User Testing</h3>
 
-								<p> Won't</p>
+								<p> Is perhaps even more important than automated testing, as the app is meant for a large number of technical and non-techinal individuals. Therefore, the application should be easy to use and should work across a large number of devices. </p>
+								<h4> Development Testing </h4>
+								<p> Initial testing will be done by the developers across multiple devices to check for screen resizing and other compatibility issues.</p>
 
+								<p>The testing we have done so far for the part of the app we have built(front-end plus basic functionality) has been in regards to resizing of the app and transitions. We used Safari Responsive Design mode, Google Chrome Responsive Design mode across multiple screen resolutions.(Regular resolution or HiDPI resolution).</p>
+
+								<h4> Local device testing </h4>
+								<p>The application was also built with Phonegap CLI locally and sent over to Android and iOS devices with the use of the Phonegap Developer app. Therefore, the app was tested by the team and our client on
+								<ul>
+									<li> iPhone 6S Plus</li>
+									<li> iPhone 6 Plus </li>
+									<li> Galaxy Note 3 </li>
+									<li> Nexus 5 </li>
+									<li> iPhone 6 </li>
+								</ul> </p>
+								<h4> UCL App Lab testing </h4>
+								<p> After database integration, we will be adding the app to the UCL App Lab to increase testing reach. The app will be tested by iNRIC staff and other users our client sees fit to test.</p>
+								<h4> App Store and Google Play deployment Testing</h4>
+								<p> After the app has been deployed, testing is done through usage, as long as a portion of users report bugs or other issues not previously seen.</p>
 							</div>
 						</section>
 					</article>

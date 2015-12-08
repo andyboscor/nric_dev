@@ -67,7 +67,7 @@ header{
     position:fixed;
     top:0;
     background-color: #EEEEEE;
-    border-bottom: 0.05em solid;
+    border-bottom: 1px solid;
     border-color:#ff2f26;
 
 }
@@ -90,8 +90,8 @@ nav {
     width:100%;
     background-color: #EEEEEE;
     overflow: hidden;
-    border-top:0.05em solid;
-    border-left:0.05em solid;
+    border-top:1px solid;
+    border-left:1px solid;
     border-color: black;
     font-size: 3vw;
     
@@ -106,7 +106,7 @@ nav ul li {
     list-style-type: none;
 }
 li{
-    border-right:0.05em solid;
+    border-right:1px solid;
     border-color: black;
     width:19%;
 
@@ -345,7 +345,7 @@ p.data1{
 }
 .inner{
     margin-top: 5px;
-    border-bottom: 0.1em solid;
+    border-bottom: 1px solid;
     border-color:#BDBDBD;
 }
 .loginform input[type=search]{
