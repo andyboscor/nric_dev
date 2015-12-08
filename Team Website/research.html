@@ -51,8 +51,43 @@
 							<div class="inner">
 
 								<h3>Platforms and API's</h3>
-								<p> </p>
+								<p>Initial research regarded iOS and Android App Development as well as Drupal Database integration. However the integration of Drupal in native apps proved to be difficult and the development on two different platforms seemed unrealistic for two people with no previous experience in either iOS or Android development. </p>
 
+								<p> Due to the need of a multi-platform solution and the usage of a Drupal database (main website), the application is built with Adobe PhoneGap (Powered by Cordova). This application transforms web-apps into applications. </p>
+								<div class="box alt">
+										<div class="row uniform 50%">
+											<div class="2u"><span class="image fit"><img src="images/phonegap.png" alt="" /></span></div>
+											<div class="2u"><span class="image fit"><img src="images/cordova.png" alt="" /></span></div>
+										</div>
+								</div>
+								<h4> Front end </h4>
+								<ul>
+									<li>HTML5 - Markup language also used for mobile websites </li>
+									<li>CSS3 - Cascading Style Sheet language with transitions, gradients and animations to avoid usage of Flash </li>
+									<li>Javascript (jQuery) - High level, interpreted programming language used to program web pages (with jQuery framework)</li>
+									<li> PushPlugin for PhoneGap to handle notifications </li>
+								</ul>
+								<div class="box alt">
+										<div class="row uniform 50%">
+											<div class="3u"><span class="image fit"><img src="images/frontend.png" alt="" /></span></div>
+											<div class="4u"><span class="image fit"><img src="images/jquery.png" alt="" /></span></div>
+										</div>
+								</div>
+								<p> Furthermore, we researched and also integrated the use of jQuery mobile. However, this proved to have clash issues with our custom CSS and would also create transition issues when keeping the header and navigation menu fixed (to give the impression of a native app). Additionally, the use of jQuery mobile has the drawback of loading each page separately without tweaking, whereas the use of HTML5 divs and hiding them with the use of CSS3 would increase the loading time when initially opening the apps, but would make transitions between pages instantaneous. 
+								</p>
+								<h4> Back end </h4>
+								<ul>
+									<li>Drupal Database - based on PHP’s PDO library, uses a SQL database. </li>
+									<li>Drupal Services API - allows the mobile application to communicate with the main website Drupal Database. </li>
+									<li>DrupalGap Module integration - might be useful when implementing database but documentation is currently unavailable on DrupalGap website.</li>
+									<li> PushPlugin for PhoneGap to handle notifications </li>
+								</ul>
+								<div class="box alt">
+										<div class="row uniform 50%">
+											<div class="2u"><span class="image fit"><img src="images/drupal.png" alt="" /></span></div>
+											
+										</div>
+								</div>
 								<hr />
 								<h3> Main Design </h3>
 								<div class="box alt">
