@@ -366,3 +366,46 @@ p.data1{
         font-size:3vw;
     }
 }
+*/
+/* parts of code from http://tutorialzine.com/2015/08/quick-tip-css-only-dropdowns-with-the-checkbox-hack/ */
+input.menu[type=checkbox]{
+    display: none;
+}
+ul#drop{
+    display: none;
+    margin-left:10px;
+    text-align: left;
+    list-style-type: none;
+    line-height: 2em;
+
+}
+li.drop{
+    border:none;
+    width:100%;
+    
+}
+label {
+    font-size:5vw;
+    margin-left:5px;
+}
+.closed{
+    width:10px;
+    height:10px;
+
+}
+.down{
+    width:10px;
+    height:10px;
+    display:none;
+}
+input.menu[type=checkbox]:checked ~ ul#drop {
+    display: block;
+}
+input.menu[type=checkbox]:checked ~ img.closed{
+    display: none;
+}
+input.menu[type=checkbox]:checked ~ img.down{
+    display: inline-block;
+}
+
+
