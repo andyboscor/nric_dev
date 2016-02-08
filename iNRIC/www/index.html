@@ -91,6 +91,8 @@
     $(".menu li a.active img#profile").attr('src',"img/search.svg"); */
  })
 });</script>
+<!-- Adding an in app-browser link is done with an <a> tag. href is set to "#home or #search". 
+onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
     </head>
     <body>
         <!-- Logo  -->
@@ -104,8 +106,8 @@
             <h2 class="block-title"> Headlines </h2>
             <div class="inner">
                 <div class="title1">
-                    <a class="title" href="http://www.who.int/campaigns/aids-day/2015/en/"> World AIDS Day 2015: Getting to Zero </a>
-                    
+                    <a class="title" href="#home" onclick="window.open('http://www.who.int/campaigns/aids-day/2015/en/', '_blank', 'location=yes');"> World AIDS Day 2015: Getting to Zero </a>
+                
                     <p class="data"> On World AIDS Day WHO emphasizes that expanding antiretroviral therapy to all people living with HIV is key to ending the AIDS epidemic within a generation. </p>
                 </div>
             </div>
