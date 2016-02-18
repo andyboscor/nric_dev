@@ -408,13 +408,21 @@ input.menu[type=checkbox]:checked ~ img.down{
  padding-top:3vw;
  position:relative;
  width:100%;
- height: 13vw;
+ height: 17vw;
  line-height: 10vw;
  text-align: center;
  vertical-align: middle; 
+ color: white;
  border-bottom: 1px solid;
  border-color:gray;
- font-size: 8vw;
+ font-size: 7vw;
+ text-transform: none;
+ background-color: #ff2f26;
 }
-
+a.email
+{line-height: 0;
+font-size:4vw;
+padding-top:2vw;
+display:block;
+}
 
