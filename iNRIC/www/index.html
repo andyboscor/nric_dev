@@ -145,7 +145,7 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
         </div>
         <div class="section" id="search">
 
-            <div class="loginform" style="margin-top:30vw; position:relative; margin-bottom:-20vw;">
+            <div class="normalform" style="margin-top:4vh;">
 
                <input type="search" name="search" placeholder="Search..." required>
                <p> </p>
@@ -195,7 +195,12 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
             </ul>
         </div>
         <h2 class="block-title"> Contribute </h2>
-        <p> To be added </p>
+         <div class="normalform">
+
+               <input type="name" name="search" placeholder="Add title" required>
+            
+            <input type="submit" value="Add">
+        </div>
     </div>
     <div class="section" id="infocus">
         <h2 class="block-title"> In Focus </h2>
@@ -242,15 +247,14 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
             </ul>
         </div>
         <h2 class="block-title"> Email </h2>
-        <div class="loginform" style="margin-top:22vw; position:relative; margin-bottom:-19vw;">
+        <div class="normalform">
 
                <input type="mail" name="search" placeholder="email@domain.com" required>
                
             <input type="submit" value="Save">
         </div>
         <h2 class="block-title"> Country </h2>
-        <div class="loginform" style="margin-top:20vw; position:relative; margin-bottom:-17vw;">
-
+        <div class="normalform">
                <select name="category">
                 <option value="">Category...</option>
                 <option value="Afganistan">Disease</option>
@@ -259,13 +263,13 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
             <input type="submit" value="Change">
         </div>
         <h2 class="block-title"> Password </h2>
-        <div class="loginform" style="margin-top:22vw; position:relative; margin-bottom:-13vw;">
+        <div class="normalform">
 
                <input type="password" name="search" placeholder="Change Password..." required>
             
             <input type="submit" value="Change">
         </div>
-        <input type="button" style="margin-bottom:20vw;" class="logout" onclick="location.href='login.html';" value="Log out" />
+        <input type="button" class="logout" onclick="location.href='login.html';" value="Log out" />
     </div>
     <footer>
         <div class="menu" >
