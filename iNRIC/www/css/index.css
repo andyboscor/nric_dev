@@ -288,6 +288,89 @@ a.none{
     font-size:4vw;
 
 }
+.normalform {
+    width: 80%;
+    max-width: 400px;
+    min-width: 150px;
+    font-size:3vh;
+    position:relative;
+    left: 50%;
+    transform: translate( -50%);
+    padding: 25px;
+    background-color: rgba(250,250,250,0.5);
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2), 
+                inset 0px 1px 0px 0px rgba(250, 250, 250, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.normalform ul {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+
+}
+.normalform li {
+   list-style: none;
+   border:none;
+   width: 100%;
+   margin-top:10px;
+   font-color: #ff2f26;
+
+}
+.normalform label
+{
+    color: #ff2f26;;
+    text-transform: none;
+}
+.normalform input:not([type=submit]) {
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 
+                0px 1px 0px 0px rgba(250, 250, 250, 0.5) ;
+    width: 90%;
+    height: 2em;
+    font-size:0.8em;
+    
+}
+.normalform select {
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 
+                0px 1px 0px 0px rgba(250, 250, 250, 0.5) ;
+    width: 90%;
+    height: 2em;
+    font-size:0.8em;
+    
+}
+.normalform input[type=submit] {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background: #ff2f26; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ff2f26 0%, #ff4740 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff2f26), color-stop(100%,#ff4740)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ff2f26 0%,#ff4740 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff2f26', endColorstr='#ff4740',GradientType=0 ); /* IE6-9 */
+    color: #fff;
+    padding: 5px 15px;
+    margin-right: 0;
+    margin-top: 15px;
+    border-radius: 3px;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+    height:10vw;
+    width:25vw;
+    font-size:0.8em;   
+}
+.filler{ position:relative;
+height:60px;
+ }
+
 .logout {
     position:relative;
     left: 50%;
@@ -312,6 +395,30 @@ a.none{
     width:25vw;
     font-size:4vw;
     margin-bottom: 60px;
+
+}
+.save {
+    position:relative;
+    text-decoration: none; 
+    left:10px;
+     border: 1px solid rgba(0, 0, 0, 0.3);
+    background: #ff2f26; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ff2f26 0%, #ff4740 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff2f26), color-stop(100%,#ff4740)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ff2f26 0%,#ff4740 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff2f26', endColorstr='#ff4740',GradientType=0 ); /* IE6-9 */
+    color: #fff;
+    padding: 5px 5px;
+    margin-right: 0;
+    margin-top: 15px;
+    border-radius: 3px;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+    height:10vw;
+    width:25vw;
+    font-size:4vw;
 
 }
 a.title{
@@ -427,82 +534,3 @@ padding-top:2vw;
 display:block;
 }
 
-.normalform {
-    width: 80%;
-    max-width: 400px;
-    min-width: 150px;
-    font-size:3vh;
-    position:relative;
-    left: 50%;
-    transform: translate( -50%);
-    padding: 25px;
-    background-color: rgba(250,250,250,0.5);
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2), 
-                inset 0px 1px 0px 0px rgba(250, 250, 250, 0.5);
-    border: 1px solid rgba(0, 0, 0, 0.3);
-}
-.normalform ul {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    text-align: left;
-
-}
-.normalform li {
-   list-style: none;
-   border:none;
-   width: 100%;
-   margin-top:10px;
-   font-color: #ff2f26;
-
-}
-.normalform label
-{
-    color: #ff2f26;;
-    text-transform: none;
-}
-.normalform input:not([type=submit]) {
-    padding: 5px;
-    margin-right: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    border-radius: 3px;
-    box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 
-                0px 1px 0px 0px rgba(250, 250, 250, 0.5) ;
-    width: 90%;
-    height: 2em;
-    font-size:0.8em;
-    
-}
-.normalform select {
-    padding: 5px;
-    margin-right: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    border-radius: 3px;
-    box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 
-                0px 1px 0px 0px rgba(250, 250, 250, 0.5) ;
-    width: 90%;
-    height: 2em;
-    font-size:0.8em;
-    
-}
-.normalform input[type=submit] {
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    background: #ff2f26; /* Old browsers */
-    background: -moz-linear-gradient(top,  #ff2f26 0%, #ff4740 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff2f26), color-stop(100%,#ff4740)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #ff2f26 0%,#ff4740 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff2f26', endColorstr='#ff4740',GradientType=0 ); /* IE6-9 */
-    color: #fff;
-    padding: 5px 15px;
-    margin-right: 0;
-    margin-top: 15px;
-    border-radius: 3px;
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
-    height:10vw;
-    width:25vw;
-    font-size:0.8em;   
-}
