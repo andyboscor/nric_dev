@@ -1,0 +1,18 @@
+<?php
+    /**
+    *  * Gets blog posts
+    *   */
+function resource_restapi_get($nitems, $timestamp) {
+    // Compose query
+    $query = db_select('node','n');
+    $query->join('field_data_field_link', 'l', '(n.nid = l.entity_id)'); 
+    $query->join('field_data_body', 'b','(b.entity_id = n.id)');
+    $query->fields('n', 'title');
+    $query->addfields('l', 'field_link_value');
+    $query->addfields('b', 'body_value');
+    $query->condition('b.entity_id', 'n.nid', '=');
+    $query->condition('l.entity_id', 'n.nid', '=');;
+    $query->condition('n.type', 'headline', '='); 
+?>
+
+
