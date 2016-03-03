@@ -4,7 +4,7 @@
      */
 function mobile_get_services_resources(){
     $api = array(
-        'node' => array(
+        'get_node' => array(
             'operations' => array(
                 'retrieve'=>array(
                     'help'=> 'Retrive node content, links and body',
