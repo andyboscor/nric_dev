@@ -124,15 +124,14 @@ function post(){
  
     $.ajax(settings).done(  function (response) {
         user_json = response;
-         //alert("yolo");
-
     });
 }
 
 function validate(form){
     var userName = form.usermail.value;
     var password = form.password.value;
-
+    var err = false;
+    
     if (userName.length === 0) {
         alert("You must enter a username.");
         return false;
@@ -142,8 +141,51 @@ function validate(form){
         alert("You must enter a password.");
         return false;
     }
- 
-    return true;
+
+    $.ajax({
+        url: "http://139.162.199.80/services/session/token",
+        type: "get",
+        dataType: "text",
+    error: function (jqXHR, textStatus, errorThrown){
+      //alert(jqXHR.responseText);
+     // alert("1");
+      //err = false;
+    },
+    success: function (token){
+        $.ajaxSetup({
+         beforesend: function(request){
+            request.setRequestHeader("X-CSRF-Token", token);
+          },
+        });
+        //alert(token.responseText);
+        //alert("2");
+        //err = true;
+    }
+    });
+
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "http://139.162.199.80/nricrestapi/user/login",
+      "method": "POST",
+      
+      "headers": {
+        "cache-control": "no-cache",
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      "data": {
+        "username": userName, // form.usermail.value,
+        "password": password// form.password.value
+      }
+    };
+
+    $.ajax(settings).success(  function (response) {
+        user_json = response;
+        //alert(response.responseText);
+       //err = true;
+    });
+    //alert(user_json);
+    return err;
 }
 
 </script>
