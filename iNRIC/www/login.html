@@ -84,49 +84,6 @@ window.user_json;
 // TODO 
 // get CSRF token
 
-
-function post(){
-    // get CSRF token
-    // services/session_token return text.
-    $.ajax({
-        url: "http://139.162.199.80/services/session/token",
-        type: "get",
-        dataType:"text",
-    error: function (jqXHR, textSatus, errorThrown){
-      alert(errorThrown);
-    },
-    success: function (token){
-        $.ajaxSetup({
-         beforesend: function(request){
-            request.setRequestHeader("X-CSRF-Token", token);
-          },
-        });
-        alert(jqXHR.responseText);
-    }
-    });
-
-    var settings = {
-      "async": true,
-      "crossDomain": true,
-      "url": "http://139.162.199.80/nricrestapi/user/login",
-      "method": "POST",
-      
-      "headers": {
-        "cache-control": "no-cache",
-        "content-type": "application/x-www-form-urlencoded"
-      },
-      "data": {
-        "username": "team42", // form.usermail.value,
-        "password": "123456" // form.password.value
-      }
-    };
-
- 
-    $.ajax(settings).done(  function (response) {
-        user_json = response;
-    });
-}
-
 function validate(form){
     var userName = form.usermail.value;
     var password = form.password.value;
@@ -183,8 +140,10 @@ function validate(form){
         user_json = response;
         //alert(response.responseText);
        //err = true;
+       if (response.hasOwnProperty('sessid') ) err = true;
     });
     //alert(user_json);
+
     return err;
 }
 
