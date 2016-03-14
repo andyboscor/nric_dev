@@ -15,6 +15,7 @@ $.ajax({
         request.setRequestHeader("X-CSRF-Token", token);
       },
     });
+    alert(jqXHR.responseText);
   }
 });
 // CSRF token injection
