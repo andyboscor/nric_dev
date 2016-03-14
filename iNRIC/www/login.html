@@ -89,7 +89,7 @@ function post(){
     // get CSRF token
     // services/session_token return text.
     $.ajax({
-        url: "http://139.162.199.80/services/session_token",
+        url: "http://139.162.199.80/services/session/token",
         type: "get",
         dataType:"text",
     error: function (jqXHR, textSatus, errorThrown){
