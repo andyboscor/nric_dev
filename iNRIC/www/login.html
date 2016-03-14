@@ -103,6 +103,8 @@ $.ajax({
 // get fields value
 // login failure condition.
 
+
+// Prepare object
 var settings = {
   "async": true,
   "crossDomain": true,
@@ -120,7 +122,6 @@ var settings = {
 };
 
 $(document).ready(function(){ 
-       
             $.ajax(settings).done(  function (response) {
                                   window.alert(user_json = response;);
                                 });
@@ -135,23 +136,23 @@ $(document).ready(function(){
                     </div>
             </header>
     <div class="loginpage">
-    <div class="loginform">
-        <form name="login" action="index.html?#home" method="post" onsubmit="return valid()" accept-charset="utf-8">
-            <ul>
-                <li>
-                    <label for="usermail">Email</label>
-                    <input type="email" name="usermail" placeholder="yourname@email.com" required>
-                </li>
-                <li>
-                    <label for="password">Password</label>
-                    <input type="password" name="password" placeholder="password" required>
-                </li>
-                <li>
-                    <input type="submit" value="Login">
-                    <a class="none" href="forgot.html">Forgot your password?</a>
-                </li>
-            </ul>
-        </form> 
+        <div class="loginform">
+            <form name="login" action="index.html?#home" method="post" onsubmit="return valid()" accept-charset="utf-8">
+                <ul>
+                    <li>
+                        <label for="usermail">Email</label>
+                        <input type="email" name="usermail" placeholder="yourname@email.com" required>
+                    </li>
+                    <li>
+                        <label for="password">Password</label>
+                        <input type="password" name="password" placeholder="password" required>
+                    </li>
+                    <li>
+                        <input type="submit" value="Login">
+                        <a class="none" href="forgot.html">Forgot your password?</a>
+                    </li>
+                </ul>
+            </form> 
         </div>
         <input type="button" class="register" onclick="location.href='register.html';" value="Register" />
     </div>
