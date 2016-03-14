@@ -80,53 +80,22 @@
  })
 });</script>
 <script>
-window.user_json;
-// TODO 
-// get CSRF token
+function validate(form){
+    var userName = form.usermail.value;
+    var password = form.password.value;
 
-$.ajax({
-  url: "http://139.162.199.80/services/session_token",
-  type: "get",
-  dataType:"text",
-  error: function (jqXHR, textSatus, errorThrown){
-    alert(errorThrown);
-  }
-  success: function (token){
-    $.ajaxSetup({
-      beforesend: function(request){
-        request.setRequestHeader("X-CSRF-Token", token);
-      },
-    });
-  }
-});
-// CSRF token injection
-// get fields value
-// login failure condition.
-
-
-// Prepare object
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "http://139.162.199.80/nricrestapi/user/login",
-  "method": "POST",
-  
-  "headers": {
-    "cache-control": "no-cache",
-    "content-type": "application/x-www-form-urlencoded"
-  },
-  "data": {
-    "username": "team42",
-    "password": "12356"
-  }
-};
-
-$(document).ready(function(){ 
-            $.ajax(settings).done(  function (response) {
-                                  window.alert(user_json = response;);
-                                });
-    });
-
+    if (userName.length === 0) {
+        alert("You must enter a username.");
+        return false;
+    }
+ 
+    if (password.length === 0) {
+        alert("You must enter a password.");
+        return false;
+    }
+ 
+    return true;
+}
 </script>
     </head>
     <body>
@@ -137,7 +106,7 @@ $(document).ready(function(){
             </header>
     <div class="loginpage">
         <div class="loginform">
-            <form name="login" action="index.html?#home" method="post" onsubmit="return valid()" accept-charset="utf-8">
+            <form name="login" action="index.html?#home" method="post" onsubmit="return validate(this);" accept-charset="utf-8">
                 <ul>
                     <li>
                         <label for="usermail">Email</label>
