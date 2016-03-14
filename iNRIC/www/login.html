@@ -94,7 +94,7 @@ function post(){
         dataType:"text",
     error: function (jqXHR, textSatus, errorThrown){
       alert(errorThrown);
-    }
+    },
     success: function (token){
         $.ajaxSetup({
          beforesend: function(request){
@@ -124,7 +124,7 @@ function post(){
  
     $.ajax(settings).done(  function (response) {
         user_json = response;
-        // alert();
+         //alert("yolo");
 
     });
 }
@@ -173,7 +173,7 @@ function validate(form){
                 </ul>
             </form> 
         </div>
-        <input type="button" class="register" onclick="post()" value="Register" />
+        <input type="button" class="register" onclick="post();" value="Register" />
     </div>
 
         <script type="text/javascript" src="cordova.js"></script>
