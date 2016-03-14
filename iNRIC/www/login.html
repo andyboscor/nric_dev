@@ -84,47 +84,50 @@ window.user_json;
 // TODO 
 // get CSRF token
 
-$.ajax({
-  url: "http://139.162.199.80/services/session_token",
-  type: "get",
-  dataType:"text",
-  error: function (jqXHR, textSatus, errorThrown){
-    alert(errorThrown);
-  }
-  success: function (token){
-    $.ajaxSetup({
-      beforesend: function(request){
-        request.setRequestHeader("X-CSRF-Token", token);
+
+function post(){
+    // get CSRF token
+    // services/session_token return text.
+    $.ajax({
+        url: "http://139.162.199.80/services/session_token",
+        type: "get",
+        dataType:"text",
+    error: function (jqXHR, textSatus, errorThrown){
+      alert(errorThrown);
+    }
+    success: function (token){
+        $.ajaxSetup({
+         beforesend: function(request){
+            request.setRequestHeader("X-CSRF-Token", token);
+          },
+        });
+        alert(jqXHR.responseText);
+    }
+    });
+
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "http://139.162.199.80/nricrestapi/user/login",
+      "method": "POST",
+      
+      "headers": {
+        "cache-control": "no-cache",
+        "content-type": "application/x-www-form-urlencoded"
       },
-    });
-    alert(jqXHR.responseText);
-  }
-});
-// CSRF token injection
-// get fields value
-// login failure condition.
+      "data": {
+        "username": "team42", // form.usermail.value,
+        "password": "123456" // form.password.value
+      }
+    };
 
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "http://139.162.199.80/nricrestapi/user/login",
-  "method": "POST",
-  
-  "headers": {
-    "cache-control": "no-cache",
-    "content-type": "application/x-www-form-urlencoded"
-  },
-  "data": {
-    "username": "team42",
-    "password": "123456"
-  }
-};
+ 
+    $.ajax(settings).done(  function (response) {
+        user_json = response;
+        // alert();
 
-$(document).ready(function(){ 
-            $.ajax(settings).done(  function (response) {
-                                  user_json = response;
-                                });
     });
+}
 
 function validate(form){
     var userName = form.usermail.value;
@@ -142,6 +145,7 @@ function validate(form){
  
     return true;
 }
+
 </script>
     </head>
     <body>
@@ -169,7 +173,7 @@ function validate(form){
                 </ul>
             </form> 
         </div>
-        <input type="button" class="register" onclick="location.href='register.html';" value="Register" />
+        <input type="button" class="register" onclick="post" value="Register" />
     </div>
 
         <script type="text/javascript" src="cordova.js"></script>
