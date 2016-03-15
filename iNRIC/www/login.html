@@ -117,7 +117,7 @@ function validate(form){
     });
 
     // can be modify
-    var formData = {username:"team42",password:"123456"};
+    var formData = {username:"team42",password:"23456"};
     
     $.ajax({
       type:                 "POST",
@@ -129,8 +129,11 @@ function validate(form){
       success: function (data, textStatus, jqXHR) {
         // do something with data
         // check sessionID or a user token exist in the response text
-        err = true;
-        console.log(data);
+        response_JSONobject = JSON.parse($.trim(data))
+        if('token' in response_JSONobject){
+            err = true;
+            console.log('login success');
+        }
       },
       error: function (jqXHR, textStatus, errorThrown){
         console.log(textStatus);
