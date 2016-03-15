@@ -104,9 +104,10 @@ function validate(form){
         type: "get",
         dataType: "text",
     error: function (jqXHR, textStatus, errorThrown){
-      //alert(jqXHR.responseText);
-     // alert("1");
-      //err = false;
+        //alert(jqXHR.responseText);
+        // alert("1");
+        //err = false;
+        console.log('CSRF -token failed to get.');
     },
     success: function (token){
         $.ajaxSetup({
@@ -120,30 +121,24 @@ function validate(form){
     }
     });
 
-    var settings = {
-      "async": true,
-      "crossDomain": true,
-      "url": "http://139.162.199.80/nricrestapi/user/login",
-      "method": "POST",
-      
-      "headers": {
-        "cache-control": "no-cache",
-        "content-type": "application/x-www-form-urlencoded"
+    var formData = {username:"team42",password:"123456"};
+    
+    $.ajax({
+      type:                 "POST",
+      crossDomain:          true,
+      url:                  "http://139.162.199.80/nricrestapi/user/login",
+      contentType:          "application/x-www-form-urlencoded",
+      dataType:             "text",
+      data:                 formData,
+      success: function (data, textStatus, jqXHR) {
+        console.log(data);
       },
-      "data": {
-        "username": userName, // form.usermail.value,
-        "password": password// form.password.value
+      error: function (jqXHR, textStatus, errorThrown){
+        console.log(textStatus);
+        console.log(errorThrown);
       }
-    };
 
-    $.ajax(settings).success(  function (response) {
-        user_json = response;
-        //alert(response.responseText);
-       //err = true;
-       if (response.hasOwnProperty('sessid') ) err = true;
     });
-    //alert(user_json);
-
     return err;
 }
 
@@ -157,7 +152,7 @@ function validate(form){
             </header>
     <div class="loginpage">
         <div class="loginform">
-            <form name="login" action="index.html?#home" method="post" onsubmit="return validate(this);" accept-charset="utf-8">
+            <form name="login" action="index.html?#home" method="post" onsubmit="" accept-charset="utf-8">
                 <ul>
                     <li>
                         <label for="usermail">Email</label>
@@ -174,7 +169,7 @@ function validate(form){
                 </ul>
             </form> 
         </div>
-        <input type="button" class="register" onclick="post();" value="Register" />
+        <input type="button" class="register" onclick="validate(login);" value="Register" />
     </div>
 
         <script type="text/javascript" src="cordova.js"></script>
