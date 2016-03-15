@@ -80,68 +80,77 @@
  })
 });</script>
 <script>
-window.user_json;
 // TODO 
 // get CSRF token
-
+var logged_in = false;
+var err = false;
+    var connection_user;
+    var connection_sessid;
+    var connection_sessname;
+    var connection_token;
 function validate(form){
-    var userName = form.usermail.value;
-    var password = form.password.value;
-    var err = false;
-    
-    if (userName.length === 0) {
+    var name = form.usermail.value;
+    var pass = form.password.value;
+    if (name.length === 0) {
         alert("You must enter a username.");
         return false;
     }
  
-    if (password.length === 0) {
+    if (pass.length === 0) {
         alert("You must enter a password.");
         return false;
     }
-
     $.ajax({
-        url: "http://139.162.199.80/services/session/token",
-        type: "get",
-        dataType: "text",
-    error: function (jqXHR, textStatus, errorThrown){
-        console.log('CSRF -token failed to get.');
-        console.log(errorThrown);
-    },
-    success: function (token){
-        $.ajaxSetup({
-         beforesend: function(request){
-            request.setRequestHeader("X-CSRF-Token", token);
-          },
-        });
-    }
-    });
+        url: "http://139.162.199.80/nricrestapi/user/login.json",
+        type: 'post',
+        data: 'username=' + encodeURIComponent(name) + '&password=' + encodeURIComponent(pass),
+        dataType: 'text',
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+             // alert('Sorry!  The login failed with the response: ' + JSON.stringify(errorThrown));
+              console.log(JSON.stringify(XMLHttpRequest));
+              console.log(JSON.stringify(textStatus));
+              console.log(JSON.stringify(errorThrown));
+        },
+        success: function (data) {
+              // OK - we're logged in, so snag the session details into our globals and greet the user
+              data = JSON.parse($.trim(data));
+              connection_user = data.user.uid;
+              connection_sessid = data.sessid;
+              connection_sessname = data.session_name;
+              logged_in = true;
+              err = true;
+             // alert('Welcome ' + data.user.name + ', you are now connected as uid: ' + data.user.uid);
 
-    // can be modify
-    var formData = {username:"team42",password:"23456"};
-    
-    $.ajax({
-      type:                 "POST",
-      crossDomain:          true,
-      url:                  "http://139.162.199.80/nricrestapi/user/login",
-      contentType:          "application/x-www-form-urlencoded",
-      dataType:             "text", // supposed to be "json"
-      data:                 formData,
-      success: function (data, textStatus, jqXHR) {
-        // do something with data
-        // check sessionID or a user token exist in the response text
-        response_JSONobject = JSON.parse($.trim(data))
-        if('token' in response_JSONobject){
-            err = true;
-            console.log('login success');
+              // build our session cookie
+              //$.cookie(connection_sessname, connection_sessid);
+
+              // Obtain a services session token and save it
+              $.ajax({
+                  url: "http://139.162.199.80/services/session/token",
+                  type: "get",
+                  dataType: "text",
+                  async: true,
+                  //headers: {'X-CSRF-Token': ''},
+                  beforeSend: function(request) {
+                     request.withCredentials = true;
+                  },
+                  error: function(jqXHR, textStatus, errorThrown) {
+                      //alert('login.js - Failed to get session token for service access.  ' + errorThrown);
+                      console.log(JSON.stringify(jqXHR));
+                      console.log(JSON.stringify(textStatus));
+                      console.log(JSON.stringify(errorThrown));
+                  },
+                  success: function(token) {
+                      // Now we have everyting we need to insure that we can maintain a safe connection!
+                      connection_token = token;
+                      //$.mobile.changePage($("#menuPage"), "slideup");
+                      err = true;
+                  }
+              });
         }
-      },
-      error: function (jqXHR, textStatus, errorThrown){
-        console.log(textStatus);
-        console.log(errorThrown);
-      }
-
     });
-    return err;
+  return err;
+
 }
 
 </script>
@@ -154,11 +163,11 @@ function validate(form){
             </header>
     <div class="loginpage">
         <div class="loginform">
-            <form name="login" action="index.html?#home" method="post" onsubmit="" accept-charset="utf-8">
+            <form name="login" action="index.html?#home" method="post" onsubmit="return validate(this);" accept-charset="utf-8">
                 <ul>
                     <li>
                         <label for="usermail">Email</label>
-                        <input type="email" name="usermail" placeholder="yourname@email.com" required>
+                        <input type="username" name="usermail" placeholder="yourname@email.com" required>
                     </li>
                     <li>
                         <label for="password">Password</label>
