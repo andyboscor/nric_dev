@@ -104,10 +104,8 @@ function validate(form){
         type: "get",
         dataType: "text",
     error: function (jqXHR, textStatus, errorThrown){
-        //alert(jqXHR.responseText);
-        // alert("1");
-        //err = false;
         console.log('CSRF -token failed to get.');
+        console.log(errorThrown);
     },
     success: function (token){
         $.ajaxSetup({
@@ -115,12 +113,10 @@ function validate(form){
             request.setRequestHeader("X-CSRF-Token", token);
           },
         });
-        //alert(token.responseText);
-        //alert("2");
-        //err = true;
     }
     });
 
+    // can be modify
     var formData = {username:"team42",password:"123456"};
     
     $.ajax({
@@ -128,9 +124,12 @@ function validate(form){
       crossDomain:          true,
       url:                  "http://139.162.199.80/nricrestapi/user/login",
       contentType:          "application/x-www-form-urlencoded",
-      dataType:             "text",
+      dataType:             "text", // supposed to be "json"
       data:                 formData,
       success: function (data, textStatus, jqXHR) {
+        // do something with data
+        // check sessionID or a user token exist in the response text
+        err = true;
         console.log(data);
       },
       error: function (jqXHR, textStatus, errorThrown){
