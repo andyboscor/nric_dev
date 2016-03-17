@@ -91,7 +91,43 @@
     $(".menu li a.active img#profile").attr('src',"img/search.svg"); */
  })
 });</script>
+<script>
+function logout()
+{
+    var cookie = sessionStorage.sessname + "=" + sessionStorage.sessid;
+    console.log(cookie);
+    var err = false;
+    var obj = "{\"Cookie\": \"" + cookie + "\" }";
 
+$.ajax({
+url: "http://139.162.199.80/nricrestapi/user/logout",
+type: 'POST',
+dataType: 'json',
+contentType: 'application/json',
+crossDomain: true,
+async:false,
+data: obj,
+ beforeSend: function (request) {
+        request.setRequestHeader("X-CSRF-Token", sessionStorage.token);
+      }, 
+error: function(XMLHttpRequest, textStatus, errorThrown) {
+console.log(JSON.stringify(XMLHttpRequest));
+console.log(textStatus);
+console.log(errorThrown);
+console.log(sessionStorage.token);
+if (XMLHttpRequest.status == "200" )
+    {    err = true;
+        console.log(err);
+    }
+},
+success: function (data) {
+console.log('logout successful');
+}
+
+});
+return err;
+}
+</script>
 <!-- Adding an in app-browser link is done with an <a> tag. href is set to "#home or #search". 
 onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
     </head>
@@ -274,7 +310,7 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
             
             <input type="submit" value="Change">
         </div>
-        <input type="button" class="logout" onclick="location.href='login.html';" value="Log out" />
+        <input type="button" class="logout" onclick="if(logout() == true) window.location='login.html';" value="Log out" />
     </div>
     <footer>
         <div class="menu" >
