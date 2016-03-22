@@ -84,10 +84,10 @@
 // get CSRF token
 var logged_in = false;
 var err = false;
-    var connection_user;
-    var connection_sessid;
-    var connection_sessname;
-    var connection_token;
+var connection_user;
+var connection_sessid;
+var connection_sessname;
+var connection_token;
 
 function validate(form){
     var name = form.usermail.value;
@@ -135,30 +135,51 @@ function validate(form){
                         data:  obj,
                         crossDomain: true,
                         async:false,
-                       /*beforeSend: function (request) {
-request.setRequestHeader("X-CSRF-Token", connection_token);
-}, */
+                      //might need to request new token?
+                      /*beforeSend: function (request) {
+                      request.setRequestHeader("X-CSRF-Token", connection_token);
+                      }, */
+
                         error: function(errorThrown) {
                        //   alert('Sorry!  The login failed with the response: ' + connection_token );
                         // console.log(XMLHttpRequest);
                         //console.log(textStatus);
                          // console.log(errorThrown);
                         
-                       if(errorThrown.status == "200")
-                        { err = true; console.log("logged in");}
+                            if(errorThrown.status == "200")
+                              { 
+                                err = true; 
+                                console.log("logged in");
+                              } 
 
-                        console.log(errorThrown.status);
-                          
+                                console.log(errorThrown.status);
+                                console.log(errorThrown);
+                                console.log(errorThrown.responseText);
+                                var string = errorThrown.responseText;
+                                try{
+                                    var data1 = JSON.parse($.trim(string));
+                                  //  console.log(data1.sessid); 
+                                    
+                                 //   console.log(data1.session_name);
+                                   
+                                    connection_sessid = data1.sessid;
+                                    connection_sessname = data1.session_name;
+                                    connection_token = data1.token;
+                                //alert('nu');
+                                }
+                                catch(err){
+                                  console.log(err);
+                                }  
                     },
                     success: function (data) {
                           // OK - we're logged in, so snag the session details into our globals and greet the user
-                          data = JSON.parse($.trim(data));
-                          connection_user = data.user.uid;
-                          connection_sessid = data.sessid;
-                          connection_sessname = data.session_name;
+                          //data = JSON.parse($.trim(data));
+                         // connection_user = data.user.uid;
+                          //connection_sessid = data.sessid;
+                          //connection_sessname = data.session_name;
                           logged_in = true;
                           //err = true;
-                          console('yay');
+                          console('no errors');
                          // alert('Welcome ' + data.user.name + ', you are now connected as uid: ' + data.user.uid);
 
                           // build our session cookie
@@ -170,8 +191,12 @@ request.setRequestHeader("X-CSRF-Token", connection_token);
     });
                   }
               });
+  sessionStorage.sessid = connection_sessid;
+  sessionStorage.sessname = connection_sessname;
+  sessionStorage.token = connection_token;
+  //console.log(connection_sessname);
   return err;
-
+  
 }
 
 </script>

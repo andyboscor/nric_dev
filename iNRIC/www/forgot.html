@@ -79,6 +79,89 @@
     $(".menu li a.active img#profile").attr('src',"img/search.svg"); */
  })
 });</script>
+<script>
+$(document).ready(function() {
+   $('#message').hide();
+});
+function forgot_pass(form){
+    var name = form.email.value;
+    var obj = "{\"name\": \"" + name + "\" }";
+                      console.log(obj);
+                      $.ajax({
+                        url: "http://139.162.199.80/nricrestapi/user/request_new_password.json",
+                        type: "POST",
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        data:  obj,
+                        crossDomain: true,
+                        async:false,
+                      //might need to request new token?
+                      /*beforeSend: function (request) {
+                      request.setRequestHeader("X-CSRF-Token", connection_token);
+                      }, */
+
+                        error: function(errorThrown) {
+                       //   alert('Sorry!  The login failed with the response: ' + connection_token );
+                        // console.log(XMLHttpRequest);
+                        //console.log(textStatus);
+                         // console.log(errorThrown);
+                        
+                            if(errorThrown.status == "200")
+                              { 
+                                $('#message').show();
+                                $('#maillabel').hide();
+                                $('#sub').hide();
+                                $('#email').hide();
+                                console.log("request sent");
+                              } 
+                              /*
+                                console.log(errorThrown.status);
+                                console.log(errorThrown);
+                                console.log(errorThrown.responseText);
+                                var string = errorThrown.responseText;
+                                try{
+                                    var data1 = JSON.parse($.trim(string));
+                                  //  console.log(data1.sessid); 
+                                    
+                                 //   console.log(data1.session_name);
+                                   
+                                    connection_sessid = data1.sessid;
+                                    connection_sessname = data1.session_name;
+                                    connection_token = data1.token;
+                                //alert('nu');
+                                }
+                                catch(err){
+                                  console.log(err);
+                                }  
+                                */
+                    },
+                    success: function (data) {
+                          // OK - we're logged in, so snag the session details into our globals and greet the user
+                          //data = JSON.parse($.trim(data));
+                         // connection_user = data.user.uid;
+                          //connection_sessid = data.sessid;
+                          //connection_sessname = data.session_name;
+                         // logged_in = true;
+                          //err = true;
+                          console('no errors');
+                          if(errorThrown.status == "200")
+                              { 
+                                $('#message').show();
+                                console.log("request sent");
+                              } 
+                         // alert('Welcome ' + data.user.name + ', you are now connected as uid: ' + data.user.uid);
+
+                          // build our session cookie
+                          //$.cookie(connection_sessname, connection_sessid);
+
+                          // Obtain a services session token and save it
+                          
+                    }
+    });
+                      return false;
+
+}
+</script>
     </head>
     <body>
      <header class="logoheader">
@@ -88,12 +171,18 @@
             </header>
     <div class="loginpage">
     <div class="loginform">
-        <form name="login" accept-charset="utf-8">
+        <form name="login" method="post" onsubmit="return forgot_pass(this);" accept-charset="utf-8">
             <ul>
                 <li>
-                    <label for="usermail">Your password has been reset. You should get an email soon with the information.</label>
-                    
+                        <label id="maillabel" for="email">Email</label>
+                        <input id="email" type="username" name="email" placeholder="email@domain.com" required>
+                    </li>
+                 <li>
+                    <label id="message" class="dnone" type="hidden" for="usermail">Your password has been reset. You should get an email soon with the information.</label>
                 </li>
+                  <li>
+                        <input id="sub" type="submit" value="Submit">
+                    </li>
             </ul>
         </form> 
         </div>
