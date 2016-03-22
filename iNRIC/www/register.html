@@ -93,14 +93,18 @@ function reg(form){
         alert("You must enter an email address.");
         return false;
     }
-    var obj = {name: name, mail: mail};
+    var obj = "{\"name\": \"" + name + "\", \"mail\" : \"" + mail + "\" }";
     $.ajax({
         url: "http://139.162.199.80/nricrestapi/user/register",
         type: "post",
         crossDomain: true,
         async: false,  
+        dataType: 'text',
+        contentType: 'application/json',
         data: obj,
-        error: function(errorThrown) {
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
             console.log(errorThrown);
         },
         success: function(data){
