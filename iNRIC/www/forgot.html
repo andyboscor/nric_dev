@@ -114,47 +114,16 @@ function forgot_pass(form){
                                 $('#email').hide();
                                 console.log("request sent");
                               } 
-                              /*
-                                console.log(errorThrown.status);
-                                console.log(errorThrown);
-                                console.log(errorThrown.responseText);
-                                var string = errorThrown.responseText;
-                                try{
-                                    var data1 = JSON.parse($.trim(string));
-                                  //  console.log(data1.sessid); 
-                                    
-                                 //   console.log(data1.session_name);
-                                   
-                                    connection_sessid = data1.sessid;
-                                    connection_sessname = data1.session_name;
-                                    connection_token = data1.token;
-                                //alert('nu');
-                                }
-                                catch(err){
-                                  console.log(err);
-                                }  
-                                */
+                             
                     },
                     success: function (data) {
-                          // OK - we're logged in, so snag the session details into our globals and greet the user
-                          //data = JSON.parse($.trim(data));
-                         // connection_user = data.user.uid;
-                          //connection_sessid = data.sessid;
-                          //connection_sessname = data.session_name;
-                         // logged_in = true;
-                          //err = true;
+                          
                           console('no errors');
-                          if(errorThrown.status == "200")
+                          if(data.status == "200")
                               { 
                                 $('#message').show();
                                 console.log("request sent");
                               } 
-                         // alert('Welcome ' + data.user.name + ', you are now connected as uid: ' + data.user.uid);
-
-                          // build our session cookie
-                          //$.cookie(connection_sessname, connection_sessid);
-
-                          // Obtain a services session token and save it
                           
                     }
     });
@@ -180,9 +149,9 @@ function forgot_pass(form){
                  <li>
                     <label id="message" class="dnone" type="hidden" for="usermail">Your password has been reset. You should get an email soon with the information.</label>
                 </li>
-                  <li>
+                <li>
                         <input id="sub" type="submit" value="Submit">
-                    </li>
+                </li>
             </ul>
         </form> 
         </div>
