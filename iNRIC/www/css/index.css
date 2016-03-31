@@ -444,6 +444,9 @@ a.title2{
 }
 .title1{
     margin-left:2.5vw;
+    margin-bottom: 3px;
+    overflow: hidden;
+    margin-right:2px;
 }
 p.data{
     margin-top:5px;
@@ -452,17 +455,19 @@ p.data{
     font-size:1.2em;
 }
 p.data1{
-    margin-top:0px;
+    margin-top:2px;
     margin-right:5px;
     text-transform: none;
     text-decoration: none;
     font-size:1.2em;
     position:relative;
     float:right;
+    margin-bottom: 0px;
 
 }
 .inner{
-    margin-top: 5px;
+    margin-top: 7px;
+    overflow: hidden;
     border-bottom: 1px solid;
     border-color:#BDBDBD;
 }
@@ -539,4 +544,3 @@ font-size:4vw;
 padding-top:2vw;
 display:block;
 }
-

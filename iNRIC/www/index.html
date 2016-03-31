@@ -128,6 +128,109 @@ console.log('logout successful');
 return err;
 }
 </script>
+<script>
+function searching(form)
+{
+    var err = false;
+var obj = "test"; // search key
+    $.ajax({
+        url:"http://139.162.199.80/nricrestapi/views/latest_news",
+        type: "get",
+        crossDomain: true,
+        async: false,  
+        dataType: 'text',
+        contentType: 'application/json',
+        data: obj,
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+
+        },
+        success: function(data){
+            data = JSON.parse($.trim(data));
+            console.log(data);
+            
+            if (data.uid != null) {
+                err = false;
+                console.log(data);
+            }
+        }
+    });
+    return err;
+};
+function news()
+{
+    $.ajax({
+        url:"http://139.162.199.80/nricrestapi/views/latest_news",
+        type: "get",
+        crossDomain: true,
+        async: false,  
+        dataType: 'text',
+        contentType: 'application/json',
+        data: '' ,
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+
+        },
+        success: function(data){
+            data = JSON.parse($.trim(data));
+            console.log(data);
+            jQuery.each(data, function(i, val) {
+                desiredLink = val.link;
+                desiredText = val.title;
+                //desiredDate = val.
+            $('<div class="inner"><div class="title1"><a class="title2" href="#home" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a></div></div>').appendTo($('#latest_news'));
+            });
+            if (data.uid != null) {
+              
+                console.log(data);
+            }
+        }
+    });
+};
+function recent()
+{
+    $.ajax({
+        url:"http://139.162.199.80/nricrestapi/views/recently_added_resources",
+        type: "get",
+        crossDomain: true,
+        async: false,  
+        dataType: 'text',
+        contentType: 'application/json',
+        data: '' ,
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+
+        },
+        success: function(data){
+            data = JSON.parse($.trim(data));
+            console.log(data);
+            jQuery.each(data, function(i, val) {
+                if(i>5) return false;
+                desiredLink = "http://139.162.199.80/node/" + val.nid;
+                desiredText = val.title;
+                desiredDate = val.node_created;
+            $('<div class="inner"><div class="title1"><a class="title2" href="#home" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a><p class="data1">'+ desiredDate + '</p></div></div>').appendTo($('#recent'));
+            
+            console.log(desiredLink);
+            });
+            if (data.uid != null) {
+              
+                console.log(data);
+            }
+        }
+    });
+};
+$( document ).ready(function() {
+    news();
+    recent();
+});
+</script>
 <!-- Adding an in app-browser link is done with an <a> tag. href is set to "#home or #search". 
 onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
     </head>
@@ -143,7 +246,7 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
             <h2 class="block-title"> Headlines </h2>
             <div class="inner">
                 <div class="title1">
-                    <a class="title" href="#home" onclick="window.open('http://www.who.int/campaigns/aids-day/2015/en/', '_blank', 'location=yes');"> World AIDS Day 2015: Getting to Zero </a>
+                    <a class="title" href="#home" onclick="window.open('http://www.who.xint/campaigns/aids-day/2015/en/', '_blank', 'location=yes');"> World AIDS Day 2015: Getting to Zero </a>
                 
                     <p class="data"> On World AIDS Day WHO emphasizes that expanding antiretroviral therapy to all people living with HIV is key to ending the AIDS epidemic within a generation. </p>
                 </div>
@@ -155,15 +258,23 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
                     <p class="data"> On World AIDS Day WHO emphasizes that expanding antiretroviral therapy to all people living with HIV is key to ending the AIDS epidemic within a generation. </p>
                 </div>
             </div>
+            
             <h2 class="block-title"> Latest News </h2>
+            <div  id="latest_news">
+            <!--
             <div class="inner">
                 <div class="title1">
                     <a class="title2" href="http://www.who.int/campaigns/aids-day/2015/en/">European Anitbiotic Awareness Day (EAAD) 18 November 2015 </a>
 
                     <p class="data1"> 12/7/25 </p>
                 </div>
+
+            </div>
+            -->
             </div>
             <h2 class="block-title"> Recent</h2>
+            <div id="recent">
+            <!--
             <div class="inner">
                 <div class="title1">
                     <a class="title2" href="http://www.who.int/campaigns/aids-day/2015/en/">World AIDS Day 2015: Getting to Zero </a>
@@ -171,6 +282,7 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
                     <p class="data1"> 12/7/25 </p>
                 </div>
             </div>
+
             <div class="inner">
                 <div class="title1">
                     <a class="title2" href="http://www.who.int/campaigns/aids-day/2015/en/">European Anitbiotic Awareness Day (EAAD) 18 November 2015 </a>
@@ -178,12 +290,14 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
                     <p class="data1"> 12/7/25 </p>
                 </div>
             </div>
-
+            -->
+            </div>
+            <div class="filler"> </div>
         </div>
         <div class="section" id="search">
 
             <div class="normalform" style="margin-top:4vh;">
-
+            <form method="" onclick="searching(this); return false;" accept-charset="utf-8">
                <input type="search" name="search" placeholder="Search..." required>
                <p> </p>
 
@@ -193,6 +307,7 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
                 <option value="Afganistan">Aerial</option>
             </select>
             <input type="submit" value="Search">
+            </form>
         </div>
         <h2 class="block-title"> Filters </h2>
         <div class="dropdown">
