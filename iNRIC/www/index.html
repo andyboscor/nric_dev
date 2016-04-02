@@ -373,6 +373,49 @@ function usefullinks()
         }
     });
 };
+function getuserinfo()
+{
+    var cookie = sessionStorage.sessname + "=" + sessionStorage.sessid;
+    console.log(cookie);
+    var err = false;
+    var obj = "{\"Cookie\": \"" + cookie + "\" }";
+
+$.ajax({
+url: "http://139.162.199.80/nricrestapi/system/connect.json",
+type: 'POST',
+dataType: 'json',
+contentType: 'application/json',
+crossDomain: true,
+async:false,
+data: '',
+ beforeSend: function (request) {
+        request.setRequestHeader("X-CSRF-Token", sessionStorage.token);
+      }, 
+error: function(XMLHttpRequest, textStatus, errorThrown) {
+console.log(JSON.stringify(XMLHttpRequest));
+console.log(textStatus);
+console.log(errorThrown);
+console.log(sessionStorage.token);
+if (XMLHttpRequest.status == "200" )
+    {    err = false;
+        console.log(err);
+    }
+},
+success: function (data) {
+console.log('logout successful');
+}
+
+});
+return err;
+};
+function profilepage()
+{
+    var desiredName = sessionStorage.name;
+    var desiredEmail = sessionStorage.mail;
+    var email = '<a class="email" id="prof_email">' + desiredEmail + ' </a>';
+    document.getElementById("prof_name").innerHTML = desiredName + email;
+   
+};
 $( document ).ready(function() {
     news();
     recent();
@@ -382,6 +425,8 @@ $( document ).ready(function() {
     //directory();
     //conferences();
     //usefullinks();
+    //getuserinfo();
+    profilepage();
 });
 </script>
 <script type="text/javascript">
@@ -597,9 +642,9 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
         </div>
     </div>
     <div class="section" id="profile">
-        <div class="profile_name">
-        Dr. Patty Kostkova
-        <a class="email"> p.kostkova@ucl.ac.uk </a>
+        <div class="profile_name" id="prof_name">
+        
+       <!-- <a class="email" id="prof_email"> p.kostkova@ucl.ac.uk </a> -->
         </div>
         <div class="settings">
         <h2 class="block-title"> Filters </h2>
