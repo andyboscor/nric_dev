@@ -41,56 +41,7 @@
     }
 });
          </script>
-        <script type="text/javascript">
-        $(document).ready(function(){
-     $(".menu li a").click(function(){
-    $('.menu li a').not(this).removeClass('active');
-    $(this).addClass('active');
-    if(!($("a#home").hasClass('active')))
-    {
-        $("a#home img#home").attr('src',"img/home.svg");
-    }
-    else {
-        $("a#home img#home").attr('src',"img/homeactive.svg");
-    }
-    if(!($("a#search").hasClass('active')))
-    {
-        $("a#search img#search").attr('src',"img/search.svg");
-    }
-    else {
-        $("a#search img#search").attr('src',"img/searchactive.svg");
-    }
-    if(!($("a#infocus").hasClass('active')))
-    {
-        $("a#infocus img#infocus").attr('src',"img/target.png");
-    }
-    else {
-        $("a#infocus img#infocus").attr('src',"img/targetactive.png");
-    }
-    if(!($("a#links").hasClass('active')))
-    {
-        $("a#links img#links").attr('src',"img/links.svg");
-    }
-    else {
-        $("a#links img#links").attr('src',"img/linksactive.svg");
-    }
-    if(!($("a#profile").hasClass('active')))
-    {
-        $("a#profile img#profile").attr('src',"img/profile.svg");
-    }
-    else {
-        $("a#profile img#profile").attr('src',"img/profileactive.svg");
-    };
-
-/*
-    if(!$("a img#home").hasClass("active"))
-    { $("a img#home").attr('src',"img/home.svg");};
-    $(".menu li a.active img#search").attr('src',"img/search.svg");
-    $(".menu li a.active img#infocus").attr('src',"img/search.svg");
-    $(".menu li a.active img#links").attr('src',"img/search.svg");
-    $(".menu li a.active img#profile").attr('src',"img/search.svg"); */
- })
-});</script>
+        
 <script>
 function logout()
 {
@@ -177,7 +128,7 @@ function news()
         },
         success: function(data){
             data = JSON.parse($.trim(data));
-            console.log(data);
+            //console.log(data);
             jQuery.each(data, function(i, val) {
                 desiredLink = val.link;
                 desiredText = val.title;
@@ -186,7 +137,7 @@ function news()
             });
             if (data.uid != null) {
               
-                console.log(data);
+                //console.log(data);
             }
         }
     });
@@ -209,7 +160,7 @@ function recent()
         },
         success: function(data){
             data = JSON.parse($.trim(data));
-            console.log(data);
+          //  console.log(data);
             jQuery.each(data, function(i, val) {
                 if(i>5) return false;
                 desiredLink = "http://139.162.199.80/node/" + val.nid;
@@ -221,7 +172,7 @@ function recent()
             });
             if (data.uid != null) {
               
-                console.log(data);
+                //onsole.log(data);
             }
         }
     });
@@ -244,10 +195,10 @@ function headline()
         },
         success: function(data){
             data = JSON.parse($.trim(data));
-            console.log(data);
+           // console.log(data);
             jQuery.each(data, function(i, val) {
                 if(i>5) return false;
-                desiredLink = "http://139.162.199.80/node/" + val.nid;
+                desiredLink = val.link;
                 desiredText = val.title;
                 desiredData = val.body;
                 var find = '<p>﻿﻿﻿﻿﻿</p>';
@@ -263,7 +214,7 @@ function headline()
                 var re4 = new RegExp(find4, 'g');
                 desiredData = desiredData.replace(re4, '');
                 //desiredData.replace(/'<p>'/g,'');
-                console.log(desiredData);
+                //console.log(desiredData);
             $('<div class="inner"><div class="title1"><a class="title" href="#home" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a>'+ desiredData + '</div></div>').appendTo($('#headlines'));
             
 
@@ -271,7 +222,153 @@ function headline()
             });
             if (data.uid != null) {
               
-                console.log(data);
+                //console.log(data);
+            }
+        }
+    });
+};
+function infocus()
+{
+    $.ajax({
+        url:"http://139.162.199.80/nricrestapi/node/54121",
+        type: "get",
+        crossDomain: true,
+        async: false,  
+        dataType: 'text',
+        contentType: 'application/json',
+        data: '' ,
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+
+        },
+        success: function(data){
+            data = JSON.parse($.trim(data));
+            //console.log(data);
+            console.log('aici');
+            jQuery.each(data, function(i, val) {
+                if(i>5) return false;
+                desiredLink = "http://139.162.199.80/node/" + val.nid;
+                desiredText = val.title;
+                desiredDate = val.node_created;
+            $('<div class="inner"><div class="title1"><a class="title2" href="#infocus" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a><p class="data1">'+ desiredDate + '</p></div></div>').appendTo($('#recent'));
+            
+            //console.log(desiredLink);
+            });
+            if (data.uid != null) {
+              
+               // console.log(data);
+            }
+        }
+    });
+};
+function training()
+{
+    $.ajax({
+        url:"http://139.162.199.80/nricrestapi/views/courses",
+        type: "get",
+        crossDomain: true,
+        async: false,  
+        dataType: 'text',
+        contentType: 'application/json',
+        data: '' ,
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+
+        },
+        success: function(data){
+            data = JSON.parse($.trim(data));
+            //console.log(data);
+            console.log('aici');
+            jQuery.each(data, function(i, val) {
+                //if(i>5) return false;
+                desiredLink = val.link;
+                desiredText = val.nid;
+                desiredDate = val.node_created;
+            $('<div class="inner"><div class="title1"><a class="title2" href="#infocus" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a><p class="data1">'+ desiredDate + '</p></div></div>').appendTo($('#training'));
+            
+            //console.log(desiredLink);
+            });
+            if (data.uid != null) {
+              
+               // console.log(data);
+            }
+        }
+    });
+};
+function conferences()
+{
+    $.ajax({
+        url:"http://139.162.199.80/nricrestapi/views/conferences",
+        type: "get",
+        crossDomain: true,
+        async: false,  
+        dataType: 'text',
+        contentType: 'application/json',
+        data: '' ,
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+
+        },
+        success: function(data){
+            data = JSON.parse($.trim(data));
+            //console.log(data);
+            console.log('aici');
+            jQuery.each(data, function(i, val) {
+                //if(i>5) return false;
+                desiredLink = val.link;
+                desiredText = val.node_title;
+                desiredDate = val.node_created;
+
+           // $('<div class="inner"><div class="title1"><a class="title2" href="#home" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a><p class="data1">'+ desiredDate + '</p></div></div>').appendTo($('#training'));
+            
+            //console.log(desiredLink);
+            });
+            if (data.uid != null) {
+              
+               // console.log(data);
+            }
+        }
+    });
+};
+function usefullinks()
+{
+    $.ajax({
+        url:"http://139.162.199.80/nricrestapi/views/directory",
+        type: "get",
+        crossDomain: true,
+        async: false,  
+        dataType: 'text',
+        contentType: 'application/json',
+        data: '' ,
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+
+        },
+        success: function(data){
+            data = JSON.parse($.trim(data));
+            //console.log(data);
+            console.log('aici');
+            jQuery.each(data, function(i, val) {
+                //if(i>5) return false;
+                desiredLink = val.link;
+                desiredText = val.link;
+                //desiredDate = val.node_created;
+
+            $('<div class="inner"><div class="title1"><a class="title2" href="#links" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a></div></div>').appendTo($('#useful'));
+            
+            //console.log(desiredLink);
+            });
+            if (data.uid != null) {
+              
+               // console.log(data);
             }
         }
     });
@@ -280,8 +377,79 @@ $( document ).ready(function() {
     news();
     recent();
     headline();
+    //infocus();
+    //training();
+    //directory();
+    //conferences();
+    //usefullinks();
 });
 </script>
+<script type="text/javascript">
+        $(document).ready(function(){
+            var flag1 = true;
+            var flag2 = true;
+            var flag3 = true;
+     $(".menu li a").click(function(){
+    $('.menu li a').not(this).removeClass('active');
+    $(this).addClass('active');
+    if(!($("a#home").hasClass('active')))
+    {
+        $("a#home img#home").attr('src',"img/home.svg");
+    }
+    else {
+        $("a#home img#home").attr('src',"img/homeactive.svg");
+    }
+    if(!($("a#search").hasClass('active')))
+    {
+        $("a#search img#search").attr('src',"img/search.svg");
+    }
+    else {
+        $("a#search img#search").attr('src',"img/searchactive.svg");
+    }
+    if(!($("a#infocus").hasClass('active')))
+    {
+        $("a#infocus img#infocus").attr('src',"img/target.png");
+        
+    }
+    else {
+        $("a#infocus img#infocus").attr('src',"img/targetactive.png");
+        if(flag1==true)
+        {
+            training();
+            flag1=false;
+        }
+    }
+    if(!($("a#links").hasClass('active')))
+    {
+        $("a#links img#links").attr('src',"img/links.svg");
+
+    }
+    else {
+        $("a#links img#links").attr('src',"img/linksactive.svg");
+        if(flag2==true)
+        {
+            conferences();
+            usefullinks();
+            flag2=false;
+        }
+    }
+    if(!($("a#profile").hasClass('active')))
+    {
+        $("a#profile img#profile").attr('src',"img/profile.svg");
+    }
+    else {
+        $("a#profile img#profile").attr('src',"img/profileactive.svg");
+    };
+
+/*
+    if(!$("a img#home").hasClass("active"))
+    { $("a img#home").attr('src',"img/home.svg");};
+    $(".menu li a.active img#search").attr('src',"img/search.svg");
+    $(".menu li a.active img#infocus").attr('src',"img/search.svg");
+    $(".menu li a.active img#links").attr('src',"img/search.svg");
+    $(".menu li a.active img#profile").attr('src',"img/search.svg"); */
+ })
+});</script>
 <!-- Adding an in app-browser link is done with an <a> tag. href is set to "#home or #search". 
 onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
     </head>
@@ -414,13 +582,19 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
         <h2 class="block-title"> In Focus </h2>
         <p>Static data</p>
         <h2 class="block-title"> Training </h2>
-        <p>Static data</p>
+        <div id="training">
+        </div>
+        <div class="filler">
+        </div>
     </div>
     <div class="section" id="links">
         <h2 class="block-title"> Conferences </h2>
         <p> Static Data </p>
         <h2 class="block-title"> Useful links </h2>
-        <p> Static Data </p>
+        <div id="useful">
+        </div>
+        <div class="filler">
+        </div>
     </div>
     <div class="section" id="profile">
         <div class="profile_name">
