@@ -262,7 +262,6 @@ a.none{
     float:right;
     color:#ff2f26;
 }
-
 .register {
     position: fixed;
     bottom: 1em;
@@ -453,6 +452,7 @@ p.data{
     text-transform: none;
     text-decoration: none;
     font-size:1.2em;
+
 }
 p.data1{
     margin-top:2px;

@@ -217,7 +217,57 @@ function recent()
                 desiredDate = val.node_created;
             $('<div class="inner"><div class="title1"><a class="title2" href="#home" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a><p class="data1">'+ desiredDate + '</p></div></div>').appendTo($('#recent'));
             
-            console.log(desiredLink);
+            //console.log(desiredLink);
+            });
+            if (data.uid != null) {
+              
+                console.log(data);
+            }
+        }
+    });
+};
+function headline()
+{
+    $.ajax({
+        url:"http://139.162.199.80/nricrestapi/views/headlines",
+        type: "get",
+        crossDomain: true,
+        async: false,  
+        dataType: 'text',
+        contentType: 'application/json',
+        data: '' ,
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+
+        },
+        success: function(data){
+            data = JSON.parse($.trim(data));
+            console.log(data);
+            jQuery.each(data, function(i, val) {
+                if(i>5) return false;
+                desiredLink = "http://139.162.199.80/node/" + val.nid;
+                desiredText = val.title;
+                desiredData = val.body;
+                var find = '<p>﻿﻿﻿﻿﻿</p>';
+                var re = new RegExp(find, 'g');
+                desiredData = desiredData.replace(re, '');
+                var find2 = '<p>';
+                var re2 = new RegExp(find2, 'g');
+                desiredData = desiredData.replace(re2, '<p class="data">');
+                var find3 = '<div>';
+                var re3 = new RegExp(find3, 'g');
+                desiredData = desiredData.replace(re3, '');
+                var find4 = '</div>';
+                var re4 = new RegExp(find4, 'g');
+                desiredData = desiredData.replace(re4, '');
+                //desiredData.replace(/'<p>'/g,'');
+                console.log(desiredData);
+            $('<div class="inner"><div class="title1"><a class="title" href="#home" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a>'+ desiredData + '</div></div>').appendTo($('#headlines'));
+            
+
+            //console.log(desiredLink);
             });
             if (data.uid != null) {
               
@@ -229,6 +279,7 @@ function recent()
 $( document ).ready(function() {
     news();
     recent();
+    headline();
 });
 </script>
 <!-- Adding an in app-browser link is done with an <a> tag. href is set to "#home or #search". 
@@ -244,7 +295,8 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
 
         <div class="section" id="home">
             <h2 class="block-title"> Headlines </h2>
-            <div class="inner">
+            <div  id="headlines">
+            <!-- <div class="inner">
                 <div class="title1">
                     <a class="title" href="#home" onclick="window.open('http://www.who.xint/campaigns/aids-day/2015/en/', '_blank', 'location=yes');"> World AIDS Day 2015: Getting to Zero </a>
                 
@@ -257,6 +309,9 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
 
                     <p class="data"> On World AIDS Day WHO emphasizes that expanding antiretroviral therapy to all people living with HIV is key to ending the AIDS epidemic within a generation. </p>
                 </div>
+            </div>
+            -->
+            </div>
             </div>
             
             <h2 class="block-title"> Latest News </h2>
