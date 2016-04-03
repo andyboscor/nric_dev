@@ -1,3 +1,12 @@
+$(window).load(function(){
+  if(!($("a#home").hasClass('active')))
+    {
+        $("a#home img#home").attr('src',"img/home.svg");
+    }
+    else {
+        $("a#home img#home").attr('src',"img/homeactive.svg");
+    }
+});
 function logout()
 {
     var cookie = sessionStorage.sessname + "=" + sessionStorage.sessid;
@@ -235,7 +244,7 @@ function training()
         success: function(data){
             data = JSON.parse($.trim(data));
             //console.log(data);
-            console.log('aici');
+            console.log('aici2');
             jQuery.each(data, function(i, val) {
                 //if(i>5) return false;
                 desiredLink = val.link;
@@ -271,7 +280,7 @@ function conferences()
         success: function(data){
             data = JSON.parse($.trim(data));
             //console.log(data);
-            console.log('aici');
+            console.log('aici1');
             jQuery.each(data, function(i, val) {
                 //if(i>5) return false;
                 desiredLink = val.link;
@@ -326,6 +335,7 @@ function usefullinks()
         }
     });
 };
+/*
 function getuserinfo()
 {
     var cookie = sessionStorage.sessname + "=" + sessionStorage.sessid;
@@ -361,6 +371,7 @@ console.log('logout successful');
 });
 return err;
 };
+*/
 function profilepage()
 {
     var desiredName = sessionStorage.name;
@@ -369,15 +380,74 @@ function profilepage()
     document.getElementById("prof_name").innerHTML = desiredName + email;
    
 };
+var flag1 = true;
+var flag2 = true;
+var flag3 = true;
 $( document ).ready(function() {
     news();
     recent();
     headline();
-    //infocus();
-    //training();
-    //directory();
-    //conferences();
-    //usefullinks();
-    //getuserinfo();
     profilepage();
+    
+     $(".menu li a").click(function(){
+    $('.menu li a').not(this).removeClass('active');
+    $(this).addClass('active');
+    if(!($("a#home").hasClass('active')))
+    {
+        $("a#home img#home").attr('src',"img/home.svg");
+    }
+    else {
+        $("a#home img#home").attr('src',"img/homeactive.svg");
+    }
+    if(!($("a#search").hasClass('active')))
+    {
+        $("a#search img#search").attr('src',"img/search.svg");
+    }
+    else {
+        $("a#search img#search").attr('src',"img/searchactive.svg");
+    }
+    if(!($("a#infocus").hasClass('active')))
+    {
+        $("a#infocus img#infocus").attr('src',"img/target.png");
+        
+    }
+    else {
+        $("a#infocus img#infocus").attr('src',"img/targetactive.png");
+        if(flag1==true)
+        {
+            training();
+            flag1=false;
+        }
+    }
+    if(!($("a#links").hasClass('active')))
+    {
+        $("a#links img#links").attr('src',"img/links.svg");
+
+    }
+    else {
+        $("a#links img#links").attr('src',"img/linksactive.svg");
+        if(flag2==true)
+        {
+            conferences();
+            usefullinks();
+            console.log('2');
+            flag2=false;
+        }
+    }
+    if(!($("a#profile").hasClass('active')))
+    {
+        $("a#profile img#profile").attr('src',"img/profile.svg");
+    }
+    else {
+        $("a#profile img#profile").attr('src',"img/profileactive.svg");
+    };
+
+/*
+    if(!$("a img#home").hasClass("active"))
+    { $("a img#home").attr('src',"img/home.svg");};
+    $(".menu li a.active img#search").attr('src',"img/search.svg");
+    $(".menu li a.active img#infocus").attr('src',"img/search.svg");
+    $(".menu li a.active img#links").attr('src',"img/search.svg");
+    $(".menu li a.active img#profile").attr('src',"img/search.svg"); */
+ })
 });
