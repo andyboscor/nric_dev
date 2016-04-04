@@ -30,104 +30,7 @@
 
         <title>iNRIC</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-         <script type="text/javascript">
-         $(window).load(function(){
-  if(!($("a#home").hasClass('active')))
-    {
-        $("a#home img#home").attr('src',"img/home.svg");
-    }
-    else {
-        $("a#home img#home").attr('src',"img/homeactive.svg");
-    }
-});
-         </script>
-        <script type="text/javascript">
-        $(document).ready(function(){
-     $(".menu li a").click(function(){
-    $('.menu li a').not(this).removeClass('active');
-    $(this).addClass('active');
-    if(!($("a#home").hasClass('active')))
-    {
-        $("a#home img#home").attr('src',"img/home.svg");
-    }
-    else {
-        $("a#home img#home").attr('src',"img/homeactive.svg");
-    }
-    if(!($("a#search").hasClass('active')))
-    {
-        $("a#search img#search").attr('src',"img/search.svg");
-    }
-    else {
-        $("a#search img#search").attr('src',"img/searchactive.svg");
-    }
-    if(!($("a#infocus").hasClass('active')))
-    {
-        $("a#infocus img#infocus").attr('src',"img/target.png");
-    }
-    else {
-        $("a#infocus img#infocus").attr('src',"img/targetactive.png");
-    }
-    if(!($("a#links").hasClass('active')))
-    {
-        $("a#links img#links").attr('src',"img/links.svg");
-    }
-    else {
-        $("a#links img#links").attr('src',"img/linksactive.svg");
-    }
-    if(!($("a#profile").hasClass('active')))
-    {
-        $("a#profile img#profile").attr('src',"img/profile.svg");
-    }
-    else {
-        $("a#profile img#profile").attr('src',"img/profileactive.svg");
-    };
-
-/*
-    if(!$("a img#home").hasClass("active"))
-    { $("a img#home").attr('src',"img/home.svg");};
-    $(".menu li a.active img#search").attr('src',"img/search.svg");
-    $(".menu li a.active img#infocus").attr('src',"img/search.svg");
-    $(".menu li a.active img#links").attr('src',"img/search.svg");
-    $(".menu li a.active img#profile").attr('src',"img/search.svg"); */
- })
-});</script>
-<script>
-function logout()
-{
-    var cookie = sessionStorage.sessname + "=" + sessionStorage.sessid;
-    console.log(cookie);
-    var err = false;
-    var obj = "{\"Cookie\": \"" + cookie + "\" }";
-
-$.ajax({
-url: "http://139.162.199.80/nricrestapi/user/logout",
-type: 'POST',
-dataType: 'json',
-contentType: 'application/json',
-crossDomain: true,
-async:false,
-data: obj,
- beforeSend: function (request) {
-        request.setRequestHeader("X-CSRF-Token", sessionStorage.token);
-      }, 
-error: function(XMLHttpRequest, textStatus, errorThrown) {
-console.log(JSON.stringify(XMLHttpRequest));
-console.log(textStatus);
-console.log(errorThrown);
-console.log(sessionStorage.token);
-if (XMLHttpRequest.status == "200" )
-    {    err = true;
-        console.log(err);
-    }
-},
-success: function (data) {
-console.log('logout successful');
-}
-
-});
-return err;
-}
-</script>
+        
 <!-- Adding an in app-browser link is done with an <a> tag. href is set to "#home or #search". 
 onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
     </head>
@@ -141,9 +44,10 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
 
         <div class="section" id="home">
             <h2 class="block-title"> Headlines </h2>
-            <div class="inner">
+            <div  id="headlines">
+            <!-- <div class="inner">
                 <div class="title1">
-                    <a class="title" href="#home" onclick="window.open('http://www.who.int/campaigns/aids-day/2015/en/', '_blank', 'location=yes');"> World AIDS Day 2015: Getting to Zero </a>
+                    <a class="title" href="#home" onclick="window.open('http://www.who.xint/campaigns/aids-day/2015/en/', '_blank', 'location=yes');"> World AIDS Day 2015: Getting to Zero </a>
                 
                     <p class="data"> On World AIDS Day WHO emphasizes that expanding antiretroviral therapy to all people living with HIV is key to ending the AIDS epidemic within a generation. </p>
                 </div>
@@ -155,15 +59,26 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
                     <p class="data"> On World AIDS Day WHO emphasizes that expanding antiretroviral therapy to all people living with HIV is key to ending the AIDS epidemic within a generation. </p>
                 </div>
             </div>
+            -->
+            </div>
+            
+            
             <h2 class="block-title"> Latest News </h2>
+            <div  id="latest_news">
+            <!--
             <div class="inner">
                 <div class="title1">
                     <a class="title2" href="http://www.who.int/campaigns/aids-day/2015/en/">European Anitbiotic Awareness Day (EAAD) 18 November 2015 </a>
 
                     <p class="data1"> 12/7/25 </p>
                 </div>
+
+            </div>
+            -->
             </div>
             <h2 class="block-title"> Recent</h2>
+            <div id="recent">
+            <!--
             <div class="inner">
                 <div class="title1">
                     <a class="title2" href="http://www.who.int/campaigns/aids-day/2015/en/">World AIDS Day 2015: Getting to Zero </a>
@@ -171,6 +86,7 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
                     <p class="data1"> 12/7/25 </p>
                 </div>
             </div>
+
             <div class="inner">
                 <div class="title1">
                     <a class="title2" href="http://www.who.int/campaigns/aids-day/2015/en/">European Anitbiotic Awareness Day (EAAD) 18 November 2015 </a>
@@ -178,12 +94,14 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
                     <p class="data1"> 12/7/25 </p>
                 </div>
             </div>
-
+            -->
+            </div>
+            <div class="filler"> </div>
         </div>
         <div class="section" id="search">
 
             <div class="normalform" style="margin-top:4vh;">
-
+            <form method="" onclick="searching(this); return false;" accept-charset="utf-8">
                <input type="search" name="search" placeholder="Search..." required>
                <p> </p>
 
@@ -193,6 +111,7 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
                 <option value="Afganistan">Aerial</option>
             </select>
             <input type="submit" value="Search">
+            </form>
         </div>
         <h2 class="block-title"> Filters </h2>
         <div class="dropdown">
@@ -244,18 +163,24 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
         <h2 class="block-title"> In Focus </h2>
         <p>Static data</p>
         <h2 class="block-title"> Training </h2>
-        <p>Static data</p>
+        <div id="training">
+        </div>
+        <div class="filler">
+        </div>
     </div>
     <div class="section" id="links">
         <h2 class="block-title"> Conferences </h2>
         <p> Static Data </p>
         <h2 class="block-title"> Useful links </h2>
-        <p> Static Data </p>
+        <div id="useful">
+        </div>
+        <div class="filler">
+        </div>
     </div>
     <div class="section" id="profile">
-        <div class="profile_name">
-        Dr. Patty Kostkova
-        <a class="email"> p.kostkova@ucl.ac.uk </a>
+        <div class="profile_name" id="prof_name">
+        
+       <!-- <a class="email" id="prof_email"> p.kostkova@ucl.ac.uk </a> -->
         </div>
         <div class="settings">
         <h2 class="block-title"> Filters </h2>
@@ -305,9 +230,9 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
         </div>
         <h2 class="block-title"> Password </h2>
         <div class="normalform">
-
-               <input type="password" name="search" placeholder="Change Password..." required>
-            
+               <!--<input type="password" name="search" placeholder="Change Password..." required> -->
+                <label> An email will be sent to you in order to change the password</label>
+                <br>
             <input type="submit" value="Change">
         </div>
         <input type="button" class="logout" onclick="if(logout() == true) window.location='login.html';" value="Log out" />
@@ -326,6 +251,7 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
     </footer>  
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="functions.js"></script>
     <script type="text/javascript">
         app.initialize();
     </script>

@@ -88,6 +88,8 @@ var connection_user;
 var connection_sessid;
 var connection_sessname;
 var connection_token;
+var connection_mail;
+var connection_name;
 
 function validate(form){
     var name = form.usermail.value;
@@ -159,9 +161,10 @@ function validate(form){
                                 try{
                                     var data1 = JSON.parse($.trim(string));
                                   //  console.log(data1.sessid); 
-                                    
+                                    //console.log(data1);
                                  //   console.log(data1.session_name);
-                                   
+                                    connection_name = data1.user.name;
+                                    connection_mail = data1.user.mail;
                                     connection_sessid = data1.sessid;
                                     connection_sessname = data1.session_name;
                                     connection_token = data1.token;
@@ -194,6 +197,8 @@ function validate(form){
   sessionStorage.sessid = connection_sessid;
   sessionStorage.sessname = connection_sessname;
   sessionStorage.token = connection_token;
+  sessionStorage.name = connection_name;
+  sessionStorage.mail = connection_mail;
   //console.log(connection_sessname);
   return err;
   
