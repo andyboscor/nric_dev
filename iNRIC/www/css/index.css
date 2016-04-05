@@ -544,3 +544,21 @@ font-size:4vw;
 padding-top:2vw;
 display:block;
 }
+.confinner{
+    border-bottom: 1.2px solid;
+    border-color:black;
+}
+.conf{
+    
+    margin-left:5px;
+    margin-top:2vh;
+}
+.confprim{
+    
+    margin-left:5px;
+}
+
+.confinner a{
+    font-size: 4.5vw;
+    
+}
