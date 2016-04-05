@@ -244,13 +244,14 @@ function training()
         success: function(data){
             data = JSON.parse($.trim(data));
             //console.log(data);
-            console.log('aici2');
+            //console.log('aici2');
             jQuery.each(data, function(i, val) {
                 //if(i>5) return false;
                 desiredLink = val.link;
-                desiredText = val.nid;
-                desiredDate = val.node_created;
-                $('<div class="inner"><div class="title1"><a class="title2" href="#infocus" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a><p class="data1">'+ desiredDate + '</p></div></div>').appendTo($('#training'));
+                desiredText = val.title;
+                //desiredDate = val.node_created;
+                desiredText2 = val.nid;
+                $('<div class="inner"><div class="title1"><a class="title2" href="#infocus" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a><p class="data">'+ desiredText2 + '</p></div></div>').appendTo($('#training'));
 
             //console.log(desiredLink);
         });
@@ -279,7 +280,7 @@ function conferences()
         },
         success: function(data){
             data = JSON.parse($.trim(data));
-            //console.log(data);
+            console.log(data);
             console.log('aici1');
             jQuery.each(data, function(i, val) {
                 //if(i>5) return false;
@@ -317,11 +318,11 @@ function usefullinks()
         success: function(data){
             data = JSON.parse($.trim(data));
             //console.log(data);
-            console.log('aici');
+            //console.log('aici');
             jQuery.each(data, function(i, val) {
                 //if(i>5) return false;
                 desiredLink = val.link;
-                desiredText = val.link;
+                desiredText = val.title;
                 //desiredDate = val.node_created;
 
                 $('<div class="inner"><div class="title1"><a class="title2" href="#links" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a></div></div>').appendTo($('#useful'));
@@ -430,7 +431,7 @@ $( document ).ready(function() {
             {
                 conferences();
                 usefullinks();
-                console.log('2');
+                //console.log('2');
                 flag2=false;
             }
         }
