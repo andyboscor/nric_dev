@@ -42,8 +42,8 @@ $(window).load(function(){
             });
         return err;
     };
-    function searching(form)
-    {
+function searching(form)
+{
         var err = false;
 var obj = "test"; // search key
 $.ajax({
@@ -430,7 +430,7 @@ $( document ).ready(function() {
             $("a#links img#links").attr('src',"img/linksactive.svg");
             if(flag2==true)
             {
-                conferences();
+                //conferences();
                 usefullinks();
                 //console.log('2');
                 flag2=false;

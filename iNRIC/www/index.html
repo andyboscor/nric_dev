@@ -20,31 +20,31 @@
     under the License.
 -->
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+<head>
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
 
-        <title>iNRIC</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        
+	<title>iNRIC</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
 <!-- Adding an in app-browser link is done with an <a> tag. href is set to "#home or #search". 
-onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
-    </head>
-    <body>
-        <!-- Logo  -->
-        <header class="logoheader">
-            <div class="logodiv">
-                <img class="logo" src="img/logo.png">
-            </div>
-        </header>
+	onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
+</head>
+<body>
+	<!-- Logo  -->
+	<header class="logoheader">
+		<div class="logodiv">
+			<img class="logo" src="img/logo.png">
+		</div>
+	</header>
 
-        <div class="section" id="home">
-            <h2 class="block-title"> Headlines </h2>
-            <div  id="headlines">
+	<div class="section" id="home">
+		<h2 class="block-title"> Headlines </h2>
+		<div  id="headlines">
             <!-- <div class="inner">
                 <div class="title1">
                     <a class="title" href="#home" onclick="window.open('http://www.who.xint/campaigns/aids-day/2015/en/', '_blank', 'location=yes');"> World AIDS Day 2015: Getting to Zero </a>
@@ -59,12 +59,12 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
                     <p class="data"> On World AIDS Day WHO emphasizes that expanding antiretroviral therapy to all people living with HIV is key to ending the AIDS epidemic within a generation. </p>
                 </div>
             </div>
-            -->
-            </div>
-            
-            
-            <h2 class="block-title"> Latest News </h2>
-            <div  id="latest_news">
+        -->
+    </div>
+    
+    
+    <h2 class="block-title"> Latest News </h2>
+    <div  id="latest_news">
             <!--
             <div class="inner">
                 <div class="title1">
@@ -74,10 +74,10 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
                 </div>
 
             </div>
-            -->
-            </div>
-            <h2 class="block-title"> Recent</h2>
-            <div id="recent">
+        -->
+    </div>
+    <h2 class="block-title"> Recent</h2>
+    <div id="recent">
             <!--
             <div class="inner">
                 <div class="title1">
@@ -94,168 +94,173 @@ onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
                     <p class="data1"> 12/7/25 </p>
                 </div>
             </div>
-            -->
-            </div>
-            <div class="filler"> </div>
-        </div>
-        <div class="section" id="search">
-
-            <div class="normalform" style="margin-top:4vh;">
-            <form method="" onclick="searching(this); return false;" accept-charset="utf-8">
-               <input type="search" name="search" placeholder="Search..." required>
-               <p> </p>
-
-               <select name="category">
-                <option value="">Category...</option>
-                <option value="Afganistan">Disease</option>
-                <option value="Afganistan">Aerial</option>
-            </select>
-            <input type="submit" value="Search">
-            </form>
-        </div>
-        <h2 class="block-title"> Filters </h2>
-        <div class="dropdown">
-            <input type="checkbox" id="checkbox_toggle" class="menu">
-            <label for="checkbox_toggle">Region </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
-            <ul id="drop">
-                <li class="drop"><input type="checkbox" id="check1"><label for="check1">Africa</label></li>
-                <li class="drop"><input type="checkbox" id="check2"><label for="check2">North America</label></li>
-                <li class="drop"><input type="checkbox" id="check3"><label for="check3">South America</label></li>
-                <li class="drop"><input type="checkbox" id="check4"><label for="check4">Asia</label></li>
-                <li class="drop"><input type="checkbox" id="check5"><label for="check5">Europe</label></li>
-                <li class="drop"><input type="checkbox" id="check6"><label for="check6">Oceania</label></li>
-            </ul>
-        </div>
-        <div class="dropdown">
-            <input type="checkbox" id="checkbox_toggle2" class="menu">
-            <label for="checkbox_toggle2">Diseases </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
-            <ul id="drop">
-                <li class="drop"><input type="checkbox" id="check1"><label for="check1">Africa</label></li>
-                <li class="drop"><input type="checkbox" id="check2"><label for="check2">North America</label></li>
-                <li class="drop"><input type="checkbox" id="check3"><label for="check3">South America</label></li>
-                <li class="drop"><input type="checkbox" id="check4"><label for="check4">Asia</label></li>
-                <li class="drop"><input type="checkbox" id="check5"><label for="check5">Europe</label></li>
-                <li class="drop"><input type="checkbox" id="check6"><label for="check6">Oceania</label></li>
-            </ul>
-        </div>
-        <div class="dropdown">
-            <input type="checkbox" id="checkbox_toggle3" class="menu">
-            <label for="checkbox_toggle3">Diseases </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
-            <ul id="drop">
-                <li class="drop"><input type="checkbox" id="check1"><label for="check1">Africa</label></li>
-                <li class="drop"><input type="checkbox" id="check2"><label for="check2">North America</label></li>
-                <li class="drop"><input type="checkbox" id="check3"><label for="check3">South America</label></li>
-                <li class="drop"><input type="checkbox" id="check4"><label for="check4">Asia</label></li>
-                <li class="drop"><input type="checkbox" id="check5"><label for="check5">Europe</label></li>
-                <li class="drop"><input type="checkbox" id="check6"><label for="check6">Oceania</label></li>
-            </ul>
-        </div>
-        <h2 class="block-title"> Contribute </h2>
-         <div class="normalform" style=" ">
-
-               <input type="name" name="search" placeholder="Add title" required>
-            
-            <input type="submit" value="Add">
-        </div>
-       <div class="filler"> </div>
+        -->
     </div>
-    <div class="section" id="infocus">
-        <h2 class="block-title"> In Focus </h2>
-        <p>Static data</p>
-        <h2 class="block-title"> Training </h2>
-        <div id="training">
-        </div>
-        <div class="filler">
-        </div>
-    </div>
-    <div class="section" id="links">
-        <h2 class="block-title"> Conferences </h2>
-        <div id="conferences">
-        </div>
-        <p> Static Data </p>
-        <h2 class="block-title"> Useful links </h2>
-        <div id="useful">
-        </div>
-        <div class="filler">
-        </div>
-    </div>
-    <div class="section" id="profile">
-        <div class="profile_name" id="prof_name">
-        
-       <!-- <a class="email" id="prof_email"> p.kostkova@ucl.ac.uk </a> -->
-        </div>
-        <div class="settings">
-        <h2 class="block-title"> Filters </h2>
-        </div>
-                    
-         <div class="dropdown">
-            <input type="checkbox" id="checkbox_toggle_4" class="menu">
-            <label for="checkbox_toggle_4">Region </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
-            <ul id="drop">
-                <li class="drop"><input type="checkbox" id="check1"><label for="check1">Africa</label></li>
-                <li class="drop"><input type="checkbox" id="check2"><label for="check2">North America</label></li>
-                <li class="drop"><input type="checkbox" id="check3"><label for="check3">South America</label></li>
-                <li class="drop"><input type="checkbox" id="check4"><label for="check4">Asia</label></li>
-                <li class="drop"><input type="checkbox" id="check5"><label for="check5">Europe</label></li>
-                <li class="drop"><input type="checkbox" id="check6"><label for="check6">Oceania</label></li>
-            </ul>
-        </div>
-        <div class="dropdown">
-            <input type="checkbox" id="checkbox_toggle4" class="menu">
-            <label for="checkbox_toggle4">Diseases </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
-            <ul id="drop">
-                <li class="drop"><input type="checkbox" id="check1"><label for="check1">Africa</label></li>
-                <li class="drop"><input type="checkbox" id="check2"><label for="check2">North America</label></li>
-                <li class="drop"><input type="checkbox" id="check3"><label for="check3">South America</label></li>
-                <li class="drop"><input type="checkbox" id="check4"><label for="check4">Asia</label></li>
-                <li class="drop"><input type="checkbox" id="check5"><label for="check5">Europe</label></li>
-                <li class="drop"><input type="checkbox" id="check6"><label for="check6">Oceania</label></li>
-            </ul>
-        </div>
-        <input type="button" class="save" value="Save" />
-       
-        <h2 class="block-title"> Email </h2>
-        <div class="normalform">
+    <div class="filler"> </div>
+</div>
+<div class="section" id="search">
 
-               <input type="mail" name="search" placeholder="email@domain.com" required>
-               
-            <input type="submit" value="Save">
-        </div>
-        <h2 class="block-title"> Country </h2>
-        <div class="normalform">
-               <select name="category">
-                <option value="">Category...</option>
-                <option value="Afganistan">Disease</option>
-                <option value="Afganistan">Aerial</option>
-            </select>
-            <input type="submit" value="Change">
-        </div>
-        <h2 class="block-title"> Password </h2>
-        <div class="normalform">
-               <!--<input type="password" name="search" placeholder="Change Password..." required> -->
-                <label> An email will be sent to you in order to change the password</label>
-                <br>
-            <input type="submit" value="Change">
-        </div>
-        <input type="button" class="logout" onclick="if(logout() == true) window.location='login.html';" value="Log out" />
-    </div>
-    <footer>
-        <div class="menu" >
-            <nav>
-                <ul><li class="inactive"><a id="home" href="#home" class="active"><img id="home" src="img/home.svg" class="inactiveimg"></img><br>Home</br></a></li>
-                    <li class="inactive"><a id="search"href="#search"><img id="search" src="img/search.svg" class="inactiveimg"></img><br>Search</br></a></li>
-                    <li class="inactive"><a id="infocus" href="#infocus"><img id="infocus" src="img/target.png" class="inactiveimg"></img><br>In Focus</br></a></li>
-                    <li class="inactive"><a id="links" href="#links"><img id="links" src="img/links.svg" class="inactiveimg"></img><br>links</br></a></li>
-                    <li class="last inactive"><a id="profile" href="#profile"><img id="profile" src="img/profile.svg" class="inactiveimg"></img><br>Profile</br></a></li>
-                </ul>
-            </nav>
-        </div>
-    </footer>  
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="functions.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-    </script>
+	<div class="normalform" style="margin-top:4vh;">
+		<form method="" onclick="searching(this); return false;" accept-charset="utf-8">
+			<input type="search" name="search" placeholder="Search..." required>
+			<p> </p>
+
+			<select name="category">
+				<option value="">Category...</option>
+				<option value="Afganistan">Disease</option>
+				<option value="Afganistan">Aerial</option>
+			</select>
+			<input type="submit" value="Search">
+		</form>
+	</div>
+	<h2 class="block-title"> Filters </h2>
+	<div class="dropdown">
+		<input type="checkbox" id="checkbox_toggle" class="menu">
+		<label for="checkbox_toggle">Region </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
+		<ul id="drop">
+			<li class="drop"><input type="checkbox" id="check1"><label for="check1">Africa</label></li>
+			<li class="drop"><input type="checkbox" id="check2"><label for="check2">North America</label></li>
+			<li class="drop"><input type="checkbox" id="check3"><label for="check3">South America</label></li>
+			<li class="drop"><input type="checkbox" id="check4"><label for="check4">Asia</label></li>
+			<li class="drop"><input type="checkbox" id="check5"><label for="check5">Europe</label></li>
+			<li class="drop"><input type="checkbox" id="check6"><label for="check6">Oceania</label></li>
+		</ul>
+	</div>
+	<div class="dropdown">
+		<input type="checkbox" id="checkbox_toggle2" class="menu">
+		<label for="checkbox_toggle2">Diseases </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
+		<ul id="drop">
+			<li class="drop"><input type="checkbox" id="check1"><label for="check1">Africa</label></li>
+			<li class="drop"><input type="checkbox" id="check2"><label for="check2">North America</label></li>
+			<li class="drop"><input type="checkbox" id="check3"><label for="check3">South America</label></li>
+			<li class="drop"><input type="checkbox" id="check4"><label for="check4">Asia</label></li>
+			<li class="drop"><input type="checkbox" id="check5"><label for="check5">Europe</label></li>
+			<li class="drop"><input type="checkbox" id="check6"><label for="check6">Oceania</label></li>
+		</ul>
+	</div>
+	<div class="dropdown">
+		<input type="checkbox" id="checkbox_toggle3" class="menu">
+		<label for="checkbox_toggle3">Diseases </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
+		<ul id="drop">
+			<li class="drop"><input type="checkbox" id="check1"><label for="check1">Africa</label></li>
+			<li class="drop"><input type="checkbox" id="check2"><label for="check2">North America</label></li>
+			<li class="drop"><input type="checkbox" id="check3"><label for="check3">South America</label></li>
+			<li class="drop"><input type="checkbox" id="check4"><label for="check4">Asia</label></li>
+			<li class="drop"><input type="checkbox" id="check5"><label for="check5">Europe</label></li>
+			<li class="drop"><input type="checkbox" id="check6"><label for="check6">Oceania</label></li>
+		</ul>
+	</div>
+	<h2 class="block-title"> Contribute </h2>
+	<div class="normalform" style=" ">
+
+		<input type="name" name="search" placeholder="Add title" required>
+		
+		<input type="submit" value="Add">
+	</div>
+	<div class="filler"> </div>
+</div>
+<div class="section" id="infocus">
+	<h2 class="block-title"> In Focus </h2>
+	<p>Static data</p>
+	<h2 class="block-title"> Training </h2>
+	<div id="training">
+	</div>
+	<div class="filler">
+	</div>
+</div>
+<div class="section" id="links">
+	<h2 class="block-title"> Conferences </h2>
+	<div id="conferences">
+		<div class="inner">
+			<div class="title1"><a class="title2" href="#links" onclick="window.open('undefined', '_blank', 'location=yes');">6th Infection Control Africa Network Congress</a><p class="data1">22/09/2016</p></div>
+		</div>
+		<div class = "inner">
+			<div class="title1"><a class="title2" href="#links" onclick="window.open('undefined', '_blank', 'location=yes');">26th ECCMID 2016</a><p class="data1">12/04/2016</p></div>
+		</div>
+	</div>
+	<h2 class="block-title"> Useful links </h2>
+	<div id="useful">
+	</div>
+	<div class="filler">
+	</div>
+</div>
+<div class="section" id="profile">
+	<div class="profile_name" id="prof_name">
+		
+		<!-- <a class="email" id="prof_email"> p.kostkova@ucl.ac.uk </a> -->
+	</div>
+	<div class="settings">
+		<h2 class="block-title"> Filters </h2>
+	</div>
+	
+	<div class="dropdown">
+		<input type="checkbox" id="checkbox_toggle_4" class="menu">
+		<label for="checkbox_toggle_4">Region </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
+		<ul id="drop">
+			<li class="drop"><input type="checkbox" id="check1"><label for="check1">Africa</label></li>
+			<li class="drop"><input type="checkbox" id="check2"><label for="check2">North America</label></li>
+			<li class="drop"><input type="checkbox" id="check3"><label for="check3">South America</label></li>
+			<li class="drop"><input type="checkbox" id="check4"><label for="check4">Asia</label></li>
+			<li class="drop"><input type="checkbox" id="check5"><label for="check5">Europe</label></li>
+			<li class="drop"><input type="checkbox" id="check6"><label for="check6">Oceania</label></li>
+		</ul>
+	</div>
+	<div class="dropdown">
+		<input type="checkbox" id="checkbox_toggle4" class="menu">
+		<label for="checkbox_toggle4">Diseases </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
+		<ul id="drop">
+			<li class="drop"><input type="checkbox" id="check1"><label for="check1">Africa</label></li>
+			<li class="drop"><input type="checkbox" id="check2"><label for="check2">North America</label></li>
+			<li class="drop"><input type="checkbox" id="check3"><label for="check3">South America</label></li>
+			<li class="drop"><input type="checkbox" id="check4"><label for="check4">Asia</label></li>
+			<li class="drop"><input type="checkbox" id="check5"><label for="check5">Europe</label></li>
+			<li class="drop"><input type="checkbox" id="check6"><label for="check6">Oceania</label></li>
+		</ul>
+	</div>
+	<input type="button" class="save" value="Save" />
+	
+	<h2 class="block-title"> Email </h2>
+	<div class="normalform">
+
+		<input type="mail" name="search" placeholder="email@domain.com" required>
+		
+		<input type="submit" value="Save">
+	</div>
+	<h2 class="block-title"> Country </h2>
+	<div class="normalform">
+		<select name="category">
+			<option value="">Category...</option>
+			<option value="Afganistan">Disease</option>
+			<option value="Afganistan">Aerial</option>
+		</select>
+		<input type="submit" value="Change">
+	</div>
+	<h2 class="block-title"> Password </h2>
+	<div class="normalform">
+		<!--<input type="password" name="search" placeholder="Change Password..." required> -->
+		<label> An email will be sent to you in order to change the password</label>
+		<br>
+		<input type="submit" value="Change">
+	</div>
+	<input type="button" class="logout" onclick="if(logout() == true) window.location='login.html';" value="Log out" />
+</div>
+<footer>
+	<div class="menu" >
+		<nav>
+			<ul><li class="inactive"><a id="home" href="#home" class="active"><img id="home" src="img/home.svg" class="inactiveimg"></img><br>Home</br></a></li>
+				<li class="inactive"><a id="search"href="#search"><img id="search" src="img/search.svg" class="inactiveimg"></img><br>Search</br></a></li>
+				<li class="inactive"><a id="infocus" href="#infocus"><img id="infocus" src="img/target.png" class="inactiveimg"></img><br>In Focus</br></a></li>
+				<li class="inactive"><a id="links" href="#links"><img id="links" src="img/links.svg" class="inactiveimg"></img><br>links</br></a></li>
+				<li class="last inactive"><a id="profile" href="#profile"><img id="profile" src="img/profile.svg" class="inactiveimg"></img><br>Profile</br></a></li>
+			</ul>
+		</nav>
+	</div>
+</footer>  
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="functions.js"></script>
+<script type="text/javascript">
+	app.initialize();
+</script>
 </body>
 </html>
