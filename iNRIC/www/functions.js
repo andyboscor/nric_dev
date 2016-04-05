@@ -207,14 +207,14 @@ function infocus()
         },
         success: function(data){
             data = JSON.parse($.trim(data));
-            //console.log(data);
+            console.log(data);
             console.log('aici');
             jQuery.each(data, function(i, val) {
                 if(i>5) return false;
-                desiredLink = "http://139.162.199.80/node/" + val.nid;
-                desiredText = val.title;
-                desiredDate = val.node_created;
-                $('<div class="inner"><div class="title1"><a class="title2" href="#infocus" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a><p class="data1">'+ desiredDate + '</p></div></div>').appendTo($('#recent'));
+                //desiredLink = "http://139.162.199.80/node/" + val.nid;
+                //desiredText = val.title;
+                //desiredDate = val.node_created;
+                //$('<div class="inner"><div class="title1"><a class="title2" href="#infocus" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a><p class="data1">'+ desiredDate + '</p></div></div>').appendTo($('#recent'));
 
             //console.log(desiredLink);
         });
@@ -288,7 +288,7 @@ function conferences()
                 desiredText = val.node_title;
                 desiredDate = val.node_created;
 
-           // $('<div class="inner"><div class="title1"><a class="title2" href="#home" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a><p class="data1">'+ desiredDate + '</p></div></div>').appendTo($('#training'));
+            $('<div class="inner"><div class="title1"><a class="title2" href="#links" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a><p class="data1">'+ desiredDate + '</p></div></div>').appendTo($('#conferences'));
 
             //console.log(desiredLink);
         });
@@ -417,6 +417,7 @@ $( document ).ready(function() {
             if(flag1==true)
             {
                 training();
+                //infocus();
                 flag1=false;
             }
         }
