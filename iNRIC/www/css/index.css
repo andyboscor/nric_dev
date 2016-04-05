@@ -491,7 +491,7 @@ ul#drop{
     margin-left:10px;
     text-align: left;
     list-style-type: none;
-    line-height: 2em;
+    line-height: 3.5vh;
     position:relative;
 
 }
@@ -502,8 +502,11 @@ li.drop{
 }
 label {
     font-size:5vw;
-    margin-left:2px;
+    margin-left:10px;
     
+}
+label.dropcol{
+    color: #ff2f26;
 }
 .closed{
     width:10px;

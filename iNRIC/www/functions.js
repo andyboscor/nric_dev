@@ -42,36 +42,38 @@ $(window).load(function(){
             });
         return err;
     };
-function searching(form)
-{
+    function searching(form)
+    {
         var err = false;
-var obj = "test"; // search key
-$.ajax({
-    url:"http://139.162.199.80/nricrestapi/views/latest_news",
-    type: "get",
-    crossDomain: true,
-    async: false,  
-    dataType: 'text',
-    contentType: 'application/json',
-    data: obj,
-    error: function(jqXHR, textStatus, errorThrown) {
-        console.log(jqXHR);
-        console.log(textStatus);
-        console.log(errorThrown);
+        var here = form.elements["here"].checked;
+        console.log(here);
+        var obj = "test"; // search key
+        $.ajax({
+            url:"http://139.162.199.80/nricrestapi/views/resources?keys=Africa+Hospice",
+            type: "get",
+            crossDomain: true,
+            async: false,  
+            dataType: 'text',
+            contentType: 'application/json',
+            data: obj,
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR);
+                console.log(textStatus);
+                console.log(errorThrown);
 
-    },
-    success: function(data){
-        data = JSON.parse($.trim(data));
-        console.log(data);
+            },
+            success: function(data){
+                data = JSON.parse($.trim(data));
+                console.log(data);
 
-        if (data.uid != null) {
-            err = false;
-            console.log(data);
-        }
-    }
-});
-return err;
-};
+                if (data.uid != null) {
+                    err = false;
+                    console.log(data);
+                }
+            }
+        });
+        return err;
+    };
 function news()
 {
     $.ajax({
