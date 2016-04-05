@@ -470,6 +470,7 @@ p.data1{
     overflow: hidden;
     border-bottom: 1px solid;
     border-color:#BDBDBD;
+    margin-right:6px;
 }
 .loginform input[type=search]{
     font-size:20px;
