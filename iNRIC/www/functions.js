@@ -48,7 +48,7 @@ $(window).load(function(){
         //var here = form.elements["here"].checked;
         var checkit = "check";
         var keys="";
-        for(i=1;i<=113;i++)
+        for(i=1;i<=128;i++)
         {   
            check = checkit + i;
             if(form.elements[check].checked == true)
