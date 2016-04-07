@@ -42,7 +42,7 @@ $(window).load(function(){
             });
         return err;
     };
-    function searching(form)
+function searching(form)
     {
         var err = false;
         //var here = form.elements["here"].checked;
@@ -52,14 +52,16 @@ $(window).load(function(){
         {   
            check = checkit + i;
             if(form.elements[check].checked == true)
-                {console.log("yolo"); keys= keys + form.elements[check].value + '+'; console.log(keys);}
-            else{ console.log(check);}
+                { keys= keys + form.elements[check].value + '+'; console.log(keys);}
         }
-        keys = keys.substring(0, keys.length - 1);
+        if(keys!="")
+        {
+            keys = keys.substring(0, keys.length - 1);
+        }
         console.log(keys)
         var obj = "test"; // search key
         var urle = encodeURI("http://139.162.199.80/nricrestapi/views/resources?keys=" + keys);
-        console.log(urle);
+        //console.log(urle);
         $.ajax({
             url: urle,
             type: "get",
@@ -77,7 +79,20 @@ $(window).load(function(){
             success: function(data){
                 data = JSON.parse($.trim(data));
                 console.log(data);
+            $('#wrap').hide();
+            jQuery.each(data, function(i, val) {
+            //if(i>5) return false;
+            desiredLink = val.node_title;
+            desiredText = val.nid;
+            desiredData = val.body;
+            desiredSource = val.source;
+            //console.log(desiredText);
+                $('<div class="inner"><div class="title1"><a class="title" href="#home" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a>'+ desiredData + '</div></div>').appendTo($('#searchresults'));
 
+
+            //console.log(desiredLink);
+        });
+            $('#searchresults').show();
                 if (data.uid != null) {
                     err = false;
                     console.log(data);
@@ -407,6 +422,7 @@ $( document ).ready(function() {
     news();
     recent();
     headline();
+    $('#searchresults').hide();
     
 
     

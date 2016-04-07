@@ -99,273 +99,275 @@
     <div class="filler"> </div>
 </div>
 <div class="section" id="search">
-<div id="wrap">
-	<div class="normalform" style="margin-top:4vh;">
-		<form method="" onsubmit="searching(this); return false;" accept-charset="utf-8">
-			<input type="search" name="search" placeholder="Search...">
-			<p> </p>
+<div id="searchresults"> <input type="button" class="save" onclick="$('#searchresults').hide(); $('#wrap').show();" value="Done" /> </div> 
+	<div id="wrap">
+		<div class="normalform" style="margin-top:4vh;">
+			<form method="" onsubmit="searching(this); return false;" accept-charset="utf-8">
+				<input type="search" name="search" placeholder="Search...">
+				<p> </p>
 
-			<select name="category" placeholder="Category">
-				 <option value="">Category...</option>
-				 <option value="Acinetobacter"> Acinetobacter </option>
-			     <option value="Adenovirus"> Adenovirus </option>
-			     <option value="Anthrax"> Anthrax </option>
-			     <option value="Avian Influenza"> Avian Influenza </option>
-			     <option value="Bacteraemia"> Bacteraemia </option>
-			     <option value="Bordetella pertussis"> Bordetella pertussis </option> 
-			     <option value="Campylobacter jejuni"> Campylobacter jejuni </option>
-			     <option value="Chickenpox VZV"> Chickenpox VZV </option>
-			     <option value="Cholera"> Cholera </option>
-			     <option value="Chlamydia psittaci"> Chlamydia psittaci </option>
-			     <option value="Chlamydia trachomatis"> Chlamydia trachomatis </option>
-			     <option value="Clostridium difficile"> Clostridium difficile </option>
-			     <option value="CJD"> CJD </option>
-			     <option value="Community Acquired Pneumonia"> Community Acquired Pneumonia </option>
-			     <option value="Coxsacki virus"> Coxsacki virus </option>
-			     <option value="Cytomegalovirus"> Cytomegalovirus </option>
-			     <option value="Dengue fever"> Dengue fever </option>
-			     <option value="Diarrhoea"> Diarrhoea </option>
-			     <option value="Diptheria"> Diptheria </option>
-			     <option value="Ebola"> Ebola </option>
-			     <option value="Ecoli O157"> Ecoli O157 </option>
-			     <option value="Encephalitis"> Encephalitis </option>
-			     <option value="Entovirus"> Entovirus </option>
-			     <option value="Epstein Barr virus"> Epstein Barr virus </option>
-			     <option value="Fleas"> Fleas </option>
-			     <option value="Fungi"> Fungi </option>
-			     <option value="HCAI"> HCAI </option>
-			     <option value="Haemophilus influenza type B (HIB)"> Haemophilus influenza type B (HIB) </option>
-			     <option value="Hepatitis A"> Hepatitis A </option>
-			     <option value="Hepatitis B"> Hepatitis B </option>
-			     <option value="Hepatitis C"> Hepatitis C </option>
-			     <option value="Helicobacter Pylori"> Helicobacter Pylori </option>
-			     <option value="Herpes Zoster"> Herpes Zoster </option>
-			     <option value="HIV"> HIV </option>
-			     <option value="Human papilloma virus"> Human papilloma virus </option>
-			     <option value="Impetigo"> Impetigo </option>
-			     <option value="Influenza"> Influenza </option>
-			     <option value="Klebsiella"> Klebsiella </option>
-			     <option value="Lassa fever"> Lassa fever </option>
-			     <option value="Legionella"> Legionella </option>
-			     <option value="Lice"> Lice </option>
-			     <option value="Listeria monocytogenes"> Listeria monocytogenes </option>
-			     <option value="Marburg fever"> Marburg fever </option>
-			     <option value="Measles"> Measles </option>
-			     <option value="Meningitis"> Meningitis </option>
-			     <option value="Molluscum contagiosum"> Molluscum contagiosum </option>
-			     <option value="Mycoplasma"> Mycoplasma </option>
-			     <option value="MRSA"> MRSA </option>
-			     <option value="Mumps"> Mumps </option>
-			     <option value="Neissera gonorrhoea"> Neissera gonorrhoea </option>
-			     <option value="Neissera meningitis"> Neissera meningitis </option>
-			     <option value="Norovirus"> Norovirus </option>
-			     <option value="Parasites"> Parasites </option>
-			     <option value="Parvovirus"> Parvovirus </option>
-			     <option value="Polio"> Polio </option>
-			     <option value="Pseudomonas spp"> Pseudomonas spp </option>
-			     <option value="Rabies"> Rabies </option>
-			     <option value="Respiratory Syncytial virus"> Respiratory Syncytial virus </option>
-			     <option value="Rotavirus"> Rotavirus </option>
-			     <option value="Rubella"> Rubella </option>
-			     <option value="Salmonella"> Salmonella </option>
-			     <option value="SARS"> SARS </option>
-			     <option value="Scabies"> Scabies </option>
-			     <option value="Sexually Transmitted Infections"> Sexually Transmitted Infections </option>
-			     <option value="Shigella"> Shigella </option>
-			     <option value="Smallpox"> Smallpox </option>
-			     <option value="Staphylococcus Aureus"> Staphylococcus Aureus </option>
-			     <option value="Streptococcal Infection"> Streptococcal Infection </option>
-			     <option value="Surgical Site Infection"> Surgical Site Infection </option>
-			     <option value="TB"> TB </option>
-			     <option value="Tetanus"> Tetanus </option>
-			     <option value="Tinea"> Tinea </option>
-			     <option value="Travel Associated illness"> Travel Associated illness </option>
-			     <option value="TSE"> TSE </option>
-			     <option value="Typhoid fever"> Typhoid fever </option>
-			     <option value="Viral Haemorrhagic fever"> Viral Haemorrhagic fever </option>
-			     <option value="VTEC"> VTEC </option>
-			     <option value="VRE"> VRE </option>
-			     <option value="West Nile Virus"> West Nile Virus </option>
-			     <option value="Yellow fever"> Yellow fever </option>
-			</select>
-			<input type="submit" value="Search">
-		
-	</div>
-	<h2 class="block-title"> Filters </h2>
-	<div class="dropdown">
-		<input type="checkbox" id="checkbox_toggle" class="menu">
-		<label class="dropcol" for="checkbox_toggle">Region </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
-		<ul id="drop">
-			<li class="drop"><input type="checkbox" name="check1" id="check1" value="Africa"><label for="check1">Africa</label></li>
-			<li class="drop"><input type="checkbox" name="check2" id="check2" value="North America"><label for="check2">North America</label></li>
-			<li class="drop"><input type="checkbox" name="check3" id="check3" value="South America"><label for="check3">South America</label></li>
-			<li class="drop"><input type="checkbox" name="check4" id="check4" value="Asia"><label for="check4">Asia</label></li>
-			<li class="drop"><input type="checkbox" name="check5" id="check5" value="Europe"><label for="check5">Europe</label></li>
-			<li class="drop"><input type="checkbox" name="check6" id="check6" value="Oceania"><label for="check6">Oceania</label></li>
-		</ul>
-	</div>
-	
-	<div class="dropdown">
-		<input type="checkbox" id="checkbox_toggle2" class="menu">
-		<label class="dropcol" for="checkbox_toggle2">Clinical Practice </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
-		<ul id="drop">
-			<li class="drop"><input type="checkbox" name="check7" id="check7" value="Aseptic Technique"><label for="check7">Aseptic Technique</label></li>
-			<li class="drop"><input type="checkbox" name="check8" id="check8" value="Cleaning"><label for="check8">Cleaning</label></li>
-			<li class="drop"><input type="checkbox" name="check9" id="check9" value="Decontamination"><label for="check9">Decontamination</label></li>
-			<li class="drop"><input type="checkbox" name="check10" id="check10" value="Disinfection Sterilisation"><label for="check10">Disinfection Sterilisation</label></li>
-			<li class="drop"><input type="checkbox" name="check11" id="check11" value="Handwashing"><label for="check11">Handwashing</label></li>
-			<li class="drop"><input type="checkbox" name="check12" id="check12" value="Immunisation"><label for="check12">Immunisation</label></li>
-			<li class="drop"><input type="checkbox" name="check13" id="check13" value="Invasive Devices"><label for="check13">Invasive Devices</label></li>
-			<li class="drop"><input type="checkbox" name="check14" id="check14" value="Isolation"><label for="check14">Isolation</label></li>
-			<li class="drop"><input type="checkbox" name="check15" id="check15" value="Lab Specimens"><label for="check15">Lab Specimens</label></li>
-			<li class="drop"><input type="checkbox" name="check16" id="check16" value="Laundry"><label for="check16">Laundry</label></li>
-			<li class="drop"><input type="checkbox" name="check17" id="check17" value="Needles"><label for="check17">Needles</label></li>
-			<li class="drop"><input type="checkbox" name="check18" id="check18" value="Ward Closure"><label for="check18">Ward Closure</label></li>
-			<li class="drop"><input type="checkbox" name="check19" id="check19" value="Waste"><label for="check19">Waste</label></li>
-		</ul>
-	</div>
-	<div class="dropdown">
-		<input type="checkbox" id="checkbox_toggle3" class="menu">
-		<label class="dropcol" for="checkbox_toggle3">Setting </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
-		<ul id="drop">
-			<li class="drop"><input type="checkbox" name="check20" id="check20" value="Ambulance Trust"><label for="check20">Ambulance Trust</label></li>
-			<li class="drop"><input type="checkbox" name="check21" id="check21" value="Care Homes"><label for="check21">Care Homes</label></li>
-			<li class="drop"><input type="checkbox" name="check22" id="check22" value="Community"><label for="check22">Community</label></li>
-			<li class="drop"><input type="checkbox" name="check23" id="check23" value="Dental Practices"><label for="check23">Dental Practices</label></li>
-			<li class="drop"><input type="checkbox" name="check24" id="check24" value="Estates Facilities"><label for="check24">Estates Facilities</label></li>
-			<li class="drop"><input type="checkbox" name="check25" id="check25" value="High Risk"><label for="check25">High Risk</label></li>
-			<li class="drop"><input type="checkbox" name="check26" id="check26" value="Home Hygiene"><label for="check26">Home Hygiene</label></li>
-			<li class="drop"><input type="checkbox" name="check27" id="check27" value="Hospice"><label for="check27">Hospice</label></li>
-			<li class="drop"><input type="checkbox" name="check28" id="check28" value="Hospitals"><label for="check28">Hospitals</label></li>
-			<li class="drop"><input type="checkbox" name="check29" id="check29" value="Independent Care"><label for="check29">Independent Care</label></li>
-			<li class="drop"><input type="checkbox" name="check30" id="check30" value="Mental Health"><label for="check30">Mental Health</label></li>
-			<li class="drop"><input type="checkbox" name="check31" id="check31" value="Occupational Exposure"><label for="check31">Occupational Exposure</label></li>
-			<li class="drop"><input type="checkbox" name="check32" id="check32" value="Port Health"><label for="check32">Port Health</label></li>
-			<li class="drop"><input type="checkbox" name="check33" id="check33" value="Primary Care"><label for="check33">Primary Care</label></li>
-			<li class="drop"><input type="checkbox" name="check34" id="check34" value="Prisons"><label for="check34">Prisons</label></li>
-		</ul>
-	</div>
-	<div class="dropdown">
-		<input type="checkbox" id="checkbox_toggle4" class="menu">
-		<label class="dropcol" for="checkbox_toggle4">Disease/Organism </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
-		<ul id="drop">
-			<li class="drop"><input type="checkbox" name="check35" id="check35" value="Acinetobacter"><label for="check35">Acinetobacter</label></li>
-			<li class="drop"><input type="checkbox" name="check36" id="check36" value="Adenovirus"><label for="check36">Adenovirus</label></li>
-			<li class="drop"><input type="checkbox" name="check37" id="check37" value="Anthrax"><label for="check37">Anthrax</label></li>
-			<li class="drop"><input type="checkbox" name="check38" id="check38" value="Avian Influenza"><label for="check38">Avian Influenza</label></li>
-			<li class="drop"><input type="checkbox" name="check39" id="check39" value="Bacteraemia"><label for="check39">Bacteraemia</label></li>
-			<li class="drop"><input type="checkbox" name="check40" id="check40" value="Bordetella pertussis"><label for="check40">Bordetella pertussis</label></li>
-			<li class="drop"><input type="checkbox" name="check41" id="check41" value="Campylobacter jejuni"><label for="check41">Campylobacter jejuni</label></li>
-			<li class="drop"><input type="checkbox" name="check42" id="check42" value="Chickenpox VZV"><label for="check42">Chickenpox VZV</label></li>
-			<li class="drop"><input type="checkbox" name="check43" id="check43" value="Cholera"><label for="check43">Cholera</label></li>
-			<li class="drop"><input type="checkbox" name="check44" id="check44" value="Chlamydia psittaci"><label for="check44">Chlamydia psittaci</label></li>
-			<li class="drop"><input type="checkbox" name="check45" id="check45" value="Chlamydia trachomatis"><label for="check45">Chlamydia trachomatis</label></li>
-			<li class="drop"><input type="checkbox" name="check46" id="check46" value="Clostridium difficile"><label for="check46">Clostridium difficile</label></li>
-			<li class="drop"><input type="checkbox" name="check47" id="check47" value="CJD"><label for="check47">CJD</label></li>
-			<li class="drop"><input type="checkbox" name="check48" id="check48" value="Community Acquired Pneumonia"><label for="check48">Community Acquired Pneumonia</label></li>
-			<li class="drop"><input type="checkbox" name="check49" id="check49" value="Coxsacki virus"><label for="check49">Coxsacki virus</label></li>
-			<li class="drop"><input type="checkbox" name="check50" id="check50" value="Cytomegalovirus"><label for="check50">Cytomegalovirus</label></li>
-			<li class="drop"><input type="checkbox" name="check51" id="check51" value="Dengue fever"><label for="check51">Dengue fever</label></li>
-			<li class="drop"><input type="checkbox" name="check52" id="check52" value="Diarrhoea"><label for="check52">Diarrhoea</label></li>
-			<li class="drop"><input type="checkbox" name="check53" id="check53" value="Diptheria"><label for="check53">Diptheria</label></li>
-			<li class="drop"><input type="checkbox" name="check54" id="check54" value="Ebola"><label for="check54">Ebola</label></li>
-			<li class="drop"><input type="checkbox" name="check55" id="check55" value="Ecoli O157"><label for="check55">Ecoli O157</label></li>
-			<li class="drop"><input type="checkbox" name="check56" id="check56" value="Encephalitis"><label for="check56">Encephalitis</label></li>
-			<li class="drop"><input type="checkbox" name="check57" id="check57" value="Entovirus"><label for="check57">Entovirus</label></li>
-			<li class="drop"><input type="checkbox" name="check58" id="check58" value="Epstein Barr virus"><label for="check58">Epstein Barr virus</label></li>
-			<li class="drop"><input type="checkbox" name="check59" id="check59" value="Fleas"><label for="check59">Fleas</label></li>
-			<li class="drop"><input type="checkbox" name="check60" id="check60" value="Fungi"><label for="check60">Fungi</label></li>
-			<li class="drop"><input type="checkbox" name="check61" id="check61" value="HCAI"><label for="check61">HCAI</label></li>
-			<li class="drop"><input type="checkbox" name="check62" id="check62" value="Haemophilus influenza type B (HIB)"><label for="check62">Haemophilus influenza type B (HIB)</label></li>
-			<li class="drop"><input type="checkbox" name="check63" id="check63" value="Hepatitis A"><label for="check63">Hepatitis A</label></li>
-			<li class="drop"><input type="checkbox" name="check64" id="check64" value="Hepatitis B"><label for="check64">Hepatitis B</label></li>
-			<li class="drop"><input type="checkbox" name="check65" id="check65" value="Hepatitis C"><label for="check65">Hepatitis C</label></li>
-			<li class="drop"><input type="checkbox" name="check66" id="check66" value="Helicobacter Pylori"><label for="check66">Helicobacter Pylori</label></li>
-			<li class="drop"><input type="checkbox" name="check67" id="check67" value="Herpes Zoster"><label for="check67">Herpes Zoster</label></li>
-			<li class="drop"><input type="checkbox" name="check68" id="check68" value="HIV"><label for="check68">HIV</label></li>
-			<li class="drop"><input type="checkbox" name="check69" id="check69" value="Human papilloma virus"><label for="check69">Human papilloma virus</label></li>
-			<li class="drop"><input type="checkbox" name="check70" id="check70" value="Impetigo"><label for="check70">Impetigo</label></li>
-			<li class="drop"><input type="checkbox" name="check71" id="check71" value="Influenza"><label for="check71">Influenza</label></li>
-			<li class="drop"><input type="checkbox" name="check72" id="check72" value="Klebsiella"><label for="check72">Klebsiella</label></li>
-			<li class="drop"><input type="checkbox" name="check73" id="check73" value="Lassa fever"><label for="check73">Lassa fever</label></li>
-			<li class="drop"><input type="checkbox" name="check74" id="check74" value="Legionella"><label for="check74">Legionella</label></li>
-			<li class="drop"><input type="checkbox" name="check75" id="check75" value="Lice"><label for="check75">Lice</label></li>
-			<li class="drop"><input type="checkbox" name="check76" id="check76" value="Listeria monocytogenes"><label for="check76">Listeria monocytogenes</label></li>
-			<li class="drop"><input type="checkbox" name="check77" id="check77" value="Marburg fever"><label for="check77">Marburg fever</label></li>
-			<li class="drop"><input type="checkbox" name="check78" id="check78" value="Measles"><label for="check78">Measles</label></li>
-			<li class="drop"><input type="checkbox" name="check78" id="check79" value="Meningitis"><label for="check79">Meningitis</label></li>
-			<li class="drop"><input type="checkbox" name="check80" id="check80" value="Molluscum contagiosum"><label for="check80">Molluscum contagiosum</label></li>
-			<li class="drop"><input type="checkbox" name="check81" id="check81" value="Mycoplasma"><label for="check81">Mycoplasma</label></li>
-			<li class="drop"><input type="checkbox" name="check82" id="check82" value="MRSA"><label for="check82">MRSA</label></li>
-			<li class="drop"><input type="checkbox" name="check83" id="check83" value="Mumps"><label for="check83">Mumps</label></li>
-			<li class="drop"><input type="checkbox" name="check84" id="check84" value="Neissera gonorrhoea"><label for="check84">Neissera gonorrhoea</label></li>
-			<li class="drop"><input type="checkbox" name="check85" id="check85" value="Neissera meningitis"><label for="check85">Neissera meningitis</label></li>
-			<li class="drop"><input type="checkbox" name="check86" id="check86" value="Norovirus"><label for="check86">Norovirus</label></li>
-			<li class="drop"><input type="checkbox" name="check87" id="check87" value="Parasites"><label for="check87">Parasites</label></li>
-			<li class="drop"><input type="checkbox" name="check88" id="check88" value="Parvovirus"><label for="check88">Parvovirus</label></li>
-			<li class="drop"><input type="checkbox" name="check89" id="check89" value="Polio"><label for="check89">Polio</label></li>
-			<li class="drop"><input type="checkbox" name="check90" id="check90" value="Pseudomonas spp"><label for="check90">Pseudomonas spp</label></li>
-			<li class="drop"><input type="checkbox" name="check91" id="check91" value="Rabies"><label for="check91">Rabies</label></li>
-			<li class="drop"><input type="checkbox" name="check92" id="check92" value="Respiratory Syncytial virus"><label for="check92">Respiratory Syncytial virus</label></li>
-			<li class="drop"><input type="checkbox" name="check93" id="check93" value="Rotavirus"><label for="check93">Rotavirus</label></li>
-			<li class="drop"><input type="checkbox" name="check94" id="check94" value="Rubella"><label for="check94">Rubella</label></li>
-			<li class="drop"><input type="checkbox" name="check95" id="check95" value="Salmonella"><label for="check95">Salmonella</label></li>
-			<li class="drop"><input type="checkbox" name="check96" id="check96" value="SARS"><label for="check96">SARS</label></li>
-			<li class="drop"><input type="checkbox" name="check97" id="check97" value="Scabies"><label for="check97">Scabies</label></li>
-			<li class="drop"><input type="checkbox" name="check98" id="check98" value="Sexually Transmitted Infections"><label for="check98">Sexually Transmitted Infections</label></li>
-			<li class="drop"><input type="checkbox" name="check99" id="check99" value="Shigella"><label for="check99">Shigella</label></li>
-			<li class="drop"><input type="checkbox" name="check100" id="check100" value="Smallpox"><label for="check100">Smallpox</label></li>
-			<li class="drop"><input type="checkbox" name="check101" id="check101" value="Staphylococcus Aureus"><label for="check101">Staphylococcus Aureus</label></li>
-			<li class="drop"><input type="checkbox" name="check102" id="check102" value="Streptococcal Infection"><label for="check102">Streptococcal Infection</label></li>
-			<li class="drop"><input type="checkbox" name="check103" id="check103" value="Surgical Site Infection"><label for="check103">Surgical Site Infection</label></li>
-			<li class="drop"><input type="checkbox" name="check104" id="check104" value="TB"><label for="check104">TB</label></li>
-			<li class="drop"><input type="checkbox" name="check105" id="check105" value="Tetanus"><label for="check105">Tetanus</label></li>
-			<li class="drop"><input type="checkbox" name="check106" id="check106" value="Tinea"><label for="check106">Tinea</label></li>
-			<li class="drop"><input type="checkbox" name="check107" id="check107" value="Travel Associated illness"><label for="check107">Travel Associated illness</label></li>
-			<li class="drop"><input type="checkbox" name="check108" id="check108" value="TSE"><label for="check108">TSE</label></li>
-			<li class="drop"><input type="checkbox" name="check109" id="check109" value="Typhoid fever"><label for="check109">Typhoid fever</label></li>
-			<li class="drop"><input type="checkbox" name="check110" id="check110" value="Viral Haemorrhagic fever"><label for="check110">Viral Haemorrhagic fever</label></li>
-			<li class="drop"><input type="checkbox" name="check111" id="check111" value="VTEC"><label for="check111">VTEC</label></li>
-			<li class="drop"><input type="checkbox" name="check112" id="check112" value="VRE"><label for="check112">VRE</label></li>
-			<li class="drop"><input type="checkbox" name="check113" id="check113" value="West Nile Virus"><label for="check113">West Nile Virus</label></li>
-			<li class="drop"><input type="checkbox" name="check114" id="check114" value="Yellow fever"><label for="check114">Yellow fever</label></li>
-		</ul>
-	</div>
-	<div class="dropdown">
-		<input type="checkbox" id="checkbox_toggle5" class="menu">
-		<label class="dropcol" for="checkbox_toggle5">Policy </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
-		<ul id="drop">
-			<li class="drop"><input type="checkbox" name="check115" id="check115" value="Antimicrobial Prescribing"><label for="check115">Antimicrobial Prescribing</label></li>
-			<li class="drop"><input type="checkbox" name="check116" id="check116" value="Clinical Governance"><label for="check116">Clinical Governance</label></li>
-			<li class="drop"><input type="checkbox" name="check117" id="check117" value="International"><label for="check117">International</label></li>
-			<li class="drop"><input type="checkbox" name="check118" id="check118" value="Outbreaks"><label for="check118">Outbreaks</label></li>
-			<li class="drop"><input type="checkbox" name="check119" id="check119" value="Routine Procedures"><label for="check119">Routine Procedures</label></li>
-			<li class="drop"><input type="checkbox" name="check120" id="check120" value="Surveillance"><label for="check120">Surveillance</label></li>
-			<li class="drop"><input type="checkbox" name="check121" id="check121" value="Ward Closure"><label for="check121">Ward Closure</label></li>
-			<li class="drop"><input type="checkbox" name="check122" id="check122" value="National Policy"><label for="check122">National Policy</label></li>
-		</ul>
-	</div>
-	<div class="dropdown">
-		<input type="checkbox" id="checkbox_toggle6" class="menu">
-		<label class="dropcol" for="checkbox_toggle6">Transmission </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
-		<ul id="drop">
-			<li class="drop"><input type="checkbox" name="check123" id="check123" value="Airborne"><label for="check123">Airborne</label></li>
-			<li class="drop"><input type="checkbox" name="check124" id="check124" value="Blood and Body Fluids"><label for="check124">Blood and Body Fluids</label></li>
-			<li class="drop"><input type="checkbox" name="check125" id="check125" value="Contact"><label for="check125">Contact</label></li>
-			<li class="drop"><input type="checkbox" name="check126" id="check126" value="Food"><label for="check126">Food</label></li>
-			<li class="drop"><input type="checkbox" name="check127" id="check127" value="Infections Following Surgery"><label for="check127">Infections Following Surgery</label></li>
-			<li class="drop"><input type="checkbox" name="check128" id="check128" value="Insect Animal"><label for="check128">Insect Animal</label></li>
-		</ul>
-	</div>
-	</form>
-	<h2 class="block-title"> Contribute </h2>
-	<div class="normalform" style=" ">
+				<select name="category" placeholder="Category">
+					<option value="">Category...</option>
+					<option value="Acinetobacter"> Acinetobacter </option>
+					<option value="Adenovirus"> Adenovirus </option>
+					<option value="Anthrax"> Anthrax </option>
+					<option value="Avian Influenza"> Avian Influenza </option>
+					<option value="Bacteraemia"> Bacteraemia </option>
+					<option value="Bordetella pertussis"> Bordetella pertussis </option> 
+					<option value="Campylobacter jejuni"> Campylobacter jejuni </option>
+					<option value="Chickenpox VZV"> Chickenpox VZV </option>
+					<option value="Cholera"> Cholera </option>
+					<option value="Chlamydia psittaci"> Chlamydia psittaci </option>
+					<option value="Chlamydia trachomatis"> Chlamydia trachomatis </option>
+					<option value="Clostridium difficile"> Clostridium difficile </option>
+					<option value="CJD"> CJD </option>
+					<option value="Community Acquired Pneumonia"> Community Acquired Pneumonia </option>
+					<option value="Coxsacki virus"> Coxsacki virus </option>
+					<option value="Cytomegalovirus"> Cytomegalovirus </option>
+					<option value="Dengue fever"> Dengue fever </option>
+					<option value="Diarrhoea"> Diarrhoea </option>
+					<option value="Diptheria"> Diptheria </option>
+					<option value="Ebola"> Ebola </option>
+					<option value="Ecoli O157"> Ecoli O157 </option>
+					<option value="Encephalitis"> Encephalitis </option>
+					<option value="Entovirus"> Entovirus </option>
+					<option value="Epstein Barr virus"> Epstein Barr virus </option>
+					<option value="Fleas"> Fleas </option>
+					<option value="Fungi"> Fungi </option>
+					<option value="HCAI"> HCAI </option>
+					<option value="Haemophilus influenza type B (HIB)"> Haemophilus influenza type B (HIB) </option>
+					<option value="Hepatitis A"> Hepatitis A </option>
+					<option value="Hepatitis B"> Hepatitis B </option>
+					<option value="Hepatitis C"> Hepatitis C </option>
+					<option value="Helicobacter Pylori"> Helicobacter Pylori </option>
+					<option value="Herpes Zoster"> Herpes Zoster </option>
+					<option value="HIV"> HIV </option>
+					<option value="Human papilloma virus"> Human papilloma virus </option>
+					<option value="Impetigo"> Impetigo </option>
+					<option value="Influenza"> Influenza </option>
+					<option value="Klebsiella"> Klebsiella </option>
+					<option value="Lassa fever"> Lassa fever </option>
+					<option value="Legionella"> Legionella </option>
+					<option value="Lice"> Lice </option>
+					<option value="Listeria monocytogenes"> Listeria monocytogenes </option>
+					<option value="Marburg fever"> Marburg fever </option>
+					<option value="Measles"> Measles </option>
+					<option value="Meningitis"> Meningitis </option>
+					<option value="Molluscum contagiosum"> Molluscum contagiosum </option>
+					<option value="Mycoplasma"> Mycoplasma </option>
+					<option value="MRSA"> MRSA </option>
+					<option value="Mumps"> Mumps </option>
+					<option value="Neissera gonorrhoea"> Neissera gonorrhoea </option>
+					<option value="Neissera meningitis"> Neissera meningitis </option>
+					<option value="Norovirus"> Norovirus </option>
+					<option value="Parasites"> Parasites </option>
+					<option value="Parvovirus"> Parvovirus </option>
+					<option value="Polio"> Polio </option>
+					<option value="Pseudomonas spp"> Pseudomonas spp </option>
+					<option value="Rabies"> Rabies </option>
+					<option value="Respiratory Syncytial virus"> Respiratory Syncytial virus </option>
+					<option value="Rotavirus"> Rotavirus </option>
+					<option value="Rubella"> Rubella </option>
+					<option value="Salmonella"> Salmonella </option>
+					<option value="SARS"> SARS </option>
+					<option value="Scabies"> Scabies </option>
+					<option value="Sexually Transmitted Infections"> Sexually Transmitted Infections </option>
+					<option value="Shigella"> Shigella </option>
+					<option value="Smallpox"> Smallpox </option>
+					<option value="Staphylococcus Aureus"> Staphylococcus Aureus </option>
+					<option value="Streptococcal Infection"> Streptococcal Infection </option>
+					<option value="Surgical Site Infection"> Surgical Site Infection </option>
+					<option value="TB"> TB </option>
+					<option value="Tetanus"> Tetanus </option>
+					<option value="Tinea"> Tinea </option>
+					<option value="Travel Associated illness"> Travel Associated illness </option>
+					<option value="TSE"> TSE </option>
+					<option value="Typhoid fever"> Typhoid fever </option>
+					<option value="Viral Haemorrhagic fever"> Viral Haemorrhagic fever </option>
+					<option value="VTEC"> VTEC </option>
+					<option value="VRE"> VRE </option>
+					<option value="West Nile Virus"> West Nile Virus </option>
+					<option value="Yellow fever"> Yellow fever </option>
+				</select>
+				<input type="submit" value="Search">
 
-		<input type="name" name="search" placeholder="Add title" required>
+			</div>
+			<h2 class="block-title"> Filters </h2>
+			<div class="dropdown">
+				<input type="checkbox" id="checkbox_toggle" class="menu">
+				<label class="dropcol" for="checkbox_toggle">Region </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
+				<ul id="drop">
+					<li class="drop"><input type="checkbox" name="check1" id="check1" value="Africa"><label for="check1">Africa</label></li>
+					<li class="drop"><input type="checkbox" name="check2" id="check2" value="North America"><label for="check2">North America</label></li>
+					<li class="drop"><input type="checkbox" name="check3" id="check3" value="South America"><label for="check3">South America</label></li>
+					<li class="drop"><input type="checkbox" name="check4" id="check4" value="Asia"><label for="check4">Asia</label></li>
+					<li class="drop"><input type="checkbox" name="check5" id="check5" value="Europe"><label for="check5">Europe</label></li>
+					<li class="drop"><input type="checkbox" name="check6" id="check6" value="Oceania"><label for="check6">Oceania</label></li>
+				</ul>
+			</div>
 
-		<input type="submit" value="Add">
+			<div class="dropdown">
+				<input type="checkbox" id="checkbox_toggle2" class="menu">
+				<label class="dropcol" for="checkbox_toggle2">Clinical Practice </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
+				<ul id="drop">
+					<li class="drop"><input type="checkbox" name="check7" id="check7" value="Aseptic Technique"><label for="check7">Aseptic Technique</label></li>
+					<li class="drop"><input type="checkbox" name="check8" id="check8" value="Cleaning"><label for="check8">Cleaning</label></li>
+					<li class="drop"><input type="checkbox" name="check9" id="check9" value="Decontamination"><label for="check9">Decontamination</label></li>
+					<li class="drop"><input type="checkbox" name="check10" id="check10" value="Disinfection Sterilisation"><label for="check10">Disinfection Sterilisation</label></li>
+					<li class="drop"><input type="checkbox" name="check11" id="check11" value="Handwashing"><label for="check11">Handwashing</label></li>
+					<li class="drop"><input type="checkbox" name="check12" id="check12" value="Immunisation"><label for="check12">Immunisation</label></li>
+					<li class="drop"><input type="checkbox" name="check13" id="check13" value="Invasive Devices"><label for="check13">Invasive Devices</label></li>
+					<li class="drop"><input type="checkbox" name="check14" id="check14" value="Isolation"><label for="check14">Isolation</label></li>
+					<li class="drop"><input type="checkbox" name="check15" id="check15" value="Lab Specimens"><label for="check15">Lab Specimens</label></li>
+					<li class="drop"><input type="checkbox" name="check16" id="check16" value="Laundry"><label for="check16">Laundry</label></li>
+					<li class="drop"><input type="checkbox" name="check17" id="check17" value="Needles"><label for="check17">Needles</label></li>
+					<li class="drop"><input type="checkbox" name="check18" id="check18" value="Ward Closure"><label for="check18">Ward Closure</label></li>
+					<li class="drop"><input type="checkbox" name="check19" id="check19" value="Waste"><label for="check19">Waste</label></li>
+				</ul>
+			</div>
+			<div class="dropdown">
+				<input type="checkbox" id="checkbox_toggle3" class="menu">
+				<label class="dropcol" for="checkbox_toggle3">Setting </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
+				<ul id="drop">
+					<li class="drop"><input type="checkbox" name="check20" id="check20" value="Ambulance Trust"><label for="check20">Ambulance Trust</label></li>
+					<li class="drop"><input type="checkbox" name="check21" id="check21" value="Care Homes"><label for="check21">Care Homes</label></li>
+					<li class="drop"><input type="checkbox" name="check22" id="check22" value="Community"><label for="check22">Community</label></li>
+					<li class="drop"><input type="checkbox" name="check23" id="check23" value="Dental Practices"><label for="check23">Dental Practices</label></li>
+					<li class="drop"><input type="checkbox" name="check24" id="check24" value="Estates Facilities"><label for="check24">Estates Facilities</label></li>
+					<li class="drop"><input type="checkbox" name="check25" id="check25" value="High Risk"><label for="check25">High Risk</label></li>
+					<li class="drop"><input type="checkbox" name="check26" id="check26" value="Home Hygiene"><label for="check26">Home Hygiene</label></li>
+					<li class="drop"><input type="checkbox" name="check27" id="check27" value="Hospice"><label for="check27">Hospice</label></li>
+					<li class="drop"><input type="checkbox" name="check28" id="check28" value="Hospitals"><label for="check28">Hospitals</label></li>
+					<li class="drop"><input type="checkbox" name="check29" id="check29" value="Independent Care"><label for="check29">Independent Care</label></li>
+					<li class="drop"><input type="checkbox" name="check30" id="check30" value="Mental Health"><label for="check30">Mental Health</label></li>
+					<li class="drop"><input type="checkbox" name="check31" id="check31" value="Occupational Exposure"><label for="check31">Occupational Exposure</label></li>
+					<li class="drop"><input type="checkbox" name="check32" id="check32" value="Port Health"><label for="check32">Port Health</label></li>
+					<li class="drop"><input type="checkbox" name="check33" id="check33" value="Primary Care"><label for="check33">Primary Care</label></li>
+					<li class="drop"><input type="checkbox" name="check34" id="check34" value="Prisons"><label for="check34">Prisons</label></li>
+				</ul>
+			</div>
+			<div class="dropdown">
+				<input type="checkbox" id="checkbox_toggle4" class="menu">
+				<label class="dropcol" for="checkbox_toggle4">Disease/Organism </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
+				<ul id="drop">
+					<li class="drop"><input type="checkbox" name="check35" id="check35" value="Acinetobacter"><label for="check35">Acinetobacter</label></li>
+					<li class="drop"><input type="checkbox" name="check36" id="check36" value="Adenovirus"><label for="check36">Adenovirus</label></li>
+					<li class="drop"><input type="checkbox" name="check37" id="check37" value="Anthrax"><label for="check37">Anthrax</label></li>
+					<li class="drop"><input type="checkbox" name="check38" id="check38" value="Avian Influenza"><label for="check38">Avian Influenza</label></li>
+					<li class="drop"><input type="checkbox" name="check39" id="check39" value="Bacteraemia"><label for="check39">Bacteraemia</label></li>
+					<li class="drop"><input type="checkbox" name="check40" id="check40" value="Bordetella pertussis"><label for="check40">Bordetella pertussis</label></li>
+					<li class="drop"><input type="checkbox" name="check41" id="check41" value="Campylobacter jejuni"><label for="check41">Campylobacter jejuni</label></li>
+					<li class="drop"><input type="checkbox" name="check42" id="check42" value="Chickenpox VZV"><label for="check42">Chickenpox VZV</label></li>
+					<li class="drop"><input type="checkbox" name="check43" id="check43" value="Cholera"><label for="check43">Cholera</label></li>
+					<li class="drop"><input type="checkbox" name="check44" id="check44" value="Chlamydia psittaci"><label for="check44">Chlamydia psittaci</label></li>
+					<li class="drop"><input type="checkbox" name="check45" id="check45" value="Chlamydia trachomatis"><label for="check45">Chlamydia trachomatis</label></li>
+					<li class="drop"><input type="checkbox" name="check46" id="check46" value="Clostridium difficile"><label for="check46">Clostridium difficile</label></li>
+					<li class="drop"><input type="checkbox" name="check47" id="check47" value="CJD"><label for="check47">CJD</label></li>
+					<li class="drop"><input type="checkbox" name="check48" id="check48" value="Community Acquired Pneumonia"><label for="check48">Community Acquired Pneumonia</label></li>
+					<li class="drop"><input type="checkbox" name="check49" id="check49" value="Coxsacki virus"><label for="check49">Coxsacki virus</label></li>
+					<li class="drop"><input type="checkbox" name="check50" id="check50" value="Cytomegalovirus"><label for="check50">Cytomegalovirus</label></li>
+					<li class="drop"><input type="checkbox" name="check51" id="check51" value="Dengue fever"><label for="check51">Dengue fever</label></li>
+					<li class="drop"><input type="checkbox" name="check52" id="check52" value="Diarrhoea"><label for="check52">Diarrhoea</label></li>
+					<li class="drop"><input type="checkbox" name="check53" id="check53" value="Diptheria"><label for="check53">Diptheria</label></li>
+					<li class="drop"><input type="checkbox" name="check54" id="check54" value="Ebola"><label for="check54">Ebola</label></li>
+					<li class="drop"><input type="checkbox" name="check55" id="check55" value="Ecoli O157"><label for="check55">Ecoli O157</label></li>
+					<li class="drop"><input type="checkbox" name="check56" id="check56" value="Encephalitis"><label for="check56">Encephalitis</label></li>
+					<li class="drop"><input type="checkbox" name="check57" id="check57" value="Entovirus"><label for="check57">Entovirus</label></li>
+					<li class="drop"><input type="checkbox" name="check58" id="check58" value="Epstein Barr virus"><label for="check58">Epstein Barr virus</label></li>
+					<li class="drop"><input type="checkbox" name="check59" id="check59" value="Fleas"><label for="check59">Fleas</label></li>
+					<li class="drop"><input type="checkbox" name="check60" id="check60" value="Fungi"><label for="check60">Fungi</label></li>
+					<li class="drop"><input type="checkbox" name="check61" id="check61" value="HCAI"><label for="check61">HCAI</label></li>
+					<li class="drop"><input type="checkbox" name="check62" id="check62" value="Haemophilus influenza type B (HIB)"><label for="check62">Haemophilus influenza type B (HIB)</label></li>
+					<li class="drop"><input type="checkbox" name="check63" id="check63" value="Hepatitis A"><label for="check63">Hepatitis A</label></li>
+					<li class="drop"><input type="checkbox" name="check64" id="check64" value="Hepatitis B"><label for="check64">Hepatitis B</label></li>
+					<li class="drop"><input type="checkbox" name="check65" id="check65" value="Hepatitis C"><label for="check65">Hepatitis C</label></li>
+					<li class="drop"><input type="checkbox" name="check66" id="check66" value="Helicobacter Pylori"><label for="check66">Helicobacter Pylori</label></li>
+					<li class="drop"><input type="checkbox" name="check67" id="check67" value="Herpes Zoster"><label for="check67">Herpes Zoster</label></li>
+					<li class="drop"><input type="checkbox" name="check68" id="check68" value="HIV"><label for="check68">HIV</label></li>
+					<li class="drop"><input type="checkbox" name="check69" id="check69" value="Human papilloma virus"><label for="check69">Human papilloma virus</label></li>
+					<li class="drop"><input type="checkbox" name="check70" id="check70" value="Impetigo"><label for="check70">Impetigo</label></li>
+					<li class="drop"><input type="checkbox" name="check71" id="check71" value="Influenza"><label for="check71">Influenza</label></li>
+					<li class="drop"><input type="checkbox" name="check72" id="check72" value="Klebsiella"><label for="check72">Klebsiella</label></li>
+					<li class="drop"><input type="checkbox" name="check73" id="check73" value="Lassa fever"><label for="check73">Lassa fever</label></li>
+					<li class="drop"><input type="checkbox" name="check74" id="check74" value="Legionella"><label for="check74">Legionella</label></li>
+					<li class="drop"><input type="checkbox" name="check75" id="check75" value="Lice"><label for="check75">Lice</label></li>
+					<li class="drop"><input type="checkbox" name="check76" id="check76" value="Listeria monocytogenes"><label for="check76">Listeria monocytogenes</label></li>
+					<li class="drop"><input type="checkbox" name="check77" id="check77" value="Marburg fever"><label for="check77">Marburg fever</label></li>
+					<li class="drop"><input type="checkbox" name="check78" id="check78" value="Measles"><label for="check78">Measles</label></li>
+					<li class="drop"><input type="checkbox" name="check78" id="check79" value="Meningitis"><label for="check79">Meningitis</label></li>
+					<li class="drop"><input type="checkbox" name="check80" id="check80" value="Molluscum contagiosum"><label for="check80">Molluscum contagiosum</label></li>
+					<li class="drop"><input type="checkbox" name="check81" id="check81" value="Mycoplasma"><label for="check81">Mycoplasma</label></li>
+					<li class="drop"><input type="checkbox" name="check82" id="check82" value="MRSA"><label for="check82">MRSA</label></li>
+					<li class="drop"><input type="checkbox" name="check83" id="check83" value="Mumps"><label for="check83">Mumps</label></li>
+					<li class="drop"><input type="checkbox" name="check84" id="check84" value="Neissera gonorrhoea"><label for="check84">Neissera gonorrhoea</label></li>
+					<li class="drop"><input type="checkbox" name="check85" id="check85" value="Neissera meningitis"><label for="check85">Neissera meningitis</label></li>
+					<li class="drop"><input type="checkbox" name="check86" id="check86" value="Norovirus"><label for="check86">Norovirus</label></li>
+					<li class="drop"><input type="checkbox" name="check87" id="check87" value="Parasites"><label for="check87">Parasites</label></li>
+					<li class="drop"><input type="checkbox" name="check88" id="check88" value="Parvovirus"><label for="check88">Parvovirus</label></li>
+					<li class="drop"><input type="checkbox" name="check89" id="check89" value="Polio"><label for="check89">Polio</label></li>
+					<li class="drop"><input type="checkbox" name="check90" id="check90" value="Pseudomonas spp"><label for="check90">Pseudomonas spp</label></li>
+					<li class="drop"><input type="checkbox" name="check91" id="check91" value="Rabies"><label for="check91">Rabies</label></li>
+					<li class="drop"><input type="checkbox" name="check92" id="check92" value="Respiratory Syncytial virus"><label for="check92">Respiratory Syncytial virus</label></li>
+					<li class="drop"><input type="checkbox" name="check93" id="check93" value="Rotavirus"><label for="check93">Rotavirus</label></li>
+					<li class="drop"><input type="checkbox" name="check94" id="check94" value="Rubella"><label for="check94">Rubella</label></li>
+					<li class="drop"><input type="checkbox" name="check95" id="check95" value="Salmonella"><label for="check95">Salmonella</label></li>
+					<li class="drop"><input type="checkbox" name="check96" id="check96" value="SARS"><label for="check96">SARS</label></li>
+					<li class="drop"><input type="checkbox" name="check97" id="check97" value="Scabies"><label for="check97">Scabies</label></li>
+					<li class="drop"><input type="checkbox" name="check98" id="check98" value="Sexually Transmitted Infections"><label for="check98">Sexually Transmitted Infections</label></li>
+					<li class="drop"><input type="checkbox" name="check99" id="check99" value="Shigella"><label for="check99">Shigella</label></li>
+					<li class="drop"><input type="checkbox" name="check100" id="check100" value="Smallpox"><label for="check100">Smallpox</label></li>
+					<li class="drop"><input type="checkbox" name="check101" id="check101" value="Staphylococcus Aureus"><label for="check101">Staphylococcus Aureus</label></li>
+					<li class="drop"><input type="checkbox" name="check102" id="check102" value="Streptococcal Infection"><label for="check102">Streptococcal Infection</label></li>
+					<li class="drop"><input type="checkbox" name="check103" id="check103" value="Surgical Site Infection"><label for="check103">Surgical Site Infection</label></li>
+					<li class="drop"><input type="checkbox" name="check104" id="check104" value="TB"><label for="check104">TB</label></li>
+					<li class="drop"><input type="checkbox" name="check105" id="check105" value="Tetanus"><label for="check105">Tetanus</label></li>
+					<li class="drop"><input type="checkbox" name="check106" id="check106" value="Tinea"><label for="check106">Tinea</label></li>
+					<li class="drop"><input type="checkbox" name="check107" id="check107" value="Travel Associated illness"><label for="check107">Travel Associated illness</label></li>
+					<li class="drop"><input type="checkbox" name="check108" id="check108" value="TSE"><label for="check108">TSE</label></li>
+					<li class="drop"><input type="checkbox" name="check109" id="check109" value="Typhoid fever"><label for="check109">Typhoid fever</label></li>
+					<li class="drop"><input type="checkbox" name="check110" id="check110" value="Viral Haemorrhagic fever"><label for="check110">Viral Haemorrhagic fever</label></li>
+					<li class="drop"><input type="checkbox" name="check111" id="check111" value="VTEC"><label for="check111">VTEC</label></li>
+					<li class="drop"><input type="checkbox" name="check112" id="check112" value="VRE"><label for="check112">VRE</label></li>
+					<li class="drop"><input type="checkbox" name="check113" id="check113" value="West Nile Virus"><label for="check113">West Nile Virus</label></li>
+					<li class="drop"><input type="checkbox" name="check114" id="check114" value="Yellow fever"><label for="check114">Yellow fever</label></li>
+				</ul>
+			</div>
+			<div class="dropdown">
+				<input type="checkbox" id="checkbox_toggle5" class="menu">
+				<label class="dropcol" for="checkbox_toggle5">Policy </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
+				<ul id="drop">
+					<li class="drop"><input type="checkbox" name="check115" id="check115" value="Antimicrobial Prescribing"><label for="check115">Antimicrobial Prescribing</label></li>
+					<li class="drop"><input type="checkbox" name="check116" id="check116" value="Clinical Governance"><label for="check116">Clinical Governance</label></li>
+					<li class="drop"><input type="checkbox" name="check117" id="check117" value="International"><label for="check117">International</label></li>
+					<li class="drop"><input type="checkbox" name="check118" id="check118" value="Outbreaks"><label for="check118">Outbreaks</label></li>
+					<li class="drop"><input type="checkbox" name="check119" id="check119" value="Routine Procedures"><label for="check119">Routine Procedures</label></li>
+					<li class="drop"><input type="checkbox" name="check120" id="check120" value="Surveillance"><label for="check120">Surveillance</label></li>
+					<li class="drop"><input type="checkbox" name="check121" id="check121" value="Ward Closure"><label for="check121">Ward Closure</label></li>
+					<li class="drop"><input type="checkbox" name="check122" id="check122" value="National Policy"><label for="check122">National Policy</label></li>
+				</ul>
+			</div>
+			<div class="dropdown">
+				<input type="checkbox" id="checkbox_toggle6" class="menu">
+				<label class="dropcol" for="checkbox_toggle6">Transmission </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
+				<ul id="drop">
+					<li class="drop"><input type="checkbox" name="check123" id="check123" value="Airborne"><label for="check123">Airborne</label></li>
+					<li class="drop"><input type="checkbox" name="check124" id="check124" value="Blood and Body Fluids"><label for="check124">Blood and Body Fluids</label></li>
+					<li class="drop"><input type="checkbox" name="check125" id="check125" value="Contact"><label for="check125">Contact</label></li>
+					<li class="drop"><input type="checkbox" name="check126" id="check126" value="Food"><label for="check126">Food</label></li>
+					<li class="drop"><input type="checkbox" name="check127" id="check127" value="Infections Following Surgery"><label for="check127">Infections Following Surgery</label></li>
+					<li class="drop"><input type="checkbox" name="check128" id="check128" value="Insect Animal"><label for="check128">Insect Animal</label></li>
+				</ul>
+			</div>
+		</form>
+		<h2 class="block-title"> Contribute </h2>
+		<div class="normalform" style=" ">
+
+			<input type="name" name="search" placeholder="Add title" required>
+
+			<input type="submit" value="Add">
+		</div>
+		<div class="filler"> </div>
 	</div>
-	<div class="filler"> </div>
 </div>
 <div class="section" id="infocus">
 	<h2 class="block-title"> In Focus </h2>
