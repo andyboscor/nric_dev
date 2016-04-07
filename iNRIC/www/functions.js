@@ -45,8 +45,10 @@ $(window).load(function(){
 function searching(form)
     {
         var err = false;
-        //var here = form.elements["here"].checked;
         var checkit = "check";
+        var searchfor = form.search.value;
+        var category = form.category.value;
+        console.log(category);
         var keys="";
         for(i=1;i<=128;i++)
         {   
@@ -54,11 +56,19 @@ function searching(form)
             if(form.elements[check].checked == true)
                 { keys= keys + form.elements[check].value + '+'; console.log(keys);}
         }
+        if(searchfor)
+        {
+            keys = keys + searchfor + '+';
+        }
+        if(category)
+        {
+            keys = keys + category + '+';
+        }
         if(keys!="")
         {
             keys = keys.substring(0, keys.length - 1);
         }
-        console.log(keys)
+        console.log(keys);
         var obj = "test"; // search key
         var urle = encodeURI("http://139.162.199.80/nricrestapi/views/resources?keys=" + keys);
         //console.log(urle);
@@ -80,6 +90,10 @@ function searching(form)
                 data = JSON.parse($.trim(data));
                 console.log(data);
             $('#wrap').hide();
+            if(data==null)
+                $('<p> no results found </p>').appendTo($('#searchresults'));
+            $('#searchresults').empty();
+            $('<input type="button" class="save" onclick="$(\'#searchresults\').hide(); $(\'#wrap\').show();" value="Done" />').appendTo($('#searchresults'));
             jQuery.each(data, function(i, val) {
             //if(i>5) return false;
             desiredLink = val.node_title;
