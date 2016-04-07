@@ -507,6 +507,10 @@ label {
 }
 label.dropcol{
     color: #ff2f26;
+    
+}
+.drop label{
+    text-transform: none;
 }
 .closed{
     width:10px;
