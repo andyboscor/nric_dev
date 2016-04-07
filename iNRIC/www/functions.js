@@ -90,10 +90,10 @@ function searching(form)
                 data = JSON.parse($.trim(data));
                 console.log(data);
             $('#wrap').hide();
-            if(data==null)
-                $('<p> no results found </p>').appendTo($('#searchresults'));
-            $('#searchresults').empty();
-            $('<input type="button" class="save" onclick="$(\'#searchresults\').hide(); $(\'#wrap\').show();" value="Done" />').appendTo($('#searchresults'));
+            $('#searchresults').empty();            
+            $('<input type="button" class="back" style="right:10px;"onclick="$(\'#searchresults\').hide(); $(\'#wrap\').show();" value="< Back" />').appendTo($('#searchresults'));
+            if(data.length==0)
+                $('<div class="messg1"><p class="messg"> no results found </p></div>').appendTo($('#searchresults'));
             jQuery.each(data, function(i, val) {
             //if(i>5) return false;
             desiredLink = val.node_title;
@@ -106,6 +106,7 @@ function searching(form)
 
             //console.log(desiredLink);
         });
+            $('<div class="filler"></div>').appendTo($('#searchresults'));
             $('#searchresults').show();
                 if (data.uid != null) {
                     err = false;
