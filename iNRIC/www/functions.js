@@ -48,14 +48,13 @@ $(window).load(function(){
         //var here = form.elements["here"].checked;
         var checkit = "check";
         var keys="";
-        for(i=1;i<=5;i++)
+        for(i=1;i<=113;i++)
         {   
            check = checkit + i;
             if(form.elements[check].checked == true)
                 {console.log("yolo"); keys= keys + form.elements[check].value + '+'; console.log(keys);}
             else{ console.log(check);}
         }
-        
         keys = keys.substring(0, keys.length - 1);
         console.log(keys)
         var obj = "test"; // search key
@@ -392,6 +391,10 @@ function profilepage()
 {
     var desiredName = sessionStorage.name;
     var desiredEmail = sessionStorage.mail;
+    if(desiredName == null)
+    {
+        //window.location.replace("login.html");
+    }
     var email = '<a class="email" id="prof_email">' + desiredEmail + ' </a>';
     document.getElementById("prof_name").innerHTML = desiredName + email;
 
@@ -400,10 +403,12 @@ var flag1 = true;
 var flag2 = true;
 var flag3 = true;
 $( document ).ready(function() {
+    profilepage();
     news();
     recent();
     headline();
-    profilepage();
+    
+
     
     $(".menu li a").click(function(){
         $('.menu li a').not(this).removeClass('active');
