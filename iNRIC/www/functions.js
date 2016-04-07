@@ -45,11 +45,24 @@ $(window).load(function(){
     function searching(form)
     {
         var err = false;
-        var here = form.elements["here"].checked;
-        console.log(here);
+        //var here = form.elements["here"].checked;
+        var checkit = "check";
+        var keys="";
+        for(i=1;i<=5;i++)
+        {   
+           check = checkit + i;
+            if(form.elements[check].checked == true)
+                {console.log("yolo"); keys= keys + form.elements[check].value + '+'; console.log(keys);}
+            else{ console.log(check);}
+        }
+        
+        keys = keys.substring(0, keys.length - 1);
+        console.log(keys)
         var obj = "test"; // search key
+        var urle = encodeURI("http://139.162.199.80/nricrestapi/views/resources?keys=" + keys);
+        console.log(urle);
         $.ajax({
-            url:"http://139.162.199.80/nricrestapi/views/resources?keys=Africa+Hospice",
+            url: urle,
             type: "get",
             crossDomain: true,
             async: false,  
