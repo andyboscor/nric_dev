@@ -79,6 +79,46 @@
     $(".menu li a.active img#profile").attr('src',"img/search.svg"); */
  })
 });</script>
+<script type="text/javascript">
+function reg(form){
+    var err = false;
+    var name = form.name.value;
+    var mail = form.usermail.value;
+    if (name.length === 0) {
+        alert("You must enter a username.");
+        return false;
+    }
+ 
+    if (mail.length === 0) {
+        alert("You must enter an email address.");
+        return false;
+    }
+    var obj = "{\"name\": \"" + name + "\", \"mail\" : \"" + mail + "\" }";
+    $.ajax({
+        url: "http://139.162.199.80/nricrestapi/user/register",
+        type: "post",
+        crossDomain: true,
+        async: false,  
+        dataType: 'text',
+        contentType: 'application/json',
+        data: obj,
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        },
+        success: function(data){
+            console.log(data);
+            data = JSON.parse($.trim(data));
+            if (data.uid != NULL) {
+                err = true;
+                console.log(data);
+            }
+        }
+    });
+    return err;
+}
+</script>
     </head>
     <body>
      <header class="logoheader">
@@ -88,7 +128,7 @@
             </header>
     <div class="loginpage">
     <div class="loginform">
-        <form name="register" action="login.html" method="get" accept-charset="utf-8">
+        <form name="register" action="login.html" method="get" onsubmit="return reg(this)" accept-charset="utf-8">
             <ul>
                 <li>
                     <label for="name">Name</label>
@@ -98,15 +138,6 @@
                     <label for="usermail">Email</label>
                     <input type="email" name="usermail" placeholder="yourname@email.com" required>
                 </li>
-                <li>
-                    <label for="password">Password</label>
-                    <input type="password" name="password" placeholder="password" required>
-                </li>
-                <li>
-                    <label for="password">Confirm Password</label>
-                    <input type="password" name="password" placeholder="password" required>
-                </li>
-                
                  <li>
                     <label for="Country">Country</label>
                     <select name="country" required>
