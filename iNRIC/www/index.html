@@ -361,10 +361,13 @@
 		</form>
 		<h2 class="block-title"> Contribute </h2>
 		<div class="normalform" style=" ">
-
-			<input type="name" name="search" placeholder="Add title" required>
-
+		<form method="" onsubmit="contribute(this); this.reset(); return false;" accept-charset="utf-8">
+			<input type="name" name="title" placeholder="Add Title" required>
+			<p> </p>
+			<input type="name" name="url" placeholder="Add URL" required>
+			<div id="response"></div>
 			<input type="submit" value="Add">
+		</form>
 		</div>
 		<div class="filler"> </div>
 	</div>

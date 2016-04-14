@@ -42,6 +42,47 @@ $(window).load(function(){
             });
         return err;
     };
+function contribute(form)
+{
+	var title = form.title.value;
+	var url = form.url.value;
+	console.log(title);
+	var obj = "{\n \"webform\":\"9b8991f2-60ba-47bd-919e-138025fa0d06\",\n \"submission\":{\n \"data\":{\n \"1\":{ \"values\":null },\n \"2\":{ \"values\": [\""+ title + "\"] },\n \"3\":{ \"values\": [\""+ url+ "\"] }\n }\n }\n}"; 
+    $.ajax({
+        url: "http://139.162.199.80/nricrestapi/submission",
+        type: 'POST',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: obj,
+        crossDomain: true,
+        async: false,
+        beforeSend: function (request) {
+                request.setRequestHeader("X-CSRF-Token", sessionStorage.token);
+            }, 
+        error: function(errorThrown){
+            console.log(errorThrown.status);
+            console.log(errorThrown);
+            console.log(errorThrown.responseText);
+            if(errorThrown.status == 200)
+            {
+            	$('#response').empty();  
+            	$('<p class="messg2">Succesfully Submitted</p>').appendTo($('#response'));
+            }
+            else {
+            	$('#response').empty();  
+            	$('<p class="messg2">Something went wrong. Please try again</p>').appendTo($('#response'));
+            }
+        },
+        success: function(data){
+            // server  response with updated json 
+            // Print( Thank you for submission)
+            $('<p>Succesfully Submitted</p>').appendTo($('#response'));
+          
+            console.log(data);
+        }
+
+    });
+ };
 function searching(form)
     {
         var err = false;
@@ -456,6 +497,7 @@ $( document ).ready(function() {
         if(!($("a#search").hasClass('active')))
         {
             $("a#search img#search").attr('src',"img/search.svg");
+            $('#response').empty();  
         }
         else {
             $("a#search img#search").attr('src',"img/searchactive.svg");
