@@ -96,12 +96,14 @@ function searching(form)
                 $('<div class="messg1"><p class="messg"> no results found </p></div>').appendTo($('#searchresults'));
             jQuery.each(data, function(i, val) {
             //if(i>5) return false;
-            desiredLink = val.node_title;
-            desiredText = val.nid;
+            desiredLink = "http://139.162.199.80/node/" +val.nid;
+            desiredText = val.title;
             desiredData = val.body;
-            desiredSource = val.source;
-            //console.log(desiredText);
-                $('<div class="inner"><div class="title1"><a class="title" href="#home" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a>'+ desiredData + '</div></div>').appendTo($('#searchresults'));
+            desiredSource = val["level of evidence"];
+            desiredDate = val.unknown +" | " + desiredSource;
+
+            //console.log(desiredSource);
+                $('<div class="inner"><div class="title1"><a class="title" href="#home" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a><p class="information">'+ desiredDate + '</p></div></div>').appendTo($('#searchresults'));
 
 
             //console.log(desiredLink);
