@@ -17,7 +17,7 @@ function update_filter(filters /*array of string*/,csrf-token, uid){
     obj+="}}}";
     
     $.ajax({
-        url: "http://139.162.199.80/nricrestapi/user"+uid,
+        url: "http://139.162.199.80/nricrestapi/user/"+uid,
         type: 'PUT',
         headers:{'X-CSRF-Token': csrf-token};
         dataType: 'json',
