@@ -16,6 +16,7 @@ function submit(title, url, csrf-token)
             console.log(errorThrown.responseText);
         }
         success: function(data){
+            // server  response with updated json 
             // Print( Thank you for submission)
         }
 
