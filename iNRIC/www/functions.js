@@ -159,6 +159,51 @@ function searching(form)
         });
         return err;
     };
+    function forgot_pass(form){
+    var name = sessionStorage.mail;
+    var obj = "{\"name\": \"" + name + "\" }";
+                      console.log(obj);
+                      $.ajax({
+                        url: "http://139.162.199.80/nricrestapi/user/request_new_password.json",
+                        type: "POST",
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        data:  obj,
+                        crossDomain: true,
+                        async:false,
+                      //might need to request new token?
+                      beforeSend: function (request) {
+                      request.setRequestHeader("X-CSRF-Token", sessionStorage.token);
+                      }, 
+                        error: function(errorThrown) {
+                     
+                 
+                            if(errorThrown.status == "200")
+                              { 
+                              	$('#infopassrs').hide();
+                              	$('<label class="profile">Check your email!</label>').appendTo("#passrs");
+                                //console.log("request sent1");
+                              } else {
+                              	$('#infopassrs').hide();
+                              	$('<label class="profile">Oops! Something went wrong! Please try again.</label>').appendTo("#passrs");
+                              }
+                             
+                    },
+                    success: function (data) {
+                          
+                          console('no errors');
+                          if(data.status == "200")
+                              { 
+                                $('#infopassrs').hide();
+                              	$('<label class="profile">Check your email!</label>').appendTo("#passrs");
+                                //console.log("request sent");
+                              } 
+                          
+                    }
+    });
+                      return false;
+
+}
 function news()
 {
     $.ajax({
@@ -534,6 +579,8 @@ $( document ).ready(function() {
         if(!($("a#profile").hasClass('active')))
         {
             $("a#profile img#profile").attr('src',"img/profile.svg");
+            $('#infopassrs').show();
+            $('#passrs').empty();
         }
         else {
             $("a#profile img#profile").attr('src',"img/profileactive.svg");

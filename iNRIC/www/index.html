@@ -500,10 +500,14 @@
 	</div>
 	<h2 class="block-title"> Password </h2>
 	<div class="normalform">
+	<form name="passrs" method="" onsubmit="return forgot_pass(this);" accept-charset="utf-8">
 		<!--<input type="password" name="search" placeholder="Change Password..." required> -->
-		<label> An email will be sent to you in order to change the password</label>
-		<br>
+		<div id="infopassrs">
+		<label class="profile">If you want to change your password click the button below. We'll send you an email with further instructions!</label>
+		</div>
+		<div id="passrs"></div>
 		<input type="submit" value="Change">
+	</form>
 	</div>
 	<input type="button" class="logout" onclick="if(logout() == true) window.location='login.html';" value="Log out" />
 </div>

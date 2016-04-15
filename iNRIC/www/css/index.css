@@ -532,12 +532,16 @@ li.drop{
 }
 label {
     font-size:5vw;
-    margin-left:10px;
+    margin-left:3vw;
     
 }
 label.dropcol{
     color: #ff2f26;
     
+}
+label.profile{
+    font-size:4vw;
+    margin-left:0px;
 }
 .drop label{
     text-transform: none;
@@ -620,7 +624,4 @@ p.messg2{
 }
 p.information{
     font-size:3.4vw;
-}
-#response{
-
 }
