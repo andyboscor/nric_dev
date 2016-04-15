@@ -42,6 +42,47 @@ $(window).load(function(){
             });
         return err;
     };
+function contribute(form)
+{
+	var title = form.title.value;
+	var url = form.url.value;
+	console.log(title);
+	var obj = "{\n \"webform\":\"9b8991f2-60ba-47bd-919e-138025fa0d06\",\n \"submission\":{\n \"data\":{\n \"1\":{ \"values\":null },\n \"2\":{ \"values\": [\""+ title + "\"] },\n \"3\":{ \"values\": [\""+ url+ "\"] }\n }\n }\n}"; 
+    $.ajax({
+        url: "http://139.162.199.80/nricrestapi/submission",
+        type: 'POST',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: obj,
+        crossDomain: true,
+        async: false,
+        beforeSend: function (request) {
+                request.setRequestHeader("X-CSRF-Token", sessionStorage.token);
+            }, 
+        error: function(errorThrown){
+            console.log(errorThrown.status);
+            console.log(errorThrown);
+            console.log(errorThrown.responseText);
+            if(errorThrown.status == 200)
+            {
+            	$('#response').empty();  
+            	$('<p class="messg2">Succesfully Submitted</p>').appendTo($('#response'));
+            }
+            else {
+            	$('#response').empty();  
+            	$('<p class="messg2">Something went wrong. Please try again</p>').appendTo($('#response'));
+            }
+        },
+        success: function(data){
+            // server  response with updated json 
+            // Print( Thank you for submission)
+            $('<p>Succesfully Submitted</p>').appendTo($('#response'));
+          
+            console.log(data);
+        }
+
+    });
+ };
 function searching(form)
     {
         var err = false;
@@ -96,12 +137,14 @@ function searching(form)
                 $('<div class="messg1"><p class="messg"> no results found </p></div>').appendTo($('#searchresults'));
             jQuery.each(data, function(i, val) {
             //if(i>5) return false;
-            desiredLink = val.node_title;
-            desiredText = val.nid;
+            desiredLink = "http://139.162.199.80/node/" +val.nid;
+            desiredText = val.title;
             desiredData = val.body;
-            desiredSource = val.source;
-            //console.log(desiredText);
-                $('<div class="inner"><div class="title1"><a class="title" href="#home" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a>'+ desiredData + '</div></div>').appendTo($('#searchresults'));
+            desiredSource = val["level of evidence"];
+            desiredDate = val.unknown +" | " + desiredSource;
+
+            //console.log(desiredSource);
+                $('<div class="inner"><div class="title1"><a class="title" href="#home" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a><p class="information">'+ desiredDate + '</p></div></div>').appendTo($('#searchresults'));
 
 
             //console.log(desiredLink);
@@ -116,6 +159,51 @@ function searching(form)
         });
         return err;
     };
+    function forgot_pass(form){
+    var name = sessionStorage.mail;
+    var obj = "{\"name\": \"" + name + "\" }";
+                      console.log(obj);
+                      $.ajax({
+                        url: "http://139.162.199.80/nricrestapi/user/request_new_password.json",
+                        type: "POST",
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        data:  obj,
+                        crossDomain: true,
+                        async:false,
+                      //might need to request new token?
+                      beforeSend: function (request) {
+                      request.setRequestHeader("X-CSRF-Token", sessionStorage.token);
+                      }, 
+                        error: function(errorThrown) {
+                     
+                 
+                            if(errorThrown.status == "200")
+                              { 
+                              	$('#infopassrs').hide();
+                              	$('<label class="profile">Check your email!</label>').appendTo("#passrs");
+                                //console.log("request sent1");
+                              } else {
+                              	$('#infopassrs').hide();
+                              	$('<label class="profile">Oops! Something went wrong! Please try again.</label>').appendTo("#passrs");
+                              }
+                             
+                    },
+                    success: function (data) {
+                          
+                          console('no errors');
+                          if(data.status == "200")
+                              { 
+                                $('#infopassrs').hide();
+                              	$('<label class="profile">Check your email!</label>').appendTo("#passrs");
+                                //console.log("request sent");
+                              } 
+                          
+                    }
+    });
+                      return false;
+
+}
 function news()
 {
     $.ajax({
@@ -454,6 +542,7 @@ $( document ).ready(function() {
         if(!($("a#search").hasClass('active')))
         {
             $("a#search img#search").attr('src',"img/search.svg");
+            $('#response').empty();  
         }
         else {
             $("a#search img#search").attr('src',"img/searchactive.svg");
@@ -490,6 +579,8 @@ $( document ).ready(function() {
         if(!($("a#profile").hasClass('active')))
         {
             $("a#profile img#profile").attr('src',"img/profile.svg");
+            $('#infopassrs').show();
+            $('#passrs').empty();
         }
         else {
             $("a#profile img#profile").attr('src',"img/profileactive.svg");
