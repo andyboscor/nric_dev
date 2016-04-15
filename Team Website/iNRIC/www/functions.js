@@ -23,6 +23,7 @@ $(window).load(function(){
             async:false,
             data: obj,
             beforeSend: function (request) {
+                request.setRequestHeader('Access-Control-Allow-Origin', '*');
                 request.setRequestHeader("X-CSRF-Token", sessionStorage.token);
             }, 
             error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -173,6 +174,7 @@ function searching(form)
                         async:false,
                       //might need to request new token?
                       beforeSend: function (request) {
+                      request.setRequestHeader('Access-Control-Allow-Origin', '*');
                       request.setRequestHeader("X-CSRF-Token", sessionStorage.token);
                       }, 
                         error: function(errorThrown) {
