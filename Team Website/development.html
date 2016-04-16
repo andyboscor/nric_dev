@@ -45,7 +45,7 @@
 					<article id="main">
 						<header>
 							<h2>Development</h2>
-							<p>Repository, Prototype, Prototype installation</p>
+							<p>Repository, Prototype, Prototype installation <br />Architectural Diagram, Development Plan, Iterations and Forks in prototypes</p>
 						</header>
 						<section class="wrapper style5">
 							<div class="inner">
@@ -121,6 +121,43 @@
 								</ul>
 								</p>
 								<h4>Iterations and forks in prototypes</h4>
+								<h5> First iteration </h5>
+								<p>
+								The first iteration of the app was the tabbed menu as well as the Home Page that implemented some design elements from the iNRIC website (font family, font size, title design, logo, etc). This proved to be very useful to show to our client and the iNRIC content manager how we envisioned the app and was more useful to do than focus on Photoshop Mock-ups as changes could easily be made within the CSS.
+								</p>
+								<h5> Second iteration </h5>
+								<p>
+								The second iteration of the app had complete example classes of most of the website. It contained Headlines, News, Recently added, Conferences, Training, etc and how they would present the information on the app. These example classes were very important to the future integration with our back-end. Furthermore, these classes needed to be checked by both the client and content manager as not as much information from the website could be shown in the app and as such some trade-offs needed to be made.
+								</p>
+								<h5> Third iteration </h5>
+								<p>
+								The third iteration implemented the Profile Page front-end which had no equivalent on the website and suffered multiple changes to be approved by the client. Furthermore, it included some design changes to the Searching page to accommodate searching with User Preferences as well.
+								</p>
+								<h5> Fourth iteration </h5>
+								<p>
+								Having the main part of the application done, we also created login, register and forgot password pages thus marking the end of the front-end design.
+								</p>
+								<h5> Fifth iteration </h5>
+								<p>
+								In our fifth iteration, we initially wanted to use PHP to access the Drupal Database directly but realised it was automatically generated and a lot more complicated than initially thought. Therefore we switched to making the Drupal iNRIC website as a REST API and therefore did a few AJAX requests (Headlines, News) to obtain some data.
+								</p>
+								<h5> Sixth iteration </h5>
+								<p>
+								Our sixth iteration was one of the longest ones, as we were unable to update Drupal to a newer version as it would interfere with the custom iNRIC built theme and we therefore had issues using the REST API as a login/logout tool. The main issue here was that although Drupal was logging the user in, it would still throw an error due to not being able to internally parse the JSON object it was sending back. We therefore had to go for a workaround that would still get the necessary login token and maintain it. This iteration created the ability for a user to log in/log out and for the user to be take back to the login page in case they weren't logged in.
+								</p>
+								<h5> Seventh iteration </h5>
+								<p>
+								The seventh iteration implemented the Headlines, Recent News, Latest Articles, Training, In Focus etc as AJAX requests instead of static data. Therefore, everytime the content manager will change something, the app will get updated.
+								</p>
+								<h5> Eighth iteration </h5> 
+								<p> The eighth iteration implemented the Search Function AJAX request and integration with front-end as well as the Contribution web form.
+								</p>
+								<h5> Ninth iteration </h5>
+								<p> The last iteration included the addition of the User Profile preferences as an AJAX request. </p>
+								<h5> Forks on Github </h5>
+								<p>
+								Master initially contained the working front-end and node_module was created to test out adding the back-end AJAX requests.
+								</p>
 							</div>
 						</section>
 					</article>
