@@ -168,6 +168,7 @@ function validate(form){
                                     connection_sessid = data1.sessid;
                                     connection_sessname = data1.session_name;
                                     connection_token = data1.token;
+                                    connection_uid = data1.user.uid;
                                 //alert('nu');
                                 }
                                 catch(err){
@@ -199,6 +200,7 @@ function validate(form){
   sessionStorage.token = connection_token;
   sessionStorage.name = connection_name;
   sessionStorage.mail = connection_mail;
+  sessionStorage.uid = connection_uid;
   //console.log(connection_sessname);
   return err;
   

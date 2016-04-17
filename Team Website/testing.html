@@ -55,14 +55,15 @@
 					<p> This can be done with multiple web application automation tools to check for security, accesibility, functionality and compatibility issues. Furthermore, they can be used on the main website to check for any errors when implementing the user profiling.</p>
 					<ul>
 						<li> <a href="http://www.loadsterperformance.com/">Loadster</a> - Loading Stress Test </li>
-						<li> <a href="http://www.seleniumhq.org">Selenium</a> - Functional/Regression Testing </li>
-						<li> <a href="http://sahipro.com">Sahi </a> - Functional/Regression Testing</li>
-						<li> <a href="http://www.linktiger.com/">Link Tiger</a> - Broken Link testing</li>
-						<li> <a href="https://www.netsparker.com/">Net Sparker</a> - Security testing</li>
-						<li> For further database testing, Drupal has it's own set of automated tests.</li>
+						<li> <a href="http://sahipro.com">Sahi </a> - Functional/Regression Testing</li> -- No longer used. Issues with installation.
+						<li> <a href="http://www.linktiger.com/">Link Tiger</a> - Broken Link testing</li> -- No longer used as links are managed by Content Manager.
+						<li> As Drupal</li>
 					</ul>
 
 					<p>In order to test the iNRIC app after it has been built with Phonegap, we can use <a href="https://testmunk.com">Testmunk</a>. It provides the ability to write test cases on real devices across multiple platforms. Furthermore, it reviews UI design and provides numerous already created tests that check reliability, speed, erorrs etc. (<a href="http://phonegap.com/blog/2015/10/27/testmunk-guest-post/">Recommendation)</a></p>
+
+					<h4> Loadster Workbench results </h4>
+					<p> In order to test the loading times of the app, we used Loadster and 25 virtual users that 
 
 					<hr />
 
@@ -124,7 +125,7 @@
 						The second test regarded font-size. The first group was given a font-size that mimics the one on the iNRIC website whilst the second group was given a a slightly larger font. Both font-sizes adjusted to various screen sizes. They were again asked to read through the headlines. Most of the people from the first group read significantly less with some(aged 55-65) even trying to zoom in on the text, than the ones from the second group.
 					</p>
 					<h5>Test No. 3 </h5>
-<p>The last test regarded the loading times of the app. The data from the application is being requested from the iNRIC Rest Service. The first group was asked to log in to the app that was loading all the website data in one go but provided quicker access after the initial load time, whereas the other group was given the version of the app that was loading data when they would switch tabs within the app. These tests revealed that subjects in the first group did not have the necessary patience to wait for the app to load, with some even trying to restart it.</p>
+					<p>The last test regarded the loading times of the app. The data from the application is being requested from the iNRIC Rest Service. The first group was asked to log in to the app that was loading all the website data in one go but provided quicker access after the initial load time, whereas the other group was given the version of the app that was loading data when they would switch tabs within the app. These tests revealed that subjects in the first group did not have the necessary patience to wait for the app to load, with some even trying to restart it.</p>
 					<h4> Development Testing </h4>
 					<p> Initial testing will be done by the developers across multiple devices to check for screen resizing and other compatibility issues.</p>
 
@@ -139,7 +140,7 @@
 							<li> Nexus 5 </li>
 							<li> iPhone 6 </li>
 						</ul> </p>
-		
+
 						<h4> App Store and Google Play deployment Testing</h4>
 						<p> After the app has been deployed, testing is done through usage, as a portion of users normally report uncaught bugs or compatibility issues.</p>
 					</div>

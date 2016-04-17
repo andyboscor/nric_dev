@@ -507,6 +507,51 @@ console.log('logout successful');
 return err;
 };
 */
+function updateprofile()
+{
+     var cookie = sessionStorage.sessname + "=" + sessionStorage.sessid;
+    var obj = '{"field_placement_settings":{"und":{';
+    obj+='"Settings-Community" : "bla"}}}';
+    //bj+="}}}";
+    console.log(obj);
+    console.log(sessionStorage.uid);
+     $.ajax({
+                        url: "http://139.162.199.80/nricrestapi/user/" + sessionStorage.uid,
+                        type: "PUT",
+                        dataType: "json",
+                        contentType: 'application/json',
+                        data:  obj,
+                        crossDomain: true,
+                        async:false,
+                      //might need to request new token?
+                      
+                      beforeSend: function (request) {
+                      //request.setRequestHeader('Access-Control-Allow-Origin', '*');
+                      request.setRequestHeader("X-CSRF-Token", sessionStorage.token);
+                      }, 
+                        error: function(errorThrown) {
+                     console.log(errorThrown.status);
+            console.log(errorThrown);
+            console.log(errorThrown.statusText);
+                            if(errorThrown.status == "200")
+                              { 
+                               
+                              } else {
+                              
+                              }
+                             
+                    },
+                    success: function (data) {
+                          
+                          console('no errors');
+                          if(data.status == "200")
+                              { 
+                                
+                              } 
+                          
+                    }
+    });
+};
 function profilepage()
 {
     var desiredName = sessionStorage.name;
