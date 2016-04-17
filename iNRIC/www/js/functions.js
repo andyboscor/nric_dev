@@ -31,7 +31,6 @@ $(window).load(function(){
                 console.log(textStatus);
                 console.log(errorThrown);
                 console.log(sessionStorage.token);
-                alert(textStatus);
                 if (XMLHttpRequest.status == "200" )
                     {    err = true;
                         console.log(err);
