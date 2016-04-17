@@ -5,114 +5,169 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Testing - iNRIC</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-	</head>
-	<body>
+<head>
+	<title>Testing - iNRIC</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+</head>
+<body>
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
 
-				<!-- Header -->
-					<header id="header">
-						<h1><a href="index.html">iNRIC</a></h1>
-						<nav id="nav">
+		<!-- Header -->
+		<header id="header">
+			<h1><a href="index.html">iNRIC</a></h1>
+			<nav id="nav">
+				<ul>
+					<li class="special">
+						<a href="#menu" class="menuToggle"><span>Menu</span></a>
+						<div id="menu">
 							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
-										<ul>
-											<li><a href="index.html">Home</a></li>
-											<li><a href="overview.html">Overview</a></li>
-											<li><a href="research.html">Research</a></li>
-											<li><a href="development.html">Development</a></li>
-											<li><a href="testing.html">Testing</a></li>
-											<li><a href="progress.html">Progress</a></li>
-										</ul>
-									</div>
-								</li>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="overview.html">Overview</a></li>
+								<li><a href="research.html">Research</a></li>
+								<li><a href="development.html">Development</a></li>
+								<li><a href="testing.html">Testing</a></li>
+								<li><a href="progress.html">Progress</a></li>
 							</ul>
-						</nav>
-					</header>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</header>
 
-				<!-- Main -->
-					<article id="main">
-						<header>
-							<h2>Testing</h2>
-							<p>Automated and user-based</p>
-						</header>
-						<section class="wrapper style5">
-							<div class="inner">
+		<!-- Main -->
+		<article id="main">
+			<header>
+				<h2>Testing</h2>
+				<p>Automated and user-based</p>
+			</header>
+			<section class="wrapper style5">
+				<div class="inner">
 
-								<h3>Automated testing</h3>
-								<p>The application is coded as a Web-App in HTML5, CSS3 and Javascript and has the addition of the DrupalGap module for database integration. Automated testing can be done for the web-app itself before being ported with Phonegap.</p>
-								<p> This can be done with multiple web application automation tools to check for security, accesibility, functionality and compatibility issues. Furthermore, they can be used on the main website to check for any errors when implementing the user profiling.</p>
-								<ul>
-									<li> <a href="http://www.loadsterperformance.com/">Loadster</a> - Loading Stress Test </li>
-									<li> <a href="http://www.seleniumhq.org">Selenium</a> - Functional/Regression Testing </li>
-									<li> <a href="http://sahipro.com">Sahi </a> - Functional/Regression Testing</li>
-									<li> <a href="http://www.linktiger.com/">Link Tiger</a> - Broken Link testing</li>
-									<li> <a href="https://www.netsparker.com/">Net Sparker</a> - Security testing</li>
-									<li> For further database testing, Drupal has it's own set of automated tests.</li>
-								</ul>
+					<h3>Automated testing</h3>
+					<p>The application is coded as a Web-App in HTML5, CSS3 and Javascript and has the addition of the DrupalGap module for database integration. Automated testing can be done for the web-app itself before being ported with Phonegap.</p>
+					<p> This can be done with multiple web application automation tools to check for security, accesibility, functionality and compatibility issues. Furthermore, they can be used on the main website to check for any errors when implementing the user profiling.</p>
+					<ul>
+						<li> <a href="http://www.loadsterperformance.com/">Loadster</a> - Loading Stress Test </li>
+						<li> <a href="http://www.seleniumhq.org">Selenium</a> - Functional/Regression Testing </li>
+						<li> <a href="http://sahipro.com">Sahi </a> - Functional/Regression Testing</li>
+						<li> <a href="http://www.linktiger.com/">Link Tiger</a> - Broken Link testing</li>
+						<li> <a href="https://www.netsparker.com/">Net Sparker</a> - Security testing</li>
+						<li> For further database testing, Drupal has it's own set of automated tests.</li>
+					</ul>
 
-								<p>In order to test the iNRIC app after it has been built with Phonegap, we can use <a href="https://testmunk.com">Testmunk</a>. It provides the ability to write test cases on real devices across multiple platforms. Furthermore, it reviews UI design and provides numerous already created tests that check reliability, speed, erorrs etc. (<a href="http://phonegap.com/blog/2015/10/27/testmunk-guest-post/">Recommendation)</a></p>
+					<p>In order to test the iNRIC app after it has been built with Phonegap, we can use <a href="https://testmunk.com">Testmunk</a>. It provides the ability to write test cases on real devices across multiple platforms. Furthermore, it reviews UI design and provides numerous already created tests that check reliability, speed, erorrs etc. (<a href="http://phonegap.com/blog/2015/10/27/testmunk-guest-post/">Recommendation)</a></p>
 
-								<hr />
+					<hr />
 
-								<h3>User Testing</h3>
-
-								<p> Is perhaps even more important than automated testing, as the app is meant for a large number of technical and non-techinal individuals. Therefore, the application should be easy to use and should work across a large number of devices. </p>
-								<h4> Development Testing </h4>
-								<p> Initial testing will be done by the developers across multiple devices to check for screen resizing and other compatibility issues.</p>
-
-								<p>The testing we have done so far for the part of the app we have built(front-end plus basic functionality) has been in regards to resizing of the app and transitions. We used Safari Responsive Design mode, Google Chrome Responsive Design mode across multiple screen resolutions.(Regular resolution or HiDPI resolution).</p>
-
-								<h4> Local device testing </h4>
-								<p>The application was also built with Phonegap CLI locally and sent over to Android and iOS devices with the use of the Phonegap Developer app. Therefore, the app was tested by the team and our client on
-								<ul>
-									<li> iPhone 6S Plus</li>
-									<li> iPhone 6 Plus </li>
-									<li> Galaxy Note 3 </li>
-									<li> Nexus 5 </li>
-									<li> iPhone 6 </li>
-								</ul> </p>
-								<h4> UCL App Lab testing </h4>
-								<p> After database integration, we will be adding the app to the UCL App Lab to increase testing reach. The app will be tested by iNRIC staff and other users our client sees fit to test.</p>
-								<h4> App Store and Google Play deployment Testing</h4>
-								<p> After the app has been deployed, testing is done through usage, as a portion of users normally report uncaught bugs or compatibility issues.</p>
-							</div>
-						</section>
-					</article>
-
-				<!-- Footer -->
-					<!-- Footer -->
-					<footer id="footer">
-						<ul class="icons">
-							<li><a href="https://twitter.com/NRIC_Global" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="https://www.facebook.com/NRIC-National-Resource-for-Infection-Control-322620358370/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+					<h3>User Testing</h3>
+					<p> Is perhaps even more important than automated testing, as the app is meant for a large number of technical and non-techinal individuals. Therefore, the application should be easy to use and should work across a large number of devices. </p>
+					<h4>A/B Testing </h4>
+					<p>We conducted various small scale A/B Tests with around 10 users using various screen sizes and platforms.</p>
+					<p>Tests conducted were on:
+						<ul>
+							<li> 2 x iPhone 6S Plus </li>
+							<li> iPhone 6 Plus </li>
+							<li> iPhone 6 </li>
+							<li> 2 x iPhone 5S </li>
+							<li> iPhone 4S </li>
+							<li> Samsung Galaxy Note 3 </li>
+							<li> Nexus 5 </li>
+							<li> Samasung Galaxy S6 </li>
 						</ul>
-						<ul class="copyright">
-							<li>&copy; Team 42 iNRIC</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</footer>
+					</p>
+					<p>The first purpose was to test the front-end and how the user would interact with various elements within the app (while having previously used the main iNRIC website).</p>
 
-			</div>
+					<p>The second purpose was to test functionality such as searching and loading times. (All data loaded at once, versus data loaded on demand).</p>
+
+					<p>The final purpose was to also see how the app would respond and function on different screen sizes and platforms.</p>
+					<p>The test subjects:
+						<ul>
+							<li> 2 x Medicine Students (aged 20-21) </li>
+							<li> 3 x Computer Science Students (aged 20-21)</li>
+							<li> 2 x Doctors (aged 55- 65)</li>
+							<li> 1 x Nurse (aged 57)</li>
+							<li> iPhone 4S </li>
+							<li> 2 x Engineers (aged 45-50) </li>
+						</ul>
+					</p>
+					<p>Test subjects were chosen from different age groups as to see make the app accessible to as many people as possible. Furthermore, more people that are studying/have studied Medicine have been chosen as the iNRIC website as well as the app is directed more towards medical staff.</p>
+					<p>Test subjects were split into two groups.</p>
+					Group 1
+					<ul>
+						<li>1 x Medicine Student </li>
+						<li>2 x Computer Science Students</li>
+						<li>1 x Doctor</li>
+						<li>1 x Engineer</li>
+					</ul>
+					Group 2
+					<ul>
+						<li>1 x Medicine Student </li>
+						<li>1 x Computer Science Students</li>
+						<li>1 x Doctor</li>
+						<li>1 x Engineer</li>
+						<li>1 x Nurse</li>
+					</ul>
+					<h5>Test No. 1</h5>
+					<p>
+						The first test conducted regarded the front-end of the app as it supposed to mimic the color scheme and some aspects of design from the iNRIC website. We therefore set up one version of the app with a simple white background and light orange for links and another with a gradient grey to light grey background and dark orange for links.
+						We gave the first version of the app (with the white background) to group 1. We gave the second version to group 2 and we asked them to read through the headlines. People read less on the first version of the app and did not realise that the titles are clickable, whereas on the second version, they read more with some subjects even clicking the links.
+					</p>
+					<h5>Test No. 2</h5>
+					<p>
+						The second test regarded font-size. The first group was given a font-size that mimics the one on the iNRIC website whilst the second group was given a a slightly larger font. Both font-sizes adjusted to various screen sizes. They were again asked to read through the headlines. Most of the people from the first group read significantly less with some(aged 55-65) even trying to zoom in on the text, than the ones from the second group.
+					</p>
+					<h5>Test No. 3 </h5>
+<p>The last test regarded the loading times of the app. The data from the application is being requested from the iNRIC Rest Service. The first group was asked to log in to the app that was loading all the website data in one go but provided quicker access after the initial load time, whereas the other group was given the version of the app that was loading data when they would switch tabs within the app. These tests revealed that subjects in the first group did not have the necessary patience to wait for the app to load, with some even trying to restart it.</p>
+					<h4> Development Testing </h4>
+					<p> Initial testing will be done by the developers across multiple devices to check for screen resizing and other compatibility issues.</p>
+
+					<p>We used Safari Responsive Design mode, Google Chrome Responsive Design mode across multiple screen resolutions.(Regular resolution or HiDPI resolution) to test the front-end and back-end. We also used POSTMAN as well as simply cross-check with the iNRIC website for the correct data to be sent via AJAX requests.</p>
+
+					<h4> Local device testing </h4>
+					<p>The application was also built with Phonegap CLI locally and sent over to Android and iOS devices with the use of the Phonegap Developer app. Therefore, the app was tested by the team and our client on
+						<ul>
+							<li> iPhone 6S Plus</li>
+							<li> iPhone 6 Plus </li>
+							<li> Galaxy Note 3 </li>
+							<li> Nexus 5 </li>
+							<li> iPhone 6 </li>
+						</ul> </p>
+		
+						<h4> App Store and Google Play deployment Testing</h4>
+						<p> After the app has been deployed, testing is done through usage, as a portion of users normally report uncaught bugs or compatibility issues.</p>
+					</div>
+				</section>
+			</article>
+
+			<!-- Footer -->
+			<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="https://twitter.com/NRIC_Global" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="https://www.facebook.com/NRIC-National-Resource-for-Infection-Control-322620358370/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Team 42 iNRIC</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</footer>
+
+		</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="assets/js/main.js"></script>
 
 	</body>
-</html>
+	</html>
