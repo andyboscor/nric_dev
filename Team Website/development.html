@@ -208,8 +208,15 @@
 									<p>The login script is a POST AJAX request to the "/user/login" endpoint. It initially requests a CSRF(Cross-Site Request Forgery) token. It then sends the user details over HTTP and then produces a new CSRF token for further requests. It also produces a session cookie which is saved throughout the app in SessionStorage (to persist in PhoneGap app). We tried making the login request as HTTPS, however Drupal makes the whole website HTTPS, not just the REST API and produces errors with the theme. Security is not an issue if the theme of the main website gets fixed.</p>
 									<p> The issue here with this script was that Drupal is throwing errors when sending back the JSON object, although the object is not corrupted. Therefore we are checking within the "errorthrown" JSON object for a 200 response status and session cookie.</p>
 									<li><h5>Logout Script</h5></li>
-									<p>The logout script is a POST AJAX request to the "/user/logout" endpoint.</p>
-
+									<p>The logout script is a POST AJAX request to the "/user/logout" endpoint. It uses the previously given CSRF token and the StorageSession cookie. The logout script presented the same JSON errors and is therefore using the same fix.</p>
+									<li><h5>Searching Script</h5></li>
+									<p>The searching script is a GET request to the "/views/resources?keys=" endpoint with keys being taken from the Searching form with Filters and Categories. This script uses the Iterator Design Pattern as it iterates through the filters and scripts on demand and selects the checked keys. It also iterates throught the returned JSON objects. It also makes use of the Prototype Design Pattern mentioned earlier in the front-end as it makes use of the classes created for the search results in the front-end and appends them in the HTML code of the page.
+									</p>
+									<li><h5>Headlines, Recent News, Latest Articles, Training, etc Scripts</h5></li>
+									<p> These scripts are all GET requests to various endpoints from the Drupal API and return JSON objects that we iterate through. They also add the objects returned using the prototype CSS3 classes and divs. This allow the content manager to modify anything on the website to also show on the app.
+									</p>
+									<li><h5>Contribute, Register and Forgot Password Scripts</h5>
+									<p> Are all POST requests that send form information to the REST API and append their responses to the HTML page. We would also need to change the protocotol to HTTPS here to maintain security. </p>
 								</ul>
 
 								<h4>Database </h4>
