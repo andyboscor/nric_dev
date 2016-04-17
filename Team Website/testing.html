@@ -57,14 +57,20 @@
 						<li> <a href="http://www.loadsterperformance.com/">Loadster</a> - Loading Stress Test </li>
 						<li> <a href="http://sahipro.com">Sahi </a> - Functional/Regression Testing</li> -- No longer used. Issues with installation.
 						<li> <a href="http://www.linktiger.com/">Link Tiger</a> - Broken Link testing</li> -- No longer used as links are managed by Content Manager.
-						<li> As Drupal</li>
+						<li> As the iNRIC website was built by another developer and the database was tested, we decided not to run Drupal tests on the Database as we made no modifications to it.</li>
 					</ul>
 
 					<p>In order to test the iNRIC app after it has been built with Phonegap, we can use <a href="https://testmunk.com">Testmunk</a>. It provides the ability to write test cases on real devices across multiple platforms. Furthermore, it reviews UI design and provides numerous already created tests that check reliability, speed, erorrs etc. (<a href="http://phonegap.com/blog/2015/10/27/testmunk-guest-post/">Recommendation)</a></p>
 
 					<h4> Loadster Workbench results </h4>
-					<p> In order to test the loading times of the app, we used Loadster and 25 virtual users that 
-
+					<p> In order to test the loading times of the app, we used Loadster with 25 virtual users to simulate the AJAX requests of the app. </p>
+					<div class="box alt">
+										<div class="row uniform 50%">
+											<div class="12u"><span class="image fit"><img src="images/testload.png" alt="" /></span></div>
+											</div>
+											</div> 
+					<p> You can find the full report <a href="test.html">here.</a> </p>
+					<p> These results show that the average loading time of the app login plus opening all tabs (majority of ajax requests) is less than 2 seconds per request. This shows that this solution is viable and fast. Furthermore it shows that loading everything at once would have significantly increased the loading times.  </p>
 					<hr />
 
 					<h3>User Testing</h3>
