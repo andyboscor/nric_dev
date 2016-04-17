@@ -90,6 +90,7 @@ var connection_sessname;
 var connection_token;
 var connection_mail;
 var connection_name;
+var connection_uid;
 
 function validate(form){
     var name = form.usermail.value;
@@ -127,7 +128,7 @@ function validate(form){
                       connection_token = token;
                       //$.mobile.changePage($("#menuPage"), "slideup");
                       //err = true;
-                      var obj = "{\"username\": \"" + name + "\", \"password\" : \"" + pass + "\" }";
+                      var obj = '{"username": "' + name + '", "password" : "' + pass + '" }';
                       console.log(obj);
                       $.ajax({
                         url: "http://139.162.199.80/nricrestapi/user/login",
@@ -152,11 +153,6 @@ function validate(form){
                               { 
                                 err = true; 
                                 console.log("logged in");
-                              } 
-
-                                console.log(errorThrown.status);
-                                console.log(errorThrown);
-                                console.log(errorThrown.responseText);
                                 var string = errorThrown.responseText;
                                 try{
                                     var data1 = JSON.parse($.trim(string));
@@ -174,6 +170,15 @@ function validate(form){
                                 catch(err){
                                   console.log(err);
                                 }  
+                              }
+                              else { $('#response').empty(); 
+                                $('<p><label> Wrong username or password. </label></p>').appendTo('#response');}
+
+                                console.log(errorThrown.status);
+                                console.log(errorThrown);
+                                console.log(errorThrown.responseText);
+                                
+                                
                     },
                     success: function (data) {
                           // OK - we're logged in, so snag the session details into our globals and greet the user
@@ -181,8 +186,9 @@ function validate(form){
                          // connection_user = data.user.uid;
                           //connection_sessid = data.sessid;
                           //connection_sessname = data.session_name;
-                          logged_in = true;
+                          //logged_in = true;
                           //err = true;
+
                           console('no errors');
                          // alert('Welcome ' + data.user.name + ', you are now connected as uid: ' + data.user.uid);
 
@@ -226,6 +232,7 @@ function validate(form){
                         <label for="password">Password</label>
                         <input type="password" name="password" placeholder="password" required>
                     </li>
+                    <div id="response"> </div>
                     <li>
                         <input type="submit" value="Login">
                         <a class="none" href="forgot.html">Forgot your password?</a>

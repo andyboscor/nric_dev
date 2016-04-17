@@ -511,7 +511,7 @@ function updateprofile()
 {
      var cookie = sessionStorage.sessname + "=" + sessionStorage.sessid;
     var obj = '{"field_placement_settings":{"und":{';
-    obj+='"Settings-Community" : "bla"}}}';
+    obj+='"Europe" : "Europe"}}}';
     //bj+="}}}";
     console.log(obj);
     console.log(sessionStorage.uid);
