@@ -498,14 +498,64 @@ console.log('logout successful');
 return err;
 };
 */
-function updateprofile()
+function updateprofile(form)
 {
      var cookie = sessionStorage.sessname + "=" + sessionStorage.sessid;
-    var obj = '{"field_placement_settings":{"und":{';
-    obj+='"Europe" : "Europe"}}}';
+    //var obj = '{"field_placement_settings":{"und":{';
+  //  obj+='"Europe" : "Europe"}}}';
+        var checkit = "check";
+        var filters= [];
+        var j = 1;
+        for(i=1;i<=128;i++)
+        {   
+           check = checkit + i;
+            if(form.elements[check].checked == true)
+                { filters[j++] = form.elements[check].value;}
+        }
+        console.log(filters);
+    var obj = { };
+    
+     
+    // Seperate filters by type 
+    for (var i =0; i < j; i++){
+        var key = filters[i];
+        
+        // Handle region category
+        if (key.indexOf("-") == -1)
+        {
+            // Check if category already exist in object
+            if (!("field_region" in obj))
+            {
+                // If not makeone
+                obj["field_region"] = { };
+                obj["field_region"]["und"] = { };  
+            }
+            // Append key to category
+            obj["field_region"]["und"][key]=key;  
+        }
+
+        // For the rest
+        else 
+        {
+           // Get the category name
+            var i = key.indexOf('-');
+            var type = key.subString(0, i);
+            type = type.toLowerCase();
+
+            // Check if category exist
+            if (!("field_placement_"+type in obj))
+            {
+                obj["field_placement_"+type] = { };
+                obj["field_placement_"+type]["und"] = { }; 
+            }
+            // Append new key
+            obj["field_placement_"+type]["und"][key] = key;
+        } 
+    }
     //bj+="}}}";
     console.log(obj);
     console.log(sessionStorage.uid);
+    /*
      $.ajax({
                         url: "http://139.162.199.80/nricrestapi/user/" + sessionStorage.uid,
                         type: "PUT",
@@ -542,6 +592,7 @@ function updateprofile()
                           
                     }
     });
+    */
 };
 function profilepage()
 {

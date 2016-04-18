@@ -15,7 +15,14 @@
 	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 </head>
 <body>
-
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 	<!-- Page Wrapper -->
 	<div id="page-wrapper">
 
@@ -45,13 +52,14 @@
 		<!-- Main -->
 		<article id="main">
 			<header>
-				<h2>Testing</h2>
-				<p>Automated and user-based<br />Evaluation of the product solution</p>
+				<h2>Further Development</h2>
+				<p>SDK/Collaboration Opportunities<br />Community Forum<br />System Manual and User Manual</p>
 			</header>
 			<section class="wrapper style5">
 				<div class="inner">
 
 					<h3>Automated testing</h3>
+					<div class="fb-comments" data-href="http://students.cs.ucl.ac.uk/2015/group42/further-dev.html" data-numposts="10"></div>
 					<p>The application is coded as a Web-App in HTML5, CSS3 and Javascript and has the addition of the DrupalGap module for database integration. Automated testing can be done for the web-app itself before being ported with Phonegap.</p>
 					<p> This can be done with multiple web application automation tools to check for security, accesibility, functionality and compatibility issues. Furthermore, they can be used on the main website to check for any errors when implementing the user profiling.</p>
 					<ul>
@@ -72,14 +80,6 @@
 											</div> 
 					<p> You can find the full report <a href="test.html">here.</a> </p>
 					<p> These results show that the average loading time of the app login plus opening all tabs (majority of ajax requests) is less than 2 seconds per request. This shows that this solution is viable and fast. Furthermore it shows that loading everything at once would have significantly increased the loading times.  </p>
-					<h4> Testmunk results </h4>
-					<p> The test was made to check if the app would compile and show the login screen on multiple Android devices. (As Apple requires Developer Account for full .ipa). </p>
-					<div class="box alt">
-										<div class="row uniform 50%">
-											<div class="12u"><span class="image fit"><img src="images/testmunk.png" alt="" /></span></div>
-											</div>
-											</div> 
-					<p> The test was succesfull. </p>
 					<hr />
 
 					<h3>User Testing</h3>
