@@ -549,7 +549,7 @@ function profilepage()
     var desiredEmail = sessionStorage.mail;
     if(desiredName == null)
     {
-        window.location.replace("login.html");
+        //window.location.replace("login.html");
     }
     var email = '<a class="email" id="prof_email">' + desiredEmail + ' </a>';
     document.getElementById("prof_name").innerHTML = desiredName + email;
@@ -559,6 +559,7 @@ var flag1 = true;
 var flag2 = true;
 var flag3 = true;
 $( document ).ready(function() {
+    $.support.cors=true;
     if(!($("a#home").hasClass('active')))
       {
         $("a#home img#home").attr('src',"img/home.svg");
