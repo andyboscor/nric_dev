@@ -1,12 +1,3 @@
-$(window).load(function(){
-      if(!($("a#home").hasClass('active')))
-      {
-        $("a#home img#home").attr('src',"img/home.svg");
-    }
-    else {
-        $("a#home img#home").attr('src',"img/homeactive.svg");
-    }
-});
     function logout()
     {
         var cookie = sessionStorage.sessname + "=" + sessionStorage.sessid;
@@ -568,6 +559,13 @@ var flag1 = true;
 var flag2 = true;
 var flag3 = true;
 $( document ).ready(function() {
+    if(!($("a#home").hasClass('active')))
+      {
+        $("a#home img#home").attr('src',"img/home.svg");
+    }
+    else {
+        $("a#home img#home").attr('src',"img/homeactive.svg");
+    }
     profilepage();
     news();
     recent();
