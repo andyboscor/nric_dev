@@ -26,8 +26,8 @@ function update_filter_settings(filters /*array of string*/,csrf-token, uid){
         else 
         {
            // Get the category name
-            var i = key.indexOf('-');
-            var type = key.substring(0, i);
+            var hyphenindex = key.indexOf('-');
+            var type = key.substring(0, hyphenindex);
             type = type.toLowerCase();
 
             // Check if category exist
