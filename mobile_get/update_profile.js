@@ -18,8 +18,8 @@ function update_filter_settings(filters /*array of string*/,csrf-token, uid){
                 obj["field_region"] = { };
                 obj["field_region"]["und"] = { };  
             }
-            // Append key to category
-            obj["field_region"]["und"][key]=key;  
+                // Append key to category
+                obj["field_region"]["und"][key]=key;  
         }
 
         // For the rest
@@ -37,7 +37,7 @@ function update_filter_settings(filters /*array of string*/,csrf-token, uid){
                 obj["field_placement_"+type]["und"] = { }; 
             }
             // Append new key
-            obj["field_placement_"+type]["und"][key] = key;
+            obj["field_placement_"+type]["und"][key]=key;
         } 
     }
      
@@ -49,7 +49,7 @@ function update_filter_settings(filters /*array of string*/,csrf-token, uid){
         headers:{'X-CSRF-Token': csrf-token};
         dataType: 'json',
         contentType: 'application/json',
-        data: obj,
+        data:ojb,
         crossDomain:true,
         async:false,
         error: function(errorThrown){
