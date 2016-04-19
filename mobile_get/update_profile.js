@@ -2,7 +2,7 @@ function update_filter_settings(filters /*array of string*/,csrf-token, uid){
   
     // Prepare the object
     var obj = { };
-      
+    var len = filters.length;     
      
     // Seperate filters by type 
     for (var i =0; i < len; i++){
@@ -27,7 +27,7 @@ function update_filter_settings(filters /*array of string*/,csrf-token, uid){
         {
            // Get the category name
             var i = key.indexOf('-');
-            var type = key.subString(0, i);
+            var type = key.substring(0, i);
             type = type.toLowerCase();
 
             // Check if category exist
@@ -49,7 +49,7 @@ function update_filter_settings(filters /*array of string*/,csrf-token, uid){
         headers:{'X-CSRF-Token': csrf-token};
         dataType: 'json',
         contentType: 'application/json',
-        data:ojb,
+        data:obj,
         crossDomain:true,
         async:false,
         error: function(errorThrown){
