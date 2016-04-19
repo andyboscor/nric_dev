@@ -26,10 +26,10 @@
 	<meta name="msapplication-tap-highlight" content="no" />
 	<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
+	<meta http-equiv="Content-Security-Policy" content="connect-src *;">
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
 
 	<title>iNRIC</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <!-- Adding an in app-browser link is done with an <a> tag. href is set to "#home or #search". 
 	onclick = "window.open('http://google.com', '_blank', 'location=yes');"-->
@@ -464,7 +464,7 @@
 	</div>
 
 	<div class="dropdown">
-	<form method="" onsubmit="updateprofile(); return false;" accept-charset="utf-8">
+	<form method="" onsubmit="updateprofile(this); return false;" accept-charset="utf-8">
 				<input type="checkbox" id="checkbox_toggle7" class="menu">
 				<label class="dropcol" for="checkbox_toggle7">Region </label><img class="closed" src="img/a-left.png"></img><img class="down" src="img/a-down.png"></img>
 				<ul id="drop">
@@ -915,6 +915,7 @@
 </footer>  
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
 <script type="text/javascript" src="js/functions.js"></script>
 <script type="text/javascript">
 	app.initialize();
