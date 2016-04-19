@@ -461,17 +461,14 @@ function usefullinks()
        }
    });
 };
-/*
-function getuserinfo()
+
+function getuserpref()
 {
-    var cookie = sessionStorage.sessname + "=" + sessionStorage.sessid;
-    console.log(cookie);
-    var err = false;
-    var obj = "{\"Cookie\": \"" + cookie + "\" }";
+   
 
 $.ajax({
-url: "http://139.162.199.80/nricrestapi/system/connect.json",
-type: 'POST',
+url: "http://139.162.199.80/nricrestapi/user/"+sessionStorage.uid,
+type: 'GET',
 dataType: 'json',
 contentType: 'application/json',
 crossDomain: true,
@@ -481,13 +478,115 @@ data: '',
         request.setRequestHeader("X-CSRF-Token", sessionStorage.token);
       }, 
 error: function(XMLHttpRequest, textStatus, errorThrown) {
-console.log(JSON.stringify(XMLHttpRequest));
-console.log(textStatus);
-console.log(errorThrown);
-console.log(sessionStorage.token);
+//console.log(JSON.stringify(XMLHttpRequest));
+//console.log(textStatus);
+//console.log(errorThrown);
+//console.log(sessionStorage.token);
+var string = XMLHttpRequest.responseText;
+var keys ='';
+try{
+    var data1 = JSON.parse($.trim(string));
+
+    console.log(data1);
+    if(data1.field_region.length!=0)
+    { 
+        for(i = 0; i<data1.field_region.und.length; i++)
+            { keys = keys + data1.field_region.und[i].value + '+';}
+ }
+ if(data1.field_placement_clinicalpractice.length!=0)
+    { 
+        for(i = 0; i<data1.field_placement_clinicalpractice.und.length; i++)
+            {   var obj = data1.field_placement_clinicalpractice.und[i].value;
+                var str = obj.replace("ClinicalPractice-", "");
+                keys = keys + str + '+';}
+ }
+ if(data1.field_placement_settings.length!=0)
+    { 
+        for(i = 0; i<data1.field_placement_settings.und.length; i++)
+            {   var obj = data1.field_placement_settings.und[i].value;
+                var str = obj.replace("Settings-", "");
+                keys = keys + str + '+';}
+ }
+ if(data1.field_placement_diseases.length!=0)
+    { 
+        for(i = 0; i<data1.field_placement_diseases.und.length; i++)
+            {   var obj = data1.field_placement_diseases.und[i].value;
+                var str = obj.replace("Diseases-", "");
+                keys = keys + str + '+';}
+ }
+ if(data1.field_placement_policy.length!=0)
+    { 
+        for(i = 0; i<data1.field_placement_policy.und.length; i++)
+            {   var obj = data1.field_placement_policy.und[i].value;
+                var str = obj.replace("Policy-", "");
+                keys = keys + str + '+';}
+ }
+  if(data1.field_placement_transmission.length!=0)
+    { 
+        for(i = 0; i<data1.field_placement_transmission.und.length; i++)
+            {   var obj = data1.field_placement_transmission.und[i].value;
+                var str = obj.replace("Transmission-", "");
+                keys = keys + str + '+';}
+ }
+ if(keys!="")
+        {
+            keys = keys.substring(0, keys.length - 1);
+        }
+ console.log(keys);
+ var obj = "test"; // search key
+        var urle = encodeURI("http://139.162.199.80/nricrestapi/views/resources?keys=" + keys);
+        //console.log(urle);
+        $.ajax({
+            url: urle,
+            type: "get",
+            crossDomain: true,
+            async: false,  
+            dataType: 'text',
+            contentType: 'application/json',
+            data: obj,
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR);
+                console.log(textStatus);
+                console.log(errorThrown);
+
+            },
+            success: function(data){
+                data = JSON.parse($.trim(data));
+                console.log(data);
+            $('#wrap').hide();
+            $('#searchresults').empty();            
+            $('<input type="button" class="back" style="right:10px;"onclick="$(\'#searchresults\').hide(); $(\'#wrap\').show();" value="< Back" />').appendTo($('#searchresults'));
+            if(data.length==0)
+                $('<div class="messg1"><p class="messg"> no results found </p></div>').appendTo($('#searchresults'));
+            jQuery.each(data, function(i, val) {
+            //if(i>5) return false;
+            desiredLink = "http://139.162.199.80/node/" +val.nid;
+            desiredText = val.title;
+            desiredData = val.body;
+            desiredSource = val["level of evidence"];
+            desiredDate = val.unknown +" | " + desiredSource;
+
+            //console.log(desiredSource);
+                $('<div class="inner"><div class="title1"><a class="title" href="#home" onclick="window.open(\''+desiredLink+'\', \'_blank\', \'location=yes\');">'+desiredText+'</a><p class="information">'+ desiredDate + '</p></div></div>').appendTo($('#searchresults'));
+
+
+            //console.log(desiredLink);
+        });
+            $('<div class="filler"></div>').appendTo($('#searchresults'));
+            $('#searchresults').show();
+                if (data.uid != null) {
+                    err = false;
+                    console.log(data);
+                }
+            }
+        });
+}
+catch(err){
+  console.log(err);
+}  
 if (XMLHttpRequest.status == "200" )
-    {    err = false;
-        console.log(err);
+    {    //err = false;
+        //console.log(err);
     }
 },
 success: function (data) {
@@ -495,104 +594,198 @@ console.log('logout successful');
 }
 
 });
-return err;
+return false;
 };
-*/
+
 function updateprofile(form)
 {
-     var cookie = sessionStorage.sessname + "=" + sessionStorage.sessid;
-    //var obj = '{"field_placement_settings":{"und":{';
-  //  obj+='"Europe" : "Europe"}}}';
-        var checkit = "check";
-        var filters= [];
-        var j = 1;
-        for(i=1;i<=128;i++)
-        {   
-           check = checkit + i;
-            if(form.elements[check].checked == true)
-                { filters[j++] = form.elements[check].value;}
-        }
-        console.log(filters);
-    var obj = { };
-    
-     
-    // Seperate filters by type 
-    for (var i =0; i < j; i++){
-        var key = filters[i];
-        
-        // Handle region category
-        if (key.indexOf("-") == -1)
-        {
-            // Check if category already exist in object
-            if (!("field_region" in obj))
-            {
+  var checkit = "check";
+  var filters= [];
+  var j = 1;
+  var key;
+  var obj = {};
+  var flag1 = false;
+  var flag2 = false;
+  var flag3 = false;
+  var flag4 = false;
+  var flag5 = false;
+  var flag6 = false;
+  for(i=1;i<=6;i++)
+  {  
+   check = checkit + i;
+   if(form.elements[check].checked == true)
+    { key = form.elements[check].value;
+     flag1 = true;
+     if (!('field_region' in obj))
+     {
                 // If not makeone
-                obj["field_region"] = { };
-                obj["field_region"]["und"] = { };  
+                obj['field_region'] = { };
+                obj['field_region']['und'] = { };  
             }
-            // Append key to category
-            obj["field_region"]["und"][key]=key;  
+                // Append key to category
+                obj['field_region']['und'][key]=key;  
+            }
         }
-
-        // For the rest
-        else 
+        if(flag1==false)
         {
-           // Get the category name
-            var i = key.indexOf('-');
-            var type = key.subString(0, i);
-            type = type.toLowerCase();
-
-            // Check if category exist
-            if (!("field_placement_"+type in obj))
+         obj['field_region'] = { };
+         obj['field_region']['und'] = { };  
+     }
+     for(i=7;i<=19;i++)
+     {   
+       check = checkit + i;
+       if(form.elements[check].checked == true)
+        { key = form.elements[check].value;
+            flag2 = true;
+            var str = 'field_placement_clinicalpractice';
+            key = key.replace(/\s/g,'');  
+            if (!( str in obj))
             {
-                obj["field_placement_"+type] = { };
-                obj["field_placement_"+type]["und"] = { }; 
+                obj[str] = { };
+                obj[str]['und'] = { }; 
             }
             // Append new key
-            obj["field_placement_"+type]["und"][key] = key;
-        } 
+            obj[str]['und']['ClinicalPractice-' + key]='ClinicalPractice-'+key;
+        }
     }
-    //bj+="}}}";
-    console.log(obj);
-    console.log(sessionStorage.uid);
-    /*
-     $.ajax({
-                        url: "http://139.162.199.80/nricrestapi/user/" + sessionStorage.uid,
-                        type: "PUT",
-                        dataType: "json",
-                        contentType: 'application/json',
-                        data:  obj,
-                        crossDomain: true,
-                        async:false,
+    if(flag2==false)
+    {
+     obj['field_placement_clinicalpractice'] = { };
+     obj['field_placement_clinicalpractice']['und'] = { };   
+ }
+ for(i=20;i<=34;i++)
+ {   
+   check = checkit + i;
+   if(form.elements[check].checked == true)
+    { key = form.elements[check].value;
+        flag3 = true;
+        var str = 'field_placement_settings';
+        key = key.replace(/\s/g,''); 
+
+        if (!( str in obj))
+        {
+            obj[str] = { };
+            obj[str]['und'] = { }; 
+        }
+            // Append new key
+            obj[str]['und']['Settings-'+key]='Settings-' + key;
+        }
+  }
+    if(flag3==false)
+    {
+     obj['field_placement_settings'] = { };
+     obj['field_placement_settings']['und'] = { };   
+ }
+ for(i=35;i<=114;i++)
+ {   
+   check = checkit + i;
+   if(form.elements[check].checked == true)
+    { key = form.elements[check].value;
+        flag4 = true;
+        var str = 'field_placement_diseases';
+        key = key.replace(/\s/g,''); 
+
+        if (!( str in obj))
+        {
+            obj[str] = { };
+            obj[str]['und'] = { }; 
+        }
+            // Append new key
+            obj[str]['und']['Diseases-'+key]='Diseases-' + key;
+        }
+    }
+    if(flag4==false)
+    {
+     obj['field_placement_diseases'] = { };
+     obj['field_placement_diseases']['und'] = { };   
+ }
+ for(i=115;i<=122;i++)
+ {   
+   check = checkit + i;
+   if(form.elements[check].checked == true)
+    { key = form.elements[check].value;
+        flag5=true;
+        var str = 'field_placement_policy';
+        key = key.replace(/\s/g,''); 
+
+        if (!( str in obj))
+        {
+            obj[str] = { };
+            obj[str]['und'] = { }; 
+        }
+            // Append new key
+            obj[str]['und']['Policy-'+key]='Policy-' + key;
+        }
+    }
+    if(flag5==false)
+    {
+     obj['field_placement_policy'] = { };
+     obj['field_placement_policy']['und'] = { };   
+ }
+ for(i=123;i<=128;i++)
+ {   
+   check = checkit + i;
+   if(form.elements[check].checked == true)
+    { key = form.elements[check].value;
+        flag6 = true;
+        var str = 'field_placement_transmission';
+        key = key.replace(/\s/g,''); 
+
+        if (!( str in obj))
+        {
+            obj[str] = { };
+            obj[str]['und'] = { }; 
+        }
+            // Append new key
+            obj[str]['und']['Transmission-'+key]='Transmission-' + key;
+        }
+    }
+    if(flag6==false)
+    {
+     obj['field_placement_transmission'] = { };
+     obj['field_placement_transmission']['und'] = { };   
+ }
+ var json = JSON.stringify(obj);
+ console.log(json);
+ console.log(sessionStorage.uid);
+
+ $.ajax({
+    url: "http://139.162.199.80/nricrestapi/user/" + sessionStorage.uid,
+    type: "PUT",
+    dataType: "json",
+    contentType: 'application/json',
+    data:  json,
+    crossDomain: true,
+    async:false,
                       //might need to request new token?
                       
                       beforeSend: function (request) {
                       //request.setRequestHeader('Access-Control-Allow-Origin', '*');
                       request.setRequestHeader("X-CSRF-Token", sessionStorage.token);
-                      }, 
-                        error: function(errorThrown) {
+                  }, 
+                  error: function(errorThrown) {
                      console.log(errorThrown.status);
-            console.log(errorThrown);
-            console.log(errorThrown.statusText);
-                            if(errorThrown.status == "200")
-                              { 
-                               
-                              } else {
-                              
-                              }
-                             
-                    },
-                    success: function (data) {
-                          
-                          console('no errors');
-                          if(data.status == "200")
-                              { 
-                                
-                              } 
-                          
-                    }
-    });
-    */
+                     console.log(errorThrown);
+                     console.log(errorThrown.statusText);
+                     if(errorThrown.status == "200")
+                     { 
+
+                     } else {
+
+                     }
+
+                 },
+                 success: function (data) {
+
+                  console('no errors');
+                  if(data.status == "200")
+                  { 
+
+                  } 
+
+              }
+          });
+
 };
 function profilepage()
 {
