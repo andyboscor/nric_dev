@@ -175,7 +175,8 @@
 									<li>www/forgot.html - Forgot password via email page with option to Login Page </li>
 									<li>www/index.html - Main tabbed application</li>
 									<li>www/css/index.css - CSS3 Styles</li>
-									<li>www/function.js - AJAX requests + Search, User preference, Contribution functions</li>
+									<li>www/js/function.js - AJAX requests + Search, User preference, Contribution functions</li>
+									<li>www/js/notifications.js - Android PushWoosh notifications</li>
 								</ul>
 								<h4>Front end</h4>
 								<p> The front-end was built in native HTML5, CSS3, Javascript (with some uses of the jQuery library). We also used some UI Design patterns in order to create the front-end. With the main design, we conducted some A/B tests when choosing background and link colors as well as font size. Furthermore, we implemented the Prototype Design Pattern when creating the Front-end classes for articles, news, search results, etc and are called upon and inserted in the front-end by back-end Javascript functions.
@@ -213,11 +214,15 @@
 									<li><h5>Searching Script</h5></li>
 									<p>The searching script is a GET request to the "/views/resources?keys=" endpoint with keys being taken from the Searching form with Filters and Categories. This script uses the Iterator Design Pattern as it iterates through the filters and scripts on demand and selects the checked keys. It also iterates throught the returned JSON objects. It also makes use of the Prototype Design Pattern mentioned earlier in the front-end as it makes use of the classes created for the search results in the front-end and appends them in the HTML code of the page.
 									</p>
+									<li><h5> Quick Search and Update Profile </h5></li>
+									<p>These two scripts work together, one by updating the User Preferences in the Drupal Database via a POST request to the "/user/uid" endpoint and the other getting the information from the User via a GET request from the same endpoint.</p>
 									<li><h5>Headlines, Recent News, Latest Articles, Training, etc Scripts</h5></li>
 									<p> These scripts are all GET requests to various endpoints from the Drupal API and return JSON objects that we iterate through. They also add the objects returned using the prototype CSS3 classes and divs. This allow the content manager to modify anything on the website to also show on the app.
 									</p>
-									<li><h5>Contribute, Register and Forgot Password Scripts</h5>
+									<li><h5>Contribute, Register and Forgot Password Scripts</h5></li>
 									<p> Are all POST requests that send form information to the REST API and append their responses to the HTML page. We would also need to change the protocotol to HTTPS here to maintain security. </p>
+									<li><h5>Notifications</h5></li>
+									<p> We are using <a href="https://www.pushwoosh.com">PushWoosh</a> in order to add Push Notifications, however we were unable to load the plugin on Phonegap Build. The reason for using PushWoosh is for the content manager to be able to send notifications when actually adding new resources to the website.</p>
 								</ul>
 
 								<h4>Database </h4>
