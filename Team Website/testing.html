@@ -163,6 +163,26 @@
 						<p> After the app has been deployed, testing is done through usage, as a portion of users normally report uncaught bugs or compatibility issues.</p>
 					<hr />
 					<h3> Evaluation of the product solution </h3>
+					<p> The product was created for various medical staff around the world to use the International Resource for Infection Control resources on a mobile platform. As iNRIC is an international resource with over a quarter million users from 159 different countries, it is already quite a popular service. </p>
+					<ol><li><b>Reasoning</b></li>
+					<p>The reason for which we chose to build this app is that most people nowadays are moving towards a mobile platform. Even though the website is responsive, it does not offer the same experience as the app and offers none of the User Preferences and Quick Searching.</p>
+					<li><b>Understandibility</b></li>
+					    <p>The app’s purpose is easy to understand. It is built firstly for quick access to the iNRIC database as well as for user profiles. Secondly, it is built with AJAX requests that return small amounts of data and adds it dynamically to the app whilst using very little data. It only takes 300-400kb to fully load all the resources, with searching using a max of 200kb. It is very useful for parts of the world that have limited access to the internet. Once installed the app will use very little data.</p>
+					<li><b>Install-ability</b></li>
+					<p>It is available on Android, Windows Phone and iOS. (It has been tested on a few platforms and it works with all retina iPhones and iPads as well as with most Android phones with KitKat or higher). We have not been able to get it properly working without Hydration for Android in Phonegap Build. (It is an issue with Phonegap accepting the Cordova Whitelisting plugin to allow AJAX requests).</p>
+					<li><b>Learnability</b></li>
+					<p>The app does not have much of a learning curve for people that have used iNRIC before. For those who haven’t it is still not difficult to use, the app being a collection of resources.</p>
+					<li><b>Security</b></li>
+					<p>The app could be secure by activating HTTPS in the Drupal website, however this affects the current set-up made by a previous developer. This can however, be easily fixed as we are only using AJAX requests.</p>
+					<li><b>Testability</b></li>
+					<p>The app has been tested on multiple devices with A/B testing and with Load Stress tests. Furthermore, it has been manually tested such that most features proved to be working without issues (except for notifications).</p>
+					<li><b>Extensibility</b></li>
+					   <p>The system is extensible as it is built in HTML5, CSS3 and Javascript(jQuery). Therefore the front-end can be easily extended. Furthermore, many front-end classes have been built that the back-end uses to show data. If the database were to contain more information, it could easily be added to the app via an AJAX request to that endpoint.</p>
+					<li><b>Website features</b></li>
+					<p>The website features have only been partially implemented. With the user having the ability to login/logout and change passwords or other details. They don’t have access however to the preferences and quick search. This is due to trying to develop on top of a software that was not easily extensible.</p>
+					<li><b>Fit for purpose</b></li>
+					<p>We strongly believe that the system is fit for purpose as it satisfies most of our client’s requirements. Furthermore, it uses the iNRIC server to solve the requests and should therefore be able to sustain the number of users iNRIC has. It also helps areas of the world with weak internet by using very little data and being available Cross-Platform.</p>
+					<ol>
 					</div>
 				</section>
 			</article>
