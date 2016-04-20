@@ -15,14 +15,14 @@
 	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 </head>
 <body>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 	<!-- Page Wrapper -->
 	<div id="page-wrapper">
 
@@ -57,115 +57,102 @@
 			</header>
 			<section class="wrapper style5">
 				<div class="inner">
-
+					<h3>SDK/Collaboration Opportunities</h3>
+					<hr />
 					<h3>Community Forum</h3>
 					<div class="fb-comments" data-href="http://students.cs.ucl.ac.uk/2015/group42/further-dev.html" data-numposts="10"></div>
 					<hr />
 
-					<h3>User Testing</h3>
-					<p> Is perhaps even more important than automated testing, as the app is meant for a large number of technical and non-techinal individuals. Therefore, the application should be easy to use and should work across a large number of devices. </p>
-					<h4>A/B Testing </h4>
-					<p>We conducted various small scale A/B Tests with around 10 users using various screen sizes and platforms.</p>
-					<p>Tests conducted were on:
-						<ul>
-							<li> 2 x iPhone 6S Plus </li>
-							<li> iPhone 6 Plus </li>
-							<li> iPhone 6 </li>
-							<li> 2 x iPhone 5S </li>
-							<li> iPhone 4S </li>
-							<li> Samsung Galaxy Note 3 </li>
-							<li> Nexus 5 </li>
-							<li> Samasung Galaxy S6 </li>
-						</ul>
-					</p>
-					<p>The first purpose was to test the front-end and how the user would interact with various elements within the app (while having previously used the main iNRIC website).</p>
+					<h3> User Manual </h3>
+					<ol>
+						<li><b>Login</b></li>
+						<p> <ul> <li> This is the first page presented from the app. Simply add your username and password to log in.</li></ul> </p>
+						<li><b>Forgot Password</b></li>
+						<p> <ul> <li>In case you forgot the password to your account, all you have to do is press the “Forgot your password?” button and input your email. You will receive an email to change your password.</li></ul> </p>
+						<li><b>Registration</b></li>
+						<p> <ul> <li>In case you don’t already have an account from iNRIC, you can create a new one by pressing the register “Button”. You will receive an email to set up a password.</li></ul> </p>
+						<li><b> Home Page</b></li>
+						<p> <ul> <li>You will be presented with a Home Page that contains Headlines, Latest News and Recently Added updated directly from iNRIC. Click on any link to open the in-app browser.</li></ul> </p>
+						<li><b>Search Page</b></li>
+						<p> <ul> <li>Choose any search key to query the iNRIC resource database. Furthermore you can also choose a category or apply Filters to your search. </li>
+							<li>You can use Quick Search with your previously saved Preferences. (We’ll tell you how to save them later on) </li>
+							<li>You can also contribute your own resources to the database by using the Contribute part of the page. </li></ul> </p>
+							<li><b>In Focus</b></li>
+							<p> <ul> <li>This page contains the resources regarding Infection Weeks and Training. </li></ul> </p>
+							<li><b>Links</b></li>
+							<p> <ul> <li>This page provides useful links and conferences. ( Also updated from iNRIC) </li></ul> </p>
+							<li><b>Profile</b></li>
+							<p> <ul> <li>This page contains your Preferences which you can always update.</li>
+								<li>You can also change your email, country or request a new password. </li>
+								<li>You can also logout. </li></ul> </p>
+							</ol>
+							<h3> System Manual </h3>
+							<p>All *.html pages use index.css (contains all CSS classes).</p>
+							<ol>
+								<li><b>Login Page</b></li>
+								<p> <ul> <li>The login page is in path “www/login.html”. It contains both the HTML5 and Javascript code used.</li>
+									<li>The login function contains a request to the Drupal RESTful API. (Implementation explained in Development page).</li></ul> </p>
+									<li><b>Registration Page</b></li>
+									<p> <ul> <li>The registration page is in path “www/register.html”. It contains both the HTML5 and Javascript code used.</li>
+										<li>The registration function contains an HTML5 form with a request to the Drupal RESTful API. (Implementation explained in Development Page).</li>
+										<li>Can be easily modified to add as many registration fields as necessary.</li></ul> </p>
+										<li><b>Forgot Password Page</b></li>
+										<p> <ul> <li>The registration page is in path “www/forgot.html”. It contains both the HTML5 and Javascript code used.</li>
+											<li>Requires the user to input an email so that the system can send a new password request there. </li>
+											<li>The forgot password function contains an HTML5 form with a request to the Drupal RESTful API. (Implementation explained in Development Page).</li></ul> </p>
+											<li><b>Main Page</b></li>
+											<p> <ul> <li>Contained in path “www/index.html”. It only contains the HTML5.</li>
+												<li>The Javascript and jQuery functions are in in path “www/js/functions.js”. They are mainly AJAX requests to the Drupal RESTful API. They inject HTML5 classes in “index.html” after they are executed.</li>
+												<li>Contains multiple divs that are hidden and shown when the menu buttons are pressed (via jQuery).</li></ul> 
+												<ol> <li><b>Home page</b></li>
+													<p> <ul> <li>The Home page contains an AJAX request to get Headlines, Latest News, Recently Added. They all dynamically add HTML5 code to index.html.</li>
+														<li>There is also a refresh button that recalls all these requests.</li></ul> </p>
+														<li><b>Search page</b></li>
+														<p> <ul> <li>The search page contains a form that contains the search key, category and filters. This also submits an AJAX request to the Drupal Restful API and uses jQuery to show the results.</li>
+															<li>There is also a form for the user to contribute resources.</li>
+															<li>The Quick Search function makes a call to the REST API and returns the user’s preferences. Then it sends an AJAX request to get the necessary data.</li></ul> </p>
+															<li><b>In Focus page</b></li>
+															<p> <ul> <li>Some more data will be added later from an older iNRIC resource.</li>
+																<li>AJAX Request that obtains Training links.</li></ul> </p>
+																<li><b>Links page</b></li>
+																<p> <ul> <li>Static links for Conferences</li>
+																	<li>AJAX Request that obtains Useful Links from REST API.</li></ul> </p>
+																	<li><b>Profile page</b></li>
+																	<p> <ul> <li>AJAX Request that saves User Filters to database. (uses session token)</li>
+																		<li>AJAX Request that changes email or country. (uses session token)</li>
+																		<li>AJAX Request that changes password. (uses session token)</li>
+																		<li>Log out button. (Logout function uses session token).</li></ul> </p>
+																	</ol>
+														<li><b>Notifications</b></li>
+																<p><ul> <li>Notifications are implemented (for Android) using PUSHWOOSH in path “www/js/notifications.js”. They are currently not being used as Phonegap has issues with loading the plugin in the app.</li> </ul></p>
+																    <li>Instructions to run are on Development page.</li>
+																</p>
+															</div>
+														</section>
+													</article>
 
-					<p>The second purpose was to test functionality such as searching and loading times. (All data loaded at once, versus data loaded on demand).</p>
+													<!-- Footer -->
+													<!-- Footer -->
+													<footer id="footer">
+														<ul class="icons">
+															<li><a href="https://twitter.com/NRIC_Global" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+															<li><a href="https://www.facebook.com/NRIC-National-Resource-for-Infection-Control-322620358370/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+														</ul>
+														<ul class="copyright">
+															<li>&copy; Team 42 iNRIC</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+														</ul>
+													</footer>
 
-					<p>The final purpose was to also see how the app would respond and function on different screen sizes and platforms.</p>
-					<p>The test subjects:
-						<ul>
-							<li> 2 x Medicine Students (aged 20-21) </li>
-							<li> 3 x Computer Science Students (aged 20-21)</li>
-							<li> 2 x Doctors (aged 55- 65)</li>
-							<li> 1 x Nurse (aged 57)</li>
-							<li> iPhone 4S </li>
-							<li> 2 x Engineers (aged 45-50) </li>
-						</ul>
-					</p>
-					<p>Test subjects were chosen from different age groups as to see make the app accessible to as many people as possible. Furthermore, more people that are studying/have studied Medicine have been chosen as the iNRIC website as well as the app is directed more towards medical staff.</p>
-					<p>Test subjects were split into two groups.</p>
-					Group 1
-					<ul>
-						<li>1 x Medicine Student </li>
-						<li>2 x Computer Science Students</li>
-						<li>1 x Doctor</li>
-						<li>1 x Engineer</li>
-					</ul>
-					Group 2
-					<ul>
-						<li>1 x Medicine Student </li>
-						<li>1 x Computer Science Students</li>
-						<li>1 x Doctor</li>
-						<li>1 x Engineer</li>
-						<li>1 x Nurse</li>
-					</ul>
-					<h5>Test No. 1</h5>
-					<p>
-						The first test conducted regarded the front-end of the app as it supposed to mimic the color scheme and some aspects of design from the iNRIC website. We therefore set up one version of the app with a simple white background and light orange for links and another with a gradient grey to light grey background and dark orange for links.
-						We gave the first version of the app (with the white background) to group 1. We gave the second version to group 2 and we asked them to read through the headlines. People read less on the first version of the app and did not realise that the titles are clickable, whereas on the second version, they read more with some subjects even clicking the links.
-					</p>
-					<h5>Test No. 2</h5>
-					<p>
-						The second test regarded font-size. The first group was given a font-size that mimics the one on the iNRIC website whilst the second group was given a a slightly larger font. Both font-sizes adjusted to various screen sizes. They were again asked to read through the headlines. Most of the people from the first group read significantly less with some(aged 55-65) even trying to zoom in on the text, than the ones from the second group.
-					</p>
-					<h5>Test No. 3 </h5>
-					<p>The last test regarded the loading times of the app. The data from the application is being requested from the iNRIC Rest Service. The first group was asked to log in to the app that was loading all the website data in one go but provided quicker access after the initial load time, whereas the other group was given the version of the app that was loading data when they would switch tabs within the app. These tests revealed that subjects in the first group did not have the necessary patience to wait for the app to load, with some even trying to restart it.</p>
-					<h4> Development Testing </h4>
-					<p> Initial testing will be done by the developers across multiple devices to check for screen resizing and other compatibility issues.</p>
+												</div>
 
-					<p>We used Safari Responsive Design mode, Google Chrome Responsive Design mode across multiple screen resolutions.(Regular resolution or HiDPI resolution) to test the front-end and back-end. We also used POSTMAN as well as simply cross-check with the iNRIC website for the correct data to be sent via AJAX requests.</p>
+												<!-- Scripts -->
+												<script src="assets/js/jquery.min.js"></script>
+												<script src="assets/js/jquery.scrollex.min.js"></script>
+												<script src="assets/js/jquery.scrolly.min.js"></script>
+												<script src="assets/js/skel.min.js"></script>
+												<script src="assets/js/util.js"></script>
+												<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+												<script src="assets/js/main.js"></script>
 
-					<h4> Local device testing </h4>
-					<p>The application was also built with Phonegap CLI locally and sent over to Android and iOS devices with the use of the Phonegap Developer app. Therefore, the app was tested by the team and our client on
-						<ul>
-							<li> iPhone 6S Plus</li>
-							<li> iPhone 6 Plus </li>
-							<li> Galaxy Note 3 </li>
-							<li> Nexus 5 </li>
-							<li> iPhone 6 </li>
-						</ul> </p>
-
-						<h4> App Store and Google Play deployment Testing</h4>
-						<p> After the app has been deployed, testing is done through usage, as a portion of users normally report uncaught bugs or compatibility issues.</p>
-					<hr />
-					<h3> Evaluation of the product solution </h3>
-					</div>
-				</section>
-			</article>
-
-			<!-- Footer -->
-			<!-- Footer -->
-			<footer id="footer">
-				<ul class="icons">
-					<li><a href="https://twitter.com/NRIC_Global" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="https://www.facebook.com/NRIC-National-Resource-for-Infection-Control-322620358370/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; Team 42 iNRIC</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
-			</footer>
-
-		</div>
-
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/skel.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-		<script src="assets/js/main.js"></script>
-
-	</body>
-	</html>
+											</body>
+											</html>
