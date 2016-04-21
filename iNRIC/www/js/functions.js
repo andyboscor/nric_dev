@@ -847,6 +847,20 @@ function updateprofile(form)
           });
 
 };
+function resetbutton()
+{
+   
+   $("#latest_news").empty();
+   news();
+   $("#recent").empty();
+   recent();
+   $("#headlines").empty();
+   headline(); 
+   $("#training").empty();
+   training();
+   $("#useful").empty();
+   usefullinks();
+};
 var flag1 = true;
 var flag2 = true;
 var flag3 = true;
