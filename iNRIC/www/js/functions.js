@@ -596,7 +596,67 @@ console.log('logout successful');
 });
 return false;
 };
+function profilepage()
+{
+    var desiredName = sessionStorage.name;
+    var desiredEmail = sessionStorage.mail;
+    if(desiredName == null)
+    {
+        //window.location.replace("login.html");
+    }
+    var email = '<a class="email" id="prof_email">' + desiredEmail + ' </a>';
+    document.getElementById("prof_name").innerHTML = desiredName + email;
 
+};
+function updatemail(form)
+{
+    var obj={  "current_pass" : form.password.value , "mail" : form.mail.value };
+    var json = JSON.stringify(obj);
+ console.log(json);
+ //console.log(sessionStorage.uid);
+
+ $.ajax({
+    url: "http://139.162.199.80/nricrestapi/user/" + sessionStorage.uid,
+    type: "PUT",
+    dataType: "json",
+    contentType: 'application/json',
+    data:  json,
+    crossDomain: true,
+    async:false,
+                      //might need to request new token?
+                      
+                      beforeSend: function (request) {
+                      //request.setRequestHeader('Access-Control-Allow-Origin', '*');
+                      request.setRequestHeader("X-CSRF-Token", sessionStorage.token);
+                  }, 
+                  error: function(errorThrown) {
+                     console.log(errorThrown.status);
+                     console.log(errorThrown);
+                     console.log(errorThrown.statusText);
+                     if(errorThrown.status == "200")
+                     { 
+                        sessionStorage.mail = form.mail.value;
+                        profilepage();
+                        form.reset();
+                     } else {
+                            form.reset();
+                            $("#emailreset").empty();
+                            $('<p></p><label class="profile">Oops! Something went wrong! Please try again.</label>').appendTo("#emailreset");
+                     }
+
+                 },
+                 success: function (data) {
+
+                  console('no errors');
+                  if(data.status == "200")
+                  { 
+
+                  } 
+
+              }
+          });
+
+};
 function updateprofile(form)
 {
   var checkit = "check";
@@ -787,18 +847,6 @@ function updateprofile(form)
           });
 
 };
-function profilepage()
-{
-    var desiredName = sessionStorage.name;
-    var desiredEmail = sessionStorage.mail;
-    if(desiredName == null)
-    {
-        //window.location.replace("login.html");
-    }
-    var email = '<a class="email" id="prof_email">' + desiredEmail + ' </a>';
-    document.getElementById("prof_name").innerHTML = desiredName + email;
-
-};
 var flag1 = true;
 var flag2 = true;
 var flag3 = true;
@@ -871,6 +919,7 @@ $( document ).ready(function() {
             $("a#profile img#profile").attr('src',"img/profile.svg");
             $('#infopassrs').show();
             $('#passrs').empty();
+            $('#emailreset').empty();
         }
         else {
             $("a#profile img#profile").attr('src',"img/profileactive.svg");
