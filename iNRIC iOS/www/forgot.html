@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>iNRIC</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+     $(".menu li a").click(function(){
+    $('.menu li a').not(this).removeClass('active');
+    $(this).addClass('active');
+    if(!($("a#home").hasClass('active')))
+    {
+        $("a#home img#home").attr('src',"img/home.svg");
+    }
+    else {
+        $("a#home img#home").attr('src',"img/homeactive.svg");
+    }
+    if(!($("a#search").hasClass('active')))
+    {
+        $("a#search img#search").attr('src',"img/search.svg");
+    }
+    else {
+        $("a#search img#search").attr('src',"img/searchactive.svg");
+    }
+    if(!($("a#infocus").hasClass('active')))
+    {
+        $("a#infocus img#infocus").attr('src',"img/target.png");
+    }
+    else {
+        $("a#infocus img#infocus").attr('src',"img/targetactive.png");
+    }
+    if(!($("a#links").hasClass('active')))
+    {
+        $("a#links img#links").attr('src',"img/links.svg");
+    }
+    else {
+        $("a#links img#links").attr('src',"img/linksactive.svg");
+    }
+    if(!($("a#profile").hasClass('active')))
+    {
+        $("a#profile img#profile").attr('src',"img/profile.svg");
+    }
+    else {
+        $("a#profile img#profile").attr('src',"img/profileactive.svg");
+    };
+
+/*
+    if(!$("a img#home").hasClass("active"))
+    { $("a img#home").attr('src',"img/home.svg");};
+    $(".menu li a.active img#search").attr('src',"img/search.svg");
+    $(".menu li a.active img#infocus").attr('src',"img/search.svg");
+    $(".menu li a.active img#links").attr('src',"img/search.svg");
+    $(".menu li a.active img#profile").attr('src',"img/search.svg"); */
+ })
+});</script>
+<script>
+$(document).ready(function() {
+   $('#message').hide();
+});
+function forgot_pass(form){
+    var name = form.email.value;
+    var obj = "{\"name\": \"" + name + "\" }";
+                      console.log(obj);
+                      $.ajax({
+                        url: "http://139.162.199.80/nricrestapi/user/request_new_password.json",
+                        type: "POST",
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        data:  obj,
+                        crossDomain: true,
+                        async:false,
+                      //might need to request new token?
+                      /*beforeSend: function (request) {
+                      request.setRequestHeader("X-CSRF-Token", connection_token);
+                      }, */
+
+                        error: function(errorThrown) {
+                       //   alert('Sorry!  The login failed with the response: ' + connection_token );
+                        // console.log(XMLHttpRequest);
+                        //console.log(textStatus);
+                         // console.log(errorThrown);
+                        
+                            if(errorThrown.status == "200")
+                              { 
+                                $('#message').show();
+                                $('#maillabel').hide();
+                                $('#sub').hide();
+                                $('#email').hide();
+                                console.log("request sent");
+                              } 
+                             
+                    },
+                    success: function (data) {
+                          
+                          console('no errors');
+                          if(data.status == "200")
+                              { 
+                                $('#message').show();
+                                console.log("request sent");
+                              } 
+                          
+                    }
+    });
+                      return false;
+
+}
+</script>
+    </head>
+    <body>
+     <header class="logoheader">
+                    <div class="logodiv">
+                        <img class="logo" src="img/logo.png">
+                    </div>
+            </header>
+    <div class="loginpage">
+    <div class="loginform">
+        <form name="login" method="post" onsubmit="return forgot_pass(this);" accept-charset="utf-8">
+            <ul>
+                <li>
+                        <label id="maillabel" for="email">Email</label>
+                        <input id="email" type="username" name="email" placeholder="email@domain.com" required>
+                    </li>
+                 <li>
+                    <label id="message" class="dnone" type="hidden" for="usermail">Your password has been reset. You should get an email soon with the information.</label>
+                </li>
+                <li>
+                        <input id="sub" type="submit" value="Submit">
+                </li>
+            </ul>
+        </form> 
+        </div>
+        <input type="button" class="register" onclick="location.href='login.html';" value="Login" />
+    </div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
