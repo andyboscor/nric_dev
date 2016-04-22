@@ -85,6 +85,10 @@
 								<iframe src="iNRIC/www/login.html" width=375 height=667></iframe>
 								
 								<hr />
+								<h3>iOS and Android App</h3>
+								<p>The iOS App is built and working in the iNRIC iOS folder on Github. It is not a *.ipa as we need an Apple Developer account. In order to access it, simply "cd" in Terminal to iNRIC iOS on your local machine and type "phonegap run ios". This should open the Xcode Emulator. (Login:team42, Pass: 123456)</p>
+								<p>To run on Android, simply install the iNRIC.apk found <a href="iNRIC-android.apk">here</a>. It uses the Phonegap Build Hydration, so the app will update automatically to the newest version. (You might need to disable some security features to run it on Android as it is not published on the Google Play Store) </p>
+								<hr />
 								<h3>Prototype installation</h3>
 								<p> To install the prototype on any iOS and Android device please follow this quick tutorial </p>
 								<ul>
@@ -154,10 +158,12 @@
 								<p> The eighth iteration implemented the Search Function AJAX request and integration with front-end as well as the Contribution web form.
 								</p>
 								<h5> Ninth iteration </h5>
-								<p> The last iteration included the addition of the User Profile preferences as an AJAX request. </p>
+								<p> The ninth iteration included the addition of the User Profile preferences as an AJAX request. </p>
+								<h5> Tenth iteration </h5>
+								<p> The last iteration included the addition of User Profiles as well as building the app for iOS and Android. </p>
 								<h5> Forks on Github </h5>
 								<p>
-								Master initially contained the working front-end and node_module was created to test out adding the back-end AJAX requests.
+								Master initially contained the working front-end and node_module was created to test out adding the back-end AJAX requests. Master now contains the full version of the app.
 								</p>
 								<hr />
 								<h3>Technical achievements, implementation details, use of design patterns</h3>
@@ -184,7 +190,7 @@
 								<ul>
 									<li><h5>Login Page</h5></li>
 									<p>
-									Contains a simple form that requests the user's email/username and password. It also contains a link to the "forgot password" page as well as the registration granting the user easy access to the app. CSS3 allows scaling on different screen resolutions.
+									Contains a simple form that requests the user's email/username and password. It also contains a link to the "forgot password" page as well as the registration granting the user easy access to the app. CSS3 allows scaling on different screen resolutions. Also contains a Refresh button for the user to manually refresh the contents of the app.
 									</p>
 									<li><h5>Forgot Password Page</h5></li>
 									<p>

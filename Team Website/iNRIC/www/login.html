@@ -25,12 +25,14 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
+        <meta http-equiv="Content-Security-Policy" content="connect-src *;">
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>iNRIC</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script type="text/javascript">
         $(document).ready(function(){
+          $.support.cors=true;
      $(".menu li a").click(function(){
     $('.menu li a').not(this).removeClass('active');
     $(this).addClass('active');
@@ -90,6 +92,7 @@ var connection_sessname;
 var connection_token;
 var connection_mail;
 var connection_name;
+var connection_uid;
 
 function validate(form){
     var name = form.usermail.value;
@@ -127,7 +130,7 @@ function validate(form){
                       connection_token = token;
                       //$.mobile.changePage($("#menuPage"), "slideup");
                       //err = true;
-                      var obj = "{\"username\": \"" + name + "\", \"password\" : \"" + pass + "\" }";
+                      var obj = '{"username": "' + name + '", "password" : "' + pass + '" }';
                       console.log(obj);
                       $.ajax({
                         url: "http://139.162.199.80/nricrestapi/user/login",
@@ -152,11 +155,6 @@ function validate(form){
                               { 
                                 err = true; 
                                 console.log("logged in");
-                              } 
-
-                                console.log(errorThrown.status);
-                                console.log(errorThrown);
-                                console.log(errorThrown.responseText);
                                 var string = errorThrown.responseText;
                                 try{
                                     var data1 = JSON.parse($.trim(string));
@@ -168,11 +166,21 @@ function validate(form){
                                     connection_sessid = data1.sessid;
                                     connection_sessname = data1.session_name;
                                     connection_token = data1.token;
+                                    connection_uid = data1.user.uid;
                                 //alert('nu');
                                 }
                                 catch(err){
                                   console.log(err);
                                 }  
+                              }
+                              else { $('#response').empty(); 
+                                $('<p><label> Wrong username or password. </label></p>').appendTo('#response');}
+
+                                console.log(errorThrown.status);
+                                console.log(errorThrown);
+                                console.log(errorThrown.responseText);
+                                
+                                
                     },
                     success: function (data) {
                           // OK - we're logged in, so snag the session details into our globals and greet the user
@@ -180,8 +188,9 @@ function validate(form){
                          // connection_user = data.user.uid;
                           //connection_sessid = data.sessid;
                           //connection_sessname = data.session_name;
-                          logged_in = true;
+                          //logged_in = true;
                           //err = true;
+
                           console('no errors');
                          // alert('Welcome ' + data.user.name + ', you are now connected as uid: ' + data.user.uid);
 
@@ -199,6 +208,7 @@ function validate(form){
   sessionStorage.token = connection_token;
   sessionStorage.name = connection_name;
   sessionStorage.mail = connection_mail;
+  sessionStorage.uid = connection_uid;
   //console.log(connection_sessname);
   return err;
   
@@ -224,6 +234,7 @@ function validate(form){
                         <label for="password">Password</label>
                         <input type="password" name="password" placeholder="password" required>
                     </li>
+                    <div id="response"> </div>
                     <li>
                         <input type="submit" value="Login">
                         <a class="none" href="forgot.html">Forgot your password?</a>
