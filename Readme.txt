@@ -1,1 +1,0 @@
-Add nric api script in either login.html or index.html as a <script> if using ajax. To see web app in correct format simply use chrome developer mode and choose iPhone 6 from view in order to simulate phone resolution.

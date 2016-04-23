@@ -19,7 +19,9 @@
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
-
+html, body{height:100%;
+width:100%;
+overflow:visible;}
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
@@ -43,7 +45,6 @@ body {
     padding:0px;
     text-transform:uppercase;
     width:100%;
-    padding-bottom:150px;
 }
 ::-webkit-scrollbar { 
     display: none; 
@@ -52,7 +53,6 @@ h1 {
     font-size:24px;
     font-weight:normal;
     margin:0px;
-    overflow:visible;
     padding:0px;
     text-align:center;
 }
@@ -69,6 +69,7 @@ header{
     background-color: #EEEEEE;
     border-bottom: 1px solid;
     border-color:#ff2f26;
+   
 
 }
 .logodiv{
@@ -91,7 +92,6 @@ nav {
     background-color: #EEEEEE;
     overflow: hidden;
     border-top:1px solid;
-    border-left:1px solid;
     border-color: black;
     font-size: 3vw;
     
@@ -114,6 +114,7 @@ li{
 li.last{
     border-right:none;
 }
+
 ul
 {
     text-align:center;
@@ -127,17 +128,21 @@ nav > ul > li > a {
     padding: 0.5em 0.5em;
     text-decoration: none;
 }
+.section{
+	position:relative;
+}
 .section:not(:target) {
-    position: relative;
+    
     display:none;
-    margin-top:80px;
+
 }
 .section:target{
-    position:relative;
-    top:80px;
+    padding-top:80px;
+   
 }
 .active{
     color:#FF2F26;
+
 }
 img.inactiveimg
 {
@@ -199,7 +204,7 @@ parts of code from http://www.hongkiat.com/blog/html5-loginpage/ */
 }
 .loginform label
 {
-    color: #ff2f26;;
+    color: #ff2f26;
     text-transform: none;
 }
 .loginform input:not([type=submit]) {
@@ -212,6 +217,7 @@ parts of code from http://www.hongkiat.com/blog/html5-loginpage/ */
     width: 90%;
     height: 2.3em;
     font-size:0.8em;
+    margin-top:5px;
     
 }
 .loginform select {
@@ -256,7 +262,6 @@ a.none{
     float:right;
     color:#ff2f26;
 }
-
 .register {
     position: fixed;
     bottom: 1em;
@@ -283,6 +288,98 @@ a.none{
     font-size:4vw;
 
 }
+.normalform {
+    width: 80%;
+    max-width: 400px;
+    min-width: 150px;
+    font-size:3vh;
+    position:relative;
+    left: 50%;
+    transform: translate( -50%);
+    padding: 25px;
+    background-color: rgba(250,250,250,0.5);
+    border-radius: 5px;
+    
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+/*
+box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2), 
+                inset 0px 1px 0px 0px rgba(250, 250, 250, 0.5);
+                */
+
+.normalform ul {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+
+}
+
+.normalform li {
+   list-style: none;
+   border:none;
+   width: 100%;
+   margin-top:10px;
+   font-color: #ff2f26;
+
+}
+.normalform form{
+    width:100%;
+}
+.normalform label
+{
+    color: #ff2f26;
+    text-transform: none;
+
+}
+.normalform input:not([type=submit]) {
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 
+                0px 1px 0px 0px rgba(250, 250, 250, 0.5) ;
+    width: 95%;
+    height: 2em;
+    font-size:0.8em;
+    
+}
+.normalform select {
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 
+                0px 1px 0px 0px rgba(250, 250, 250, 0.5) ;
+    width: 95%;
+    height: 2em;
+    font-size:0.8em;
+    
+}
+.normalform input[type=submit] {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background: #ff2f26; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ff2f26 0%, #ff4740 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff2f26), color-stop(100%,#ff4740)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ff2f26 0%,#ff4740 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff2f26', endColorstr='#ff4740',GradientType=0 ); /* IE6-9 */
+    color: #fff;
+    padding: 5px 15px;
+    margin-right: 0;
+    margin-top: 15px;
+    border-radius: 3px;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+    height:10vw;
+    width:25vw;
+    font-size:0.8em;   
+}
+.filler{ position:relative;
+height:60px;
+ }
+
 .logout {
     position:relative;
     left: 50%;
@@ -306,6 +403,56 @@ a.none{
     height:10vw;
     width:25vw;
     font-size:4vw;
+    margin-bottom: 60px;
+
+}
+.save {
+    position:relative;
+    text-decoration: none; 
+    left:10px;
+     border: 1px solid rgba(0, 0, 0, 0.3);
+    background: #ff2f26; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ff2f26 0%, #ff4740 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff2f26), color-stop(100%,#ff4740)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ff2f26 0%,#ff4740 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff2f26', endColorstr='#ff4740',GradientType=0 ); /* IE6-9 */
+    color: #fff;
+    padding: 5px 5px;
+    margin-right: 0;
+    margin-top: 15px;
+    border-radius: 3px;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+    height:10vw;
+    width:25vw;
+    font-size:4vw;
+
+
+}
+.back {
+    position:relative;
+    text-decoration: none; 
+    left:10px;
+     border: 1px solid rgba(0, 0, 0, 0.3);
+    background: #ff2f26; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ff2f26 0%, #ff4740 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff2f26), color-stop(100%,#ff4740)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ff2f26 0%,#ff4740 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ff2f26 0%,#ff4740 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff2f26', endColorstr='#ff4740',GradientType=0 ); /* IE6-9 */
+    color: #fff;
+    padding: 5px 5px;
+    margin-top: 15px;
+    border-radius: 3px;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+    height:10vw;
+    width:25vw;
+    font-size:4vw;
+    margin-bottom: 15px;
 
 }
 a.title{
@@ -326,27 +473,34 @@ a.title2{
 }
 .title1{
     margin-left:2.5vw;
+    margin-bottom: 3px;
+    overflow: hidden;
+    margin-right:2px;
 }
 p.data{
     margin-top:5px;
     text-transform: none;
     text-decoration: none;
     font-size:1.2em;
+
 }
 p.data1{
-    margin-top:0px;
+    margin-top:2px;
     margin-right:5px;
     text-transform: none;
     text-decoration: none;
     font-size:1.2em;
     position:relative;
     float:right;
+    margin-bottom: 0px;
 
 }
 .inner{
-    margin-top: 5px;
+    margin-top: 7px;
+    overflow: hidden;
     border-bottom: 1px solid;
     border-color:#BDBDBD;
+    margin-right:6px;
 }
 .loginform input[type=search]{
     font-size:20px;
@@ -356,4 +510,118 @@ p.data1{
     .loginform {
         font-size:3vw;
     }
+}
+*/
+/* parts of code from http://tutorialzine.com/2015/08/quick-tip-css-only-dropdowns-with-the-checkbox-hack/ */
+input.menu[type=checkbox]{
+    display: none;
+}
+ul#drop{
+    display: none;
+    margin-left:10px;
+    text-align: left;
+    list-style-type: none;
+    line-height: 3.5vh;
+    position:relative;
+
+}
+li.drop{
+    border:none;
+    width:100%;
+    
+}
+label {
+    font-size:5vw;
+    margin-left:3vw;
+    
+}
+label.dropcol{
+    color: #ff2f26;
+    
+}
+label.profile{
+    font-size:4.3vw;
+    margin-left:0px;
+}
+.drop label{
+    text-transform: none;
+}
+.closed{
+    width:10px;
+    height:10px;
+
+}
+.down{
+    width:10px;
+    height:10px;
+    display:none;
+}
+input.menu[type=checkbox]:checked ~ ul#drop {
+    display: block;
+}
+input.menu[type=checkbox]:checked ~ img.closed{
+    display: none;
+}
+input.menu[type=checkbox]:checked ~ img.down{
+    display: inline-block;
+}
+.profile_name {
+ padding-top:3vw;
+ position:relative;
+ width:100%;
+ height: 17vw;
+ line-height: 10vw;
+ text-align: center;
+ vertical-align: middle; 
+ color: white;
+ border-bottom: 1px solid;
+ border-color:gray;
+ font-size: 7vw;
+ text-transform: none;
+ background-color: #ff2f26;
+}
+a.email
+{line-height: 0;
+font-size:4vw;
+padding-top:2vw;
+display:block;
+}
+.confinner{
+    border-bottom: 1.2px solid;
+    border-color:black;
+}
+.conf{
+    
+    margin-left:5px;
+    margin-top:2vh;
+}
+.confprim{
+    
+    margin-left:5px;
+}
+
+.confinner a{
+    font-size: 4.5vw;
+    
+}
+div.messg1{
+    
+    /*display:inline-block; */
+    text-align:center;
+    
+}
+p.messg{
+    font-size:4vh;
+    color:red;
+}
+p.messg2{
+    font-size:6vw;
+    color:red;
+    text-transform: none;
+    display:inline-block;
+    margin-top:4vw;
+    margin-bottom:2vw;
+}
+p.information{
+    font-size:3.4vw;
 }

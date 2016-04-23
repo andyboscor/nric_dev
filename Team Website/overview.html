@@ -34,6 +34,7 @@
 											<li><a href="development.html">Development</a></li>
 											<li><a href="testing.html">Testing</a></li>
 											<li><a href="progress.html">Progress</a></li>
+											<li><a href="further_dev.html">Further Dev</a></li>
 										</ul>
 									</div>
 								</li>
@@ -45,7 +46,7 @@
 					<article id="main">
 						<header>
 							<h2>Overview</h2>
-							<p>Background, Problem, Requirements and Use Cases</p>
+							<p>Background, Problem, Initial and Final Requirements, Use Cases</p>
 						</header>
 						<section class="wrapper style5">
 							<div class="inner">
@@ -266,6 +267,57 @@
 												
 												
 											</tbody>
+											
+										</table>
+									</div>
+								<hr />
+								<h3> Changes in Requirements identified for the final Proof of Concept</h3>
+								<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>ID</th>
+													<th>Description</th>
+													<th>Category</th>
+													<th>Platform</th>
+													<th>Priority</th>
+													<th>Change</th>
+												</tr>
+											</thead>
+											<tbody>
+									<tr>
+													<td>F7</td>
+													<td>The system shall allow the user to add a profile picture to their account.</td>
+													<td>Account</td>
+													<td>App/Website</td>
+													<td>Should</td>
+													<td>Removed -- Not possible due to Drupal database</td>
+									</tr>
+									<tr>
+													<td>F15</td>
+													<td>The system shall have a newsletter feature with MailChimp.</td>
+													<td>Newsletter</td>
+													<td>Website</td>
+													<td>Could</td>
+													<td>Removed -- No longer needed by client </td>
+												</tr>
+									<tr>
+													<td>NF7</td>
+													<td>The system shall use AJAX requests to access the Drupal Rest API in order to get data.</td>
+													<td>App</td>
+													<td>App</td>
+													<td>Must</td>
+													<td>Added -- Requirement found during development of back-end.</td>
+												</tr>
+									<tr>
+													<td>NF8</td>
+													<td>The system shall load the data only as the user accesses it and not at once. (AJAX requests done per tab).</td>
+													<td>App</td>
+													<td>App</td>
+													<td>Must</td>
+													<td>Added -- Requirement found during integration of back-end with front-end.</td>
+												</tr>
+									</tbody>
 											
 										</table>
 									</div>

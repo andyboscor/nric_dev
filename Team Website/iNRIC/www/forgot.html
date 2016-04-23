@@ -25,7 +25,7 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>iNRIC</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -79,6 +79,58 @@
     $(".menu li a.active img#profile").attr('src',"img/search.svg"); */
  })
 });</script>
+<script>
+$(document).ready(function() {
+   $('#message').hide();
+});
+function forgot_pass(form){
+    var name = form.email.value;
+    var obj = "{\"name\": \"" + name + "\" }";
+                      console.log(obj);
+                      $.ajax({
+                        url: "http://139.162.199.80/nricrestapi/user/request_new_password.json",
+                        type: "POST",
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        data:  obj,
+                        crossDomain: true,
+                        async:false,
+                      //might need to request new token?
+                      /*beforeSend: function (request) {
+                      request.setRequestHeader("X-CSRF-Token", connection_token);
+                      }, */
+
+                        error: function(errorThrown) {
+                       //   alert('Sorry!  The login failed with the response: ' + connection_token );
+                        // console.log(XMLHttpRequest);
+                        //console.log(textStatus);
+                         // console.log(errorThrown);
+                        
+                            if(errorThrown.status == "200")
+                              { 
+                                $('#message').show();
+                                $('#maillabel').hide();
+                                $('#sub').hide();
+                                $('#email').hide();
+                                console.log("request sent");
+                              } 
+                             
+                    },
+                    success: function (data) {
+                          
+                          console('no errors');
+                          if(data.status == "200")
+                              { 
+                                $('#message').show();
+                                console.log("request sent");
+                              } 
+                          
+                    }
+    });
+                      return false;
+
+}
+</script>
     </head>
     <body>
      <header class="logoheader">
@@ -88,11 +140,17 @@
             </header>
     <div class="loginpage">
     <div class="loginform">
-        <form name="login" accept-charset="utf-8">
+        <form name="login" method="post" onsubmit="return forgot_pass(this);" accept-charset="utf-8">
             <ul>
                 <li>
-                    <label for="usermail">Your password has been reset. You should get an email soon with the information.</label>
-                    
+                        <label id="maillabel" for="email">Email</label>
+                        <input id="email" type="username" name="email" placeholder="email@domain.com" required>
+                    </li>
+                 <li>
+                    <label id="message" class="dnone" type="hidden" for="usermail">Your password has been reset. You should get an email soon with the information.</label>
+                </li>
+                <li>
+                        <input id="sub" type="submit" value="Submit">
                 </li>
             </ul>
         </form> 

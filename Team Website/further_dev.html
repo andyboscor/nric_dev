@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+	<title>Testing - iNRIC</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+</head>
+<body>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<h1><a href="index.html">iNRIC</a></h1>
+			<nav id="nav">
+				<ul>
+					<li class="special">
+						<a href="#menu" class="menuToggle"><span>Menu</span></a>
+						<div id="menu">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="overview.html">Overview</a></li>
+								<li><a href="research.html">Research</a></li>
+								<li><a href="development.html">Development</a></li>
+								<li><a href="testing.html">Testing</a></li>
+								<li><a href="progress.html">Progress</a></li>
+								<li><a href="further_dev.html">Further Dev</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- Main -->
+		<article id="main">
+			<header>
+				<h2>Further Development</h2>
+				<p>SDK/Collaboration Opportunities<br />Community Forum<br />System Manual and User Manual</p>
+			</header>
+			<section class="wrapper style5">
+				<div class="inner">
+					<h3>SDK/Collaboration Opportunities</h3>
+					<p>The app is built in native HTML5, CSS3, Javascript (jQuery) code and is easy to modify if needed. Furthermore anything added in the main iNRIC website can also be added to the app as a AJAX requests to the endpoint. There are HTML and CSS classes already built to support integration of more information in the app itself. Furthermore, the app can also become very secure once the previous developer fixes the theme that gets broken upon turning the protocol into HTTPS.</p>
+
+					<p>Even though they are not yet working (due to Phonegap Build plugin issue), the notifications could be easily used to report outbreaks to various medical staff around the world.</p>
+
+					<p>There is also the possibility to use data within the app (number of clicks on certain articles, number of searches on certain topics) to get relevant information for Healthcare. Furthermore, the app could possibly integrate even more Health Systems (OpenEHR, ECDC, etc).</p>
+
+					<p>As iNRIC is an international resource with over a quarter million users from 159 different countries, it is already quite a popular product. The app is an extension of this website, meant to accommodate people’s shift to mobile as well as offer a low data option for less developed areas (AJAX requests use very little data compared to actual website). For this reason, the app has been presented to very important people from the Digital Health sector at the Festival For Digital Health held at Digital Catapult.</p>
+
+					<p> Poster for the Global Health Conference: </p>
+					<div class="box alt">
+										<div class="row uniform 50%">
+											<div class="12u"><span class="image fit"><img src="images/poster_jpeg.jpg" alt="" /></span></div>
+											</div>
+					</div> 
+					<hr />
+					<h3>Community Forum</h3>
+					<div class="fb-comments" data-href="http://students.cs.ucl.ac.uk/2015/group42/further-dev.html" data-numposts="10"></div>
+					<hr />
+
+					<h3> User Manual </h3>
+					<ol>
+						<li><b>Login</b></li>
+						<p> <ul> <li> This is the first page presented from the app. Simply add your username and password to log in.</li></ul> </p>
+						<li><b>Forgot Password</b></li>
+						<p> <ul> <li>In case you forgot the password to your account, all you have to do is press the “Forgot your password?” button and input your email. You will receive an email to change your password.</li></ul> </p>
+						<li><b>Registration</b></li>
+						<p> <ul> <li>In case you don’t already have an account from iNRIC, you can create a new one by pressing the register “Button”. You will receive an email to set up a password.</li></ul> </p>
+						<li><b> Home Page</b></li>
+						<p> <ul> <li>You will be presented with a Home Page that contains Headlines, Latest News and Recently Added updated directly from iNRIC. Click on any link to open the in-app browser.</li></ul> </p>
+						<li><b>Search Page</b></li>
+						<p> <ul> <li>Choose any search key to query the iNRIC resource database. Furthermore you can also choose a category or apply Filters to your search. </li>
+							<li>You can use Quick Search with your previously saved Preferences. (We’ll tell you how to save them later on) </li>
+							<li>You can also contribute your own resources to the database by using the Contribute part of the page. </li></ul> </p>
+							<li><b>In Focus</b></li>
+							<p> <ul> <li>This page contains the resources regarding Infection Weeks and Training. </li></ul> </p>
+							<li><b>Links</b></li>
+							<p> <ul> <li>This page provides useful links and conferences. ( Also updated from iNRIC) </li></ul> </p>
+							<li><b>Profile</b></li>
+							<p> <ul> <li>This page contains your Preferences which you can always update.</li>
+								<li>You can also change your email, country or request a new password. </li>
+								<li>You can also logout. </li></ul> </p>
+							</ol>
+							<h3> System Manual </h3>
+							<p>All *.html pages use index.css (contains all CSS classes).</p>
+							<ol>
+								<li><b>Login Page</b></li>
+								<p> <ul> <li>The login page is in path “www/login.html”. It contains both the HTML5 and Javascript code used.</li>
+									<li>The login function contains a request to the Drupal RESTful API. (Implementation explained in Development page).</li></ul> </p>
+									<li><b>Registration Page</b></li>
+									<p> <ul> <li>The registration page is in path “www/register.html”. It contains both the HTML5 and Javascript code used.</li>
+										<li>The registration function contains an HTML5 form with a request to the Drupal RESTful API. (Implementation explained in Development Page).</li>
+										<li>Can be easily modified to add as many registration fields as necessary.</li></ul> </p>
+										<li><b>Forgot Password Page</b></li>
+										<p> <ul> <li>The registration page is in path “www/forgot.html”. It contains both the HTML5 and Javascript code used.</li>
+											<li>Requires the user to input an email so that the system can send a new password request there. </li>
+											<li>The forgot password function contains an HTML5 form with a request to the Drupal RESTful API. (Implementation explained in Development Page).</li></ul> </p>
+											<li><b>Main Page</b></li>
+											<p> <ul> <li>Contained in path “www/index.html”. It only contains the HTML5.</li>
+												<li>The Javascript and jQuery functions are in in path “www/js/functions.js”. They are mainly AJAX requests to the Drupal RESTful API. They inject HTML5 classes in “index.html” after they are executed.</li>
+												<li>Contains multiple divs that are hidden and shown when the menu buttons are pressed (via jQuery).</li></ul> 
+												<ol> <li><b>Home page</b></li>
+													<p> <ul> <li>The Home page contains an AJAX request to get Headlines, Latest News, Recently Added. They all dynamically add HTML5 code to index.html.</li>
+														<li>There is also a refresh button that recalls all these requests.</li></ul> </p>
+														<li><b>Search page</b></li>
+														<p> <ul> <li>The search page contains a form that contains the search key, category and filters. This also submits an AJAX request to the Drupal Restful API and uses jQuery to show the results.</li>
+															<li>There is also a form for the user to contribute resources.</li>
+															<li>The Quick Search function makes a call to the REST API and returns the user’s preferences. Then it sends an AJAX request to get the necessary data.</li></ul> </p>
+															<li><b>In Focus page</b></li>
+															<p> <ul> <li>Some more data will be added later from an older iNRIC resource.</li>
+																<li>AJAX Request that obtains Training links.</li></ul> </p>
+																<li><b>Links page</b></li>
+																<p> <ul> <li>Static links for Conferences</li>
+																	<li>AJAX Request that obtains Useful Links from REST API.</li></ul> </p>
+																	<li><b>Profile page</b></li>
+																	<p> <ul> <li>AJAX Request that saves User Filters to database. (uses session token)</li>
+																		<li>AJAX Request that changes email or country. (uses session token)</li>
+																		<li>AJAX Request that changes password. (uses session token)</li>
+																		<li>Log out button. (Logout function uses session token).</li></ul> </p>
+																	</ol>
+																	<li><b>Notifications</b></li>
+																	<p><ul> <li>Notifications are implemented (for Android) using PUSHWOOSH in path “www/js/notifications.js”. They are currently not being used as Phonegap has issues with loading the plugin in the app.</li> </ul></p>
+																	<li>Instructions to run are on Development page.</li>
+																</p>
+															</div>
+														</section>
+													</article>
+
+													<!-- Footer -->
+													<!-- Footer -->
+													<footer id="footer">
+														<ul class="icons">
+															<li><a href="https://twitter.com/NRIC_Global" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+															<li><a href="https://www.facebook.com/NRIC-National-Resource-for-Infection-Control-322620358370/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+														</ul>
+														<ul class="copyright">
+															<li>&copy; Team 42 iNRIC</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+														</ul>
+													</footer>
+
+												</div>
+
+												<!-- Scripts -->
+												<script src="assets/js/jquery.min.js"></script>
+												<script src="assets/js/jquery.scrollex.min.js"></script>
+												<script src="assets/js/jquery.scrolly.min.js"></script>
+												<script src="assets/js/skel.min.js"></script>
+												<script src="assets/js/util.js"></script>
+												<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+												<script src="assets/js/main.js"></script>
+
+											</body>
+											</html>
