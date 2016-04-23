@@ -90,20 +90,20 @@
      check = checkit + i;
      if(form.elements[check].checked == true)
         { keys= keys + form.elements[check].value + '+'; console.log(keys);}
-}
-if(searchfor)
-{
-    keys = keys + searchfor + '+';
-}
-if(category)
-{
-    keys = keys + category + '+';
-}
-if(keys!="")
-{
-    keys = keys.substring(0, keys.length - 1);
-}
-console.log(keys);
+    }
+    if(searchfor)
+    {
+        keys = keys + searchfor + '+';
+    }
+    if(category)
+    {
+        keys = keys + category + '+';
+    }
+    if(keys!="")
+    {
+        keys = keys.substring(0, keys.length - 1);
+    }
+    console.log(keys);
         var obj = "test"; // search key
         var urle = encodeURI("http://139.162.199.80/nricrestapi/views/resources?keys=" + keys);
         //console.log(urle);
